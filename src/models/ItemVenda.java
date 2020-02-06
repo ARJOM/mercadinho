@@ -9,13 +9,15 @@ public class ItemVenda {
     private float valorUnitario;
     private float subTotal;
     private Produto produto;
+    private Venda venda;
 
-    public ItemVenda(String idItemVenda, int quantidade, float valorUnitario, Produto produto) {
+    public ItemVenda(String idItemVenda, int quantidade, float valorUnitario, Produto produto, Venda venda) {
         this.idItemVenda = idItemVenda;
         this.quantidade = quantidade;
         this.valorUnitario = produto.getPreco();
         this.subTotal = this.quantidade*this.valorUnitario;
         this.produto = produto;
+        this.venda = venda;
     }
 
     public String getIdItemVenda() {
@@ -56,6 +58,14 @@ public class ItemVenda {
 
     public void setProduto(Produto produto) {
         this.produto = produto;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
     }
 
     @Override
