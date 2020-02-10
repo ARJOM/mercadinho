@@ -9,11 +9,11 @@ public class Produto {
     private int quantidade;
     private float preco;
 
-    public Produto(String codBarras, String nome, int quantidade, float preco) {
+    public Produto(String codBarras, String nome, float preco, int quantidade) {
         this.codBarras = codBarras;
         this.nome = nome;
-        this.quantidade = quantidade;
         this.preco = preco;
+        this.quantidade = quantidade;
     }
 
     public String getCodBarras() {
