@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+
+<AnchorPane prefHeight="471.0" prefWidth="771.0" stylesheets="@../style/CadastroCliente.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.CadastroClienteController">
+   <children>
+      <Pane prefHeight="471.0" prefWidth="314.0" styleClass="imgLogin">
+         <children>
+            <Pane layoutX="63.0" layoutY="143.0" prefHeight="186.0" prefWidth="188.0" styleClass="img" />
+         </children>
+      </Pane>
+      <Pane layoutX="315.0" prefHeight="471.0" prefWidth="455.0" styleClass="main">
+         <children>
+            <Label layoutX="115.0" layoutY="46.0" styleClass="title" text="Cadastro de Clientes" />
+            <Label layoutX="99.0" layoutY="99.0" styleClass="lable" text="CPF" />
+            <TextField layoutX="99.0" layoutY="132.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/CadastroFuncionario.css" />
+            <Label layoutX="100.0" layoutY="183.0" styleClass="lable" text="Nome Completo" />
+            <TextField layoutX="99.0" layoutY="217.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/CadastroFuncionario.css" />
+            <Label layoutX="99.0" layoutY="271.0" styleClass="lable" text="Contato" />
+            <TextField layoutX="99.0" layoutY="307.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/CadastroFuncionario.css" />
+            <Button layoutX="165.0" layoutY="372.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" text="Cadastrar" />
+            <Label layoutX="210.0" layoutY="437.0" styleClass="btnCancelar" text="Cancelar" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,61 @@
+*{
+    -fx-margin: 0;
+    -fx-padding: 0;
+    -fx-font-family: "Open Sans";
+}
+.main{
+    -fx-background-color: #ffffff;
+}
+.imgLogin{
+    -fx-background-color: linear-gradient(#64b5f6,#0d47a1);
+}
+.campos{
+    -fx-background-color: #ffffff;
+}
+.img{
+    -fx-background-image: url("../image/undraw_speech_to_text_9uir.png");
+    -fx-background-size: 100%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: none;
+}
+.title{
+    -fx-text-alignment: center;
+    -fx-font-size: 22px;
+    -fx-font-family: "Open Sans";
+    -fx-font-weight: bold;
+}
+.lable{
+    -fx-font-weight: bold;
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 18px;
+}
+.input{
+    -fx-border-style: solid;
+    -fx-border-color: #BDBDBD;
+    -fx-background-color: #ffffff;
+    -fx-padding: 0 12px;
+    -fx-font-size: 18px;
+    -fx-border-radius: 4px;
+
+}
+.input:focused{
+    -fx-border-color: #2196F3;
+}
+.btnCadastrar {
+    -fx-font-size: 18px;
+    -fx-border-radius: 4px;
+    -fx-font-weight: bold;
+    -fx-background-color: #2196F3;
+    -fx-text-fill: #ffffff;
+}
+.btnCadastrar:pressed{
+    -fx-border-color: #BDBDBD;
+}
+.btnCancelar{
+    -fx-font-size: 14px;
+    -fx-text-fill: #BDBDBD;
+}
+.btnCancelar:hover{
+    -fx-text-fill: #2196F3;
+}
