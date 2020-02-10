@@ -1,7 +1,6 @@
 package com.app.budega.dao;
 
-import com.app.budega.connection.Conexao;
-import com.app.budega.model.Cliente;
+import com.app.budega.conexao.Conexao;
 import com.app.budega.model.Dependente;
 
 import java.sql.Connection;
