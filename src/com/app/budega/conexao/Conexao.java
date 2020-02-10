@@ -1,4 +1,4 @@
-package com.app.budega.connection;
+package com.app.budega.conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
