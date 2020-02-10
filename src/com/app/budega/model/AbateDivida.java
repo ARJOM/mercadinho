@@ -5,11 +5,11 @@ import java.util.Objects;
 public class AbateDivida {
 
     private String idAbate;
-    private Cliente cliente;
-    private Funcionario funcionario;
+    private String cliente;
+    private String funcionario;
     private float valor;
 
-    public AbateDivida(String idAbate, Cliente cliente, Funcionario funcionario, float valor) {
+    public AbateDivida(String idAbate, String cliente, String funcionario, float valor) {
         this.idAbate = idAbate;
         this.cliente = cliente;
         this.funcionario = funcionario;
@@ -24,19 +24,19 @@ public class AbateDivida {
         this.idAbate = idAbate;
     }
 
-    public Cliente getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
     }
 
-    public Funcionario getFuncionario() {
+    public String getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
+    public void setFuncionario(String funcionario) {
         this.funcionario = funcionario;
     }
 

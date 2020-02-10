@@ -3,23 +3,23 @@ import java.util.Objects;
 
 public class Dependente {
 
-    private Cliente responsavel;
+    private String responsavel;
     private String nome;
     private String parentesco;
     private Boolean permissao;
 
-    public Dependente(Cliente responsavel, String nome, String parentesco, Boolean permissao) {
+    public Dependente(String responsavel, String nome, String parentesco, Boolean permissao) {
         this.responsavel = responsavel;
         this.nome = nome;
         this.parentesco = parentesco;
         this.permissao = permissao;
     }
 
-    public Cliente getResponsavel() {
+    public String getResponsavel() {
         return responsavel;
     }
 
-    public void setResponsavel(Cliente responsavel) {
+    public void setResponsavel(String responsavel) {
         this.responsavel = responsavel;
     }
 

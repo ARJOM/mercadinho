@@ -9,9 +9,9 @@ public class Caixa {
     private float valor;
     private LocalDate dataCaixa;
     private String descricao;
-    private Funcionario funcionario;
+    private String funcionario;
 
-    public Caixa(int idCaixa, float valor, LocalDate dataCaixa, String descricao, Funcionario funcionario) {
+    public Caixa(int idCaixa, float valor, LocalDate dataCaixa, String descricao, String funcionario) {
         this.idCaixa = idCaixa;
         this.valor = valor;
         this.dataCaixa = dataCaixa;
@@ -51,11 +51,11 @@ public class Caixa {
         this.descricao = descricao;
     }
 
-    public Funcionario getFuncionario() {
+    public String getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
+    public void setFuncionario(String funcionario) {
         this.funcionario = funcionario;
     }
 
