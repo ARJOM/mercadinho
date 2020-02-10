@@ -1,12 +1,15 @@
 package com.app.budega.dao;
 
 import com.app.budega.connection.Conexao;
+import com.app.budega.model.Cliente;
 import com.app.budega.model.Dependente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DependenteDao {
 
@@ -47,4 +50,23 @@ public class DependenteDao {
             return null;
         }
     }
+
+    public Set<Dependente> getDependentes() throws SQLException, ClassNotFoundException{
+        try(Connection connection = conexao.getConnection()){
+            PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM dependente");
+            Set<Dependente> clientes = new HashSet<>();
+
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()){
+                String responsavel = rs.getString("responsavel");
+                String nome = rs.getString("nome");
+                String parentesco = rs.getString("parentesco");
+                boolean permissao = rs.getBoolean("permissao");
+
+                clientes.add(new Dependente(responsavel, nome, parentesco, permissao));
+            }
+            return clientes;
+        }
+    }
+
 }

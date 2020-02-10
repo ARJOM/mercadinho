@@ -51,6 +51,22 @@ public class ClienteDao {
         }
     }
 
+    public Set<Cliente> getClientes() throws SQLException, ClassNotFoundException{
+        try(Connection connection = conexao.getConnection()){
+            PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM cliente");
+            Set<Cliente> clientes = new HashSet<>();
 
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()){
+                String cpf = rs.getString("cpf");
+                String nome = rs.getString("nome");
+                String contato = rs.getString("contato");
+                float divida = rs.getFloat("divida");
+
+                clientes.add(new Cliente(cpf, nome, contato, divida));
+            }
+            return clientes;
+        }
+    }
 
 }
