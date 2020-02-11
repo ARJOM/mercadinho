@@ -13,21 +13,21 @@
 
 <AnchorPane prefHeight="528.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.CadastroDependenteController">
    <children>
-      <Pane prefHeight="528.0" prefWidth="316.0" styleClass="imgLogin" stylesheets="@../style/CadastroDependente.css">
+      <Pane prefHeight="528.0" prefWidth="316.0" styleClass="imgLogin" stylesheets="@../style/Main.css">
          <children>
             <Pane layoutX="68.0" layoutY="174.0" prefHeight="180.0" prefWidth="180.0" styleClass="img" />
          </children></Pane>
-      <Pane layoutX="317.0" prefHeight="528.0" prefWidth="476.0" styleClass="main" stylesheets="@../style/CadastroDependente.css">
+      <Pane layoutX="317.0" prefHeight="528.0" prefWidth="476.0" styleClass="main" stylesheets="@../style/Main.css">
          <children>
             <Label layoutX="96.0" layoutY="31.0" styleClass="title" text="Cadastro de Dependentes" />
             <Label layoutX="96.0" layoutY="102.0" styleClass="lable" text="Responsavel" />
-            <TextField fx:id="jTextNomeDep" layoutX="99.0" layoutY="222.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/CadastroFuncionario.css" />
+            <TextField fx:id="jTextNomeDep" layoutX="99.0" layoutY="222.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
             <ComboBox fx:id="cbResponsaveu" layoutX="99.0" layoutY="137.0" prefHeight="42.0" prefWidth="279.0" promptText="-Selecione-" styleClass="comboBox" />
             <Label layoutX="101.0" layoutY="188.0" styleClass="lable" text="Nome" />
             <ComboBox fx:id="cbParentesco" layoutX="99.0" layoutY="307.0" prefHeight="42.0" prefWidth="279.0" promptText="-Selecione-" styleClass="comboBox" />
             <Label layoutX="100.0" layoutY="272.0" styleClass="lable" text="Parentesco" />
             <Label layoutX="99.0" layoutY="362.0" styleClass="lable" text="Dependente autorizado ?" />
-            <RadioButton layoutX="190.0" layoutY="397.0" mnemonicParsing="false" stylesheets="@../style/CadastroDependente.css" text="Nao">
+            <RadioButton layoutX="190.0" layoutY="397.0" mnemonicParsing="false" stylesheets="@../style/Main.css" text="Nao">
                <font>
                   <Font name="Open Sans" size="14.0" />
                </font>

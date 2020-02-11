@@ -49,31 +49,47 @@ public class CadastroFuncionarioController {
     }
 
     public void acaoCadastrar(ActionEvent actionEvent) {
-        funcionarioDAO = new FuncionarioDAO();
+        if(campoSenha1.getText() != campoSenha2.getText()){
+            campoSenha1.setStyle("-fx-border-color: #f44336");
+            campoSenha2.setStyle("-fx-border-color: #f44336");
 
-        String cpf = campoCpf.getText();
-        String nome = campoNome.getText();
-        String senha = campoSenha1.getText();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Cadastro de Funcionario");
+            alert.setHeaderText("As senhas não batem.");
+            alert.setContentText("Verifique as senhas e tente novamente.");
+            alert.showAndWait();
 
-        Funcionario funcionario = new Funcionario(cpf,nome,senha);
+            DialogPane dialogPane = alert.getDialogPane();
+            dialogPane.setStyle("-fx-background-color: #ffffff");
+        }else {
+            funcionarioDAO = new FuncionarioDAO();
 
-        try {
-            if(funcionarioDAO.Cadastrar(funcionario)){
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Cadastro de Funcionario");
-                alert.setHeaderText("Cadastrado com sucesso.");
-                alert.showAndWait();
-            }else{
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Cadastro de Funcionario");
-                alert.setHeaderText("Cadastrado com sucesso.");
-                alert.showAndWait();
+            String cpf = campoCpf.getText();
+            String nome = campoNome.getText();
+            String senha = campoSenha1.getText();
+
+            Funcionario funcionario = new Funcionario(cpf, nome, senha);
+
+            try {
+                if (funcionarioDAO.Cadastrar(funcionario)) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Cadastro de Funcionario");
+                    alert.setHeaderText("Cadastrado com sucesso.");
+                    alert.setContentText("Bem vindo.");
+                    alert.showAndWait();
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Cadastro de Funcionario");
+                    alert.setHeaderText("Erro ao Cadastrar.");
+                    alert.setContentText("Por favor tente novamente.");
+                    alert.showAndWait();
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
     }
 }

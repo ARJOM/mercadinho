@@ -1,14 +1,10 @@
 package com.app.budega.App;
 
-import com.app.budega.dao.FuncionarioDAO;
-import com.app.budega.model.Funcionario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.sql.SQLException;
 
 
 public class Main extends Application {
@@ -16,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/CadastroFuncionario.fxml"));
-        root.getStylesheets().add(getClass().getResource("../view/style/CadastroFuncionario.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("../view/style/Main.css").toExternalForm());
         primaryStage.setTitle("Budega App");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
