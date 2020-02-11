@@ -1,9 +1,9 @@
 package com.app.budega.dao;
 
-import com.app.budega.connection.Conexao;
+import com.app.budega.conexao.Conexao;
+import com.app.budega.model.PedidoProduto;
 import com.app.budega.model.Produto;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -47,6 +47,36 @@ public class ProdutoDAO {
             pstmt.setInt(4, produto.getQuantidade());
 
             return pstmt.executeUpdate() > 0;
+        }
+    }
+
+    public boolean deletar(Produto produto) throws SQLException,
+            ClassNotFoundException {
+        try (Connection connection = conexao.getConnection()) {
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "DELETE FROM pedidoproduto WHERE codbarras + = ?");
+            pstmt.setString(1, produto.getCodBarras());
+
+            return pstmt.executeUpdate() > 0;
+        }
+    }
+
+    public Produto buscarPorCodBarras(String codbarras) throws SQLException,
+            ClassNotFoundException{
+        try(Connection connection = conexao.getConnection()){
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "SELECT * FROM produto WHERE codbarras = ?");
+            pstmt.setString(1, codbarras);
+
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()){
+                String nome = rs.getString("nome");
+                Float preco = rs.getFloat("preco");
+                Integer quantidade = rs.getInt("quantidade");
+
+                return new Produto(codbarras, nome, preco, quantidade);
+            }
+            return null;
         }
     }
 

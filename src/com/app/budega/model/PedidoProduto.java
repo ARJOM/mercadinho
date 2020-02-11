@@ -4,31 +4,31 @@ import java.util.Objects;
 
 public class PedidoProduto {
 
-    private Produto produto;
-    private Pedido pedido;
+    private String produto;
+    private String pedido;
     private int quantidade;
     private float precoUnitario;
 
-    public PedidoProduto(Produto produto, Pedido pedido, int quantidade, float precoUnitario) {
+    public PedidoProduto(String produto, String pedido, int quantidade, float precoUnitario) {
         this.produto = produto;
         this.pedido = pedido;
         this.quantidade = quantidade;
         this.precoUnitario = precoUnitario;
     }
 
-    public Produto getProduto() {
+    public String getProduto() {
         return produto;
     }
 
-    public void setProduto(Produto produto) {
+    public void setProduto(String produto) {
         this.produto = produto;
     }
 
-    public Pedido getPedido() {
+    public String getPedido() {
         return pedido;
     }
 
-    public void setPedido(Pedido pedido) {
+    public void setPedido(String pedido) {
         this.pedido = pedido;
     }
 
