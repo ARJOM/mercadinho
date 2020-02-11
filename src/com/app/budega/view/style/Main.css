@@ -6,20 +6,23 @@
 .main{
     -fx-background-color: #ffffff;
 }
-.imgLogin{
+.gradiente{
     -fx-background-color: linear-gradient(#64b5f6,#0d47a1);
 }
 .campos{
     -fx-background-color: #ffffff;
+    -fx-alignment: center;
 }
 .img{
-    -fx-background-image: url("../image/dependente.png");
     -fx-background-size: 100%;
     -fx-background-position: center;
     -fx-background-repeat: no-repeat;
     -fx-background-color: none;
 }
-.title{
+.imgFuncionario{
+    -fx-background-image: url("../image/undraw_profile_6l1l.png");
+}
+.titleFuncionario{
     -fx-text-alignment: center;
     -fx-font-size: 22px;
     -fx-font-family: "Open Sans";
@@ -28,15 +31,17 @@
 .lable{
     -fx-font-weight: bold;
     -fx-font-family: "Open Sans";
-    -fx-font-size: 18px;
+    -fx-font-size: 16px;
 }
 .input{
     -fx-border-style: solid;
     -fx-border-color: #BDBDBD;
     -fx-background-color: #ffffff;
     -fx-padding: 0 12px;
-    -fx-font-size: 18px;
+    -fx-font-size: 16px;
     -fx-border-radius: 4px;
+    -fx-pref-height: 38px;
+
 }
 .input:focused{
     -fx-border-color: #2196F3;
@@ -47,6 +52,8 @@
     -fx-font-weight: bold;
     -fx-background-color: #2196F3;
     -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+    -fx-pref-height: 45px;
 }
 .btnCadastrar:pressed{
     -fx-border-color: #BDBDBD;
@@ -54,6 +61,7 @@
 .btnCancelar{
     -fx-font-size: 14px;
     -fx-text-fill: #BDBDBD;
+    -fx-cursor: hand;
 }
 .btnCancelar:hover{
     -fx-text-fill: #2196F3;
