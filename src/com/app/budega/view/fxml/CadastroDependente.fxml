@@ -13,13 +13,17 @@
 
 <AnchorPane prefHeight="528.0" prefWidth="793.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.CadastroDependenteController">
    <children>
-      <Pane prefHeight="528.0" prefWidth="316.0" styleClass="imgLogin" stylesheets="@../style/Main.css">
+      <Pane prefHeight="528.0" prefWidth="316.0" styleClass="gradiente" stylesheets="@../style/Main.css">
          <children>
-            <Pane layoutX="68.0" layoutY="174.0" prefHeight="180.0" prefWidth="180.0" styleClass="img" />
+            <Pane layoutX="68.0" layoutY="174.0" prefHeight="180.0" prefWidth="180.0">
+               <styleClass>
+                  <String fx:value="img" />
+                  <String fx:value="imgDependente" />
+               </styleClass></Pane>
          </children></Pane>
       <Pane layoutX="317.0" prefHeight="528.0" prefWidth="476.0" styleClass="main" stylesheets="@../style/Main.css">
          <children>
-            <Label layoutX="96.0" layoutY="31.0" styleClass="title" text="Cadastro de Dependentes" />
+            <Label layoutX="104.0" layoutY="31.0" styleClass="titleFuncionario" text="Cadastro de Dependentes" />
             <Label layoutX="96.0" layoutY="102.0" styleClass="lable" text="Responsavel" />
             <TextField fx:id="jTextNomeDep" layoutX="99.0" layoutY="222.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
             <ComboBox fx:id="cbResponsaveu" layoutX="99.0" layoutY="137.0" prefHeight="42.0" prefWidth="279.0" promptText="-Selecione-" styleClass="comboBox" />
@@ -50,6 +54,10 @@
                   <String fx:value="lable" />
                </styleClass>
             </RadioButton>
+            <Label layoutX="200.0" layoutY="105.0" styleClass="lableObrigatorio" text="*" />
+            <Label layoutX="153.0" layoutY="192.0" styleClass="lableObrigatorio" text="*" />
+            <Label layoutX="194.0" layoutY="276.0" styleClass="lableObrigatorio" text="*" />
+            <Label layoutX="303.0" layoutY="364.0" styleClass="lableObrigatorio" text="*" />
          </children>
       </Pane>
    </children>
