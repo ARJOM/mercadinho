@@ -35,10 +35,7 @@ public class PedidoProdutoDAO {
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
-                    "UPDATE pedidoproduto SET pedido = ?" +
-                            "UPDATE pedidoproduto SET produto = ?"+
-                            "UPDATE pedidoproduto SET quantidade = ?"+
-                            "UPDATE pedidoproduto SET precounitario = ?");
+                    "UPDATE pedidoproduto SET pedido = ?, produto = ?, quantidade = ?, precounitario = ?");
             pstmt.setString(1, pedidoProduto.getPedido());
             pstmt.setString(2, pedidoProduto.getProduto());
             pstmt.setInt(3, pedidoProduto.getQuantidade());
