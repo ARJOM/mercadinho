@@ -13,20 +13,26 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import util.MaskTextField;
+
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicTreeUI;
+import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
+import java.util.logging.SimpleFormatter;
 
-public class CadastroFuncionarioController {
+
+public class CadastroFuncionarioController implements Initializable {
 
     private FuncionarioDAO funcionarioDAO;
 
     @FXML
-    private TextField campoCpf;
+    private MaskTextField campoCpf;
 
     @FXML
     private TextField campoNome;
@@ -43,13 +49,22 @@ public class CadastroFuncionarioController {
     @FXML
     private PasswordField campoSenha2;
 
-
-    public CadastroFuncionarioController(){
-
+    @Override
+    public void initialize(URL url, ResourceBundle rb){
+        campoCpf.setMask("NNN.NNN.NNN-NN");
     }
 
+
+
     public void acaoCadastrar(ActionEvent actionEvent) {
-        if(campoSenha1.getText() != campoSenha2.getText()){
+        if(campoCpf.getText().equals("") || campoNome.getText().equals("") || campoSenha1.getText().equals("")||campoSenha2.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Cadastro de Funcionario");
+            alert.setHeaderText("Todos os Campos com * devem ser preenchidos.");
+            alert.setContentText("Verifique os campos e tente novamente.");
+
+            alert.showAndWait();
+        }else if(!campoSenha2.getText().equals(campoSenha1.getText()) ){
             campoSenha1.setStyle("-fx-border-color: #f44336");
             campoSenha2.setStyle("-fx-border-color: #f44336");
 
@@ -70,6 +85,8 @@ public class CadastroFuncionarioController {
 
             Funcionario funcionario = new Funcionario(cpf, nome, senha);
 
+            campoSenha1.setStyle("-fx-border-color: #BDBDBD");
+            campoSenha2.setStyle("-fx-border-color: #BDBDBD");
             try {
                 if (funcionarioDAO.Cadastrar(funcionario)) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
