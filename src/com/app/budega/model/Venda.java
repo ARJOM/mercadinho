@@ -5,11 +5,11 @@ import java.util.Objects;
 public class Venda {
 
     private String idVenda;
-    private Funcionario funcionario;
+    private String funcionario;
     private float total;
     private LocalDate data;
 
-    public Venda(String idVenda, Funcionario funcionario, float total, LocalDate data) {
+    public Venda(String idVenda, String funcionario, float total, LocalDate data) {
         this.idVenda = idVenda;
         this.funcionario = funcionario;
         this.total = total;
@@ -24,11 +24,11 @@ public class Venda {
         this.idVenda = idVenda;
     }
 
-    public Funcionario getFuncionario() {
+    public String getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
+    public void setFuncionario(String funcionario) {
         this.funcionario = funcionario;
     }
 
