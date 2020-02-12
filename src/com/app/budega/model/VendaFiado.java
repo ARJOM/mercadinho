@@ -7,7 +7,7 @@ public class VendaFiado extends Venda {
     private Cliente cliente;
 
     public VendaFiado(String idVenda, Funcionario funcionario, float total, LocalDate data, Cliente cliente) {
-        super(idVenda, funcionario, total, data);
+        super(idVenda, String.valueOf(funcionario), total, data);
         this.cliente = cliente;
     }
 

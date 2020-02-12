@@ -22,6 +22,21 @@
 .imgFuncionario{
     -fx-background-image: url("../image/undraw_profile_6l1l.png");
 }
+.imgCliente{
+    -fx-background-image: url("../image/undraw_speech_to_text_9uir.png");
+}
+.imgDependente{
+    -fx-background-image: url("../image/dependente.png");
+}
+.imgFornecedor{
+    -fx-background-image: url("../image/fornecedor.png");
+}
+.imgProduto{
+    -fx-background-image: url("../image/produto.png");
+}
+.imgLogin{
+    -fx-background-image: url("../image/undraw_access_account_99n5.png");
+}
 .titleFuncionario{
     -fx-text-alignment: center;
     -fx-font-size: 22px;
@@ -45,6 +60,12 @@
 }
 .input:focused{
     -fx-border-color: #2196F3;
+}
+.lableObrigatorio{
+    -fx-font-weight: bold;
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 10px;
+    -fx-text-fill: #f44336;
 }
 .btnCadastrar {
     -fx-font-size: 18px;
