@@ -14,6 +14,11 @@ public class Funcionario {
         this.senha = senha;
     }
 
+    public Funcionario(String cpf, String nome) {
+        this.cpf = cpf;
+        this.nome = nome;
+    }
+
     public String getCpf() {
         return cpf;
     }
