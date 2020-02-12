@@ -74,9 +74,10 @@ public class CadastroFuncionarioController implements Initializable {
             alert.setContentText("Verifique as senhas e tente novamente.");
             alert.showAndWait();
 
-            DialogPane dialogPane = alert.getDialogPane();
-            dialogPane.setStyle("-fx-background-color: #ffffff");
+            campoSenha1.setStyle("-fx-border-color: #BDBDBD");
+            campoSenha2.setStyle("-fx-border-color: #BDBDBD");
         }else {
+
             funcionarioDAO = new FuncionarioDAO();
 
             String cpf = campoCpf.getText();
@@ -85,8 +86,6 @@ public class CadastroFuncionarioController implements Initializable {
 
             Funcionario funcionario = new Funcionario(cpf, nome, senha);
 
-            campoSenha1.setStyle("-fx-border-color: #BDBDBD");
-            campoSenha2.setStyle("-fx-border-color: #BDBDBD");
             try {
                 if (funcionarioDAO.Cadastrar(funcionario)) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
