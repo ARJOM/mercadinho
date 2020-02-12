@@ -69,4 +69,15 @@ public class FuncionarioDAO {
             return pstm.executeUpdate() > 0;
         }
     }
+
+    public boolean atualizaFuncionario(String nome, String senha,String cpf) throws SQLException, ClassNotFoundException{
+        try(Connection connection = conexao.getConnection()){
+            PreparedStatement pstm = connection.prepareStatement("UPDATE funcionario SET nome = ?,senha = ? WHERE cpf = ? ");
+            pstm.setString(1,nome);
+            pstm.setString(2,senha);
+            pstm.setString(3,cpf);
+
+            return pstm.executeUpdate() > 0;
+        }
+    }
 }
