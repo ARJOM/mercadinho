@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="443.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.ListarFuncionarioController">
+   <children>
+      <Label layoutX="212.0" layoutY="24.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Funcionarios Cadastrados" />
+      <TableView fx:id="tabelaFuncionario" layoutX="13.0" layoutY="80.0" prefHeight="339.0" prefWidth="434.0">
+        <columns>
+          <TableColumn fx:id="colunaCpf" prefWidth="210.0" text="CPF" />
+          <TableColumn fx:id="colunaNome" prefWidth="223.0" text="Nome" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

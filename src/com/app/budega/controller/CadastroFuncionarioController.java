@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import javafx.scene.layout.StackPane;
 import util.MaskTextField;
 
 import javax.swing.*;
@@ -91,7 +92,7 @@ public class CadastroFuncionarioController implements Initializable {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Cadastro de Funcionario");
                     alert.setHeaderText("Cadastrado com sucesso.");
-                    alert.setContentText("Bem vindo.");
+                    alert.setContentText("Bem Vindo" + campoNome.getText() + ".");
                     alert.showAndWait();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);

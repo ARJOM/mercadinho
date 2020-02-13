@@ -45,7 +45,7 @@
             </RadioButton>
             <Button layoutX="160.0" layoutY="438.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" text="Cadastrar" />
             <Label layoutX="205.0" layoutY="494.0" styleClass="btnCancelar" text="Cancelar" />
-            <RadioButton layoutX="102.0" layoutY="396.0" mnemonicParsing="false" stylesheets="@../style/CadastroDependente.css" text="Sim" toggleGroup="$gpPermissao">
+            <RadioButton layoutX="102.0" layoutY="396.0" mnemonicParsing="false" stylesheets="@../style/Main.css" text="Sim" toggleGroup="$gpPermissao">
                <font>
                   <Font name="Open Sans" size="14.0" />
                </font>
