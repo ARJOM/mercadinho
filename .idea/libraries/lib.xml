@@ -1,16 +1,16 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$USER_HOME$/Documentos/javafx/lib" />
     </CLASSES>
     <JAVADOC />
     <NATIVE>
-      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$USER_HOME$/Documentos/javafx/lib" />
     </NATIVE>
     <SOURCES>
-      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$USER_HOME$/Documentos/javafx/lib" />
     </SOURCES>
-    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
-    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
+    <jarDirectory url="file://$USER_HOME$/Documentos/javafx/lib" recursive="false" />
+    <jarDirectory url="file://$USER_HOME$/Documentos/javafx/lib" recursive="false" type="SOURCES" />
   </library>
 </component>
