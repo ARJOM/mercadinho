@@ -80,7 +80,7 @@ public class ProdutoDAO {
         }
     }
 
-    private Set<Produto> getProduto() throws SQLException,
+    public Set<Produto> getProdutos() throws SQLException,
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
