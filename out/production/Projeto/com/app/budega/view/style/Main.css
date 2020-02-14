@@ -37,6 +37,9 @@
 .imgLogin{
     -fx-background-image: url("../image/undraw_access_account_99n5.png");
 }
+.imgAtualizarFuncionario{
+    -fx-background-image: url("../image/undraw_update_uxn2.png");
+}
 .titleFuncionario{
     -fx-text-alignment: center;
     -fx-font-size: 22px;
@@ -59,7 +62,7 @@
 
 }
 .input:focused{
-    -fx-border-color: #2196F3;
+        -fx-border-color: #2196F3;
 }
 .lableObrigatorio{
     -fx-font-weight: bold;
@@ -74,9 +77,25 @@
     -fx-background-color: #2196F3;
     -fx-text-fill: #ffffff;
     -fx-cursor: hand;
-    -fx-pref-height: 45px;
+    -fx-pref-height: 42px;
 }
 .btnCadastrar:pressed{
+    -fx-border-color: #BDBDBD;
+}
+.btnBuscar {
+    -fx-font-size: 18px;
+    -fx-border-radius: 4px;
+    -fx-font-weight: bold;
+    -fx-background-color: #2196F3;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+    -fx-pref-height: 37,5px;
+    -fx-background-image: url("../icon/search.png");
+    -fx-background-size: 50%;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+.btnBuscar:pressed{
     -fx-border-color: #BDBDBD;
 }
 .btnCancelar{
@@ -86,6 +105,18 @@
 }
 .btnCancelar:hover{
     -fx-text-fill: #2196F3;
+}
+.btnDeletar{
+    -fx-font-size: 18px;
+    -fx-border-radius: 4px;
+    -fx-font-weight: bold;
+    -fx-background-color: #f44336;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+    -fx-pref-height: 42px;
+}
+.btnDeletar:pressed{
+    -fx-border-color: #BDBDBD;
 }
 .comboBox{
     -fx-border-style: solid;
@@ -124,4 +155,13 @@
 .radio-button .dot {
     -fx-background-radius: 15px;
     -fx-padding: 5px;
+}
+.table-view{
+    -fx-font-size: 14px;
+    -fx-border-color: #BDBDBD;
+    -fx-text-alignment: center;
+}
+.table-view:focused{
+    -fx-background-color: transparent;
+    -fx-border-color: #BDBDBD;
 }
