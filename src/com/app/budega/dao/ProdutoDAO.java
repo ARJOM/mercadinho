@@ -37,10 +37,7 @@ public class ProdutoDAO {
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
-                    "UPDATE produto SET codbarras = ?" +
-                            "UPDATE produto SET nome = ?"+
-                            "UPDATE produto SET preco = ?"+
-                            "UPDATE produto SET quantidade = ?");
+                    "UPDATE produto SET codbarras = ?, nome = ?, preco = ?, quantidade = ?");
             pstmt.setString(1, produto.getCodBarras());
             pstmt.setString(2, produto.getNome());
             pstmt.setFloat(3, produto.getPreco());
@@ -54,7 +51,7 @@ public class ProdutoDAO {
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
-                    "DELETE FROM pedidoproduto WHERE codbarras + = ?");
+                    "DELETE FROM pedidoproduto WHERE codbarras = ?");
             pstmt.setString(1, produto.getCodBarras());
 
             return pstmt.executeUpdate() > 0;
