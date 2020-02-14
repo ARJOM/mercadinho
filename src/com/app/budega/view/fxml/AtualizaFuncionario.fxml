@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.AtualizaFuncionarioController">
+    <children>
+        <Pane layoutX="329.0" prefHeight="501.0" prefWidth="447.0" styleClass="camposFuncionario" stylesheets="@../style/Main.css">
+            <children>
+                <Label layoutX="102.0" layoutY="26.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Atualizar Funcionario" />
+                <Label layoutX="86.0" layoutY="116.0" styleClass="lable" stylesheets="@../style/Main.css" text="Nome Completo" />
+                <TextField fx:id="campoNome" layoutX="84.0" layoutY="150.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+                <Button fx:id="btnAtualizaFuncionario" layoutX="164.0" layoutY="373.0" mnemonicParsing="false" onAction="#acaoAtualizar" prefHeight="45.0" prefWidth="120.0" styleClass="btnCadastrar" text="Atualizar" />
+                <Label fx:id="btnCancelar" layoutX="196.0" layoutY="426.0" styleClass="btnCancelar" text="Cancelar" />
+                <Label layoutX="85.0" layoutY="197.0" styleClass="lable" stylesheets="@../style/Main.css" text="Senha" />
+                <PasswordField fx:id="campoSenha1" layoutX="84.0" layoutY="229.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+                <Label layoutX="86.0" layoutY="276.0" styleClass="lable" stylesheets="@../style/Main.css" text="Confirmar Senha" />
+                <PasswordField fx:id="campoSenha2" layoutX="84.0" layoutY="309.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+                <Label layoutX="219.0" layoutY="120.0" styleClass="lableObrigatorio" text="*" />
+                <Label layoutX="137.0" layoutY="201.0" styleClass="lableObrigatorio" text="*" />
+                <Label layoutX="224.0" layoutY="280.0" styleClass="lableObrigatorio" text="*" />
+            </children></Pane>
+        <Pane prefHeight="501.0" prefWidth="331.0" styleClass="gradiente" stylesheets="@../style/Main.css">
+            <children>
+                <Pane layoutX="49.0" layoutY="106.0" prefHeight="289.0" prefWidth="233.0" stylesheets="@../style/Main.css">
+                    <styleClass>
+                        <String fx:value="imgAtualizarFuncionario" />
+                        <String fx:value="img" />
+                    </styleClass></Pane>
+            </children></Pane>
+    </children>
+</AnchorPane>
