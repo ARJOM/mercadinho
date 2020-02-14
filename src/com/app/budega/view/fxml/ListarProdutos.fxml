@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="443.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.ListarProdutoController">
+    <children>
+        <Label layoutX="212.0" layoutY="24.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Produtos Cadastrados" />
+        <TableView fx:id="tabelaProdutos" layoutX="13.0" layoutY="80.0" prefHeight="339.0" prefWidth="594.0">
+            <columns>
+                <TableColumn fx:id="colunaCodBarras" prefWidth="150.0" text="Código de barras" />
+                <TableColumn fx:id="colunaNome" prefWidth="150.0" text="Nome" />
+                <TableColumn fx:id="colunaPreco" prefWidth="150.0" text="Preço" />
+                <TableColumn fx:id="colunaQuantidade" prefWidth="150.0" text="Quantidade" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
