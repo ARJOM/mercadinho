@@ -26,7 +26,7 @@ public class ListarProdutoController implements Initializable {
     private TableColumn<Produto, String> colunaNome;
 
     @FXML
-    private TableColumn<Produto, Double> colunaPreco;
+    private TableColumn<Produto, Float> colunaPreco;
 
     @FXML
     private TableColumn<Produto, Double> colunaQuantidade;
@@ -44,10 +44,10 @@ public class ListarProdutoController implements Initializable {
     }
 
     public void initTable() throws SQLException, ClassNotFoundException {
-        colunaCodBarras.setCellValueFactory(new PropertyValueFactory("codBarras"));
-        colunaNome.setCellValueFactory(new PropertyValueFactory("nome"));
-//        colunaPreco.setCellValueFactory(new PropertyValueFactory("preco"));
-//        colunaQuantidade.setCellFactory(new PropertyValueFactory("quantidade"));
+        colunaCodBarras.setCellValueFactory(new PropertyValueFactory<>("codBarras"));
+        colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        colunaPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
+        colunaQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
         tabelaProdutos.setItems(atualizaTable());
     }
 
