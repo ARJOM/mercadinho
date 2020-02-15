@@ -17,7 +17,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         stage = primaryStage;
 
-        Parent fxmlListar = FXMLLoader.load(getClass().getResource("../view/fxml/ListarFuncionarios.fxml"));
+        Parent fxmlListar = FXMLLoader.load(getClass().getResource("../view/fxml/ListarDependente.fxml"));
         mainListarFuncionaro = new Scene(fxmlListar);
 
         Parent fxmlAtualizaFuncionario = FXMLLoader.load(getClass().getResource("../view/fxml/AtualizaFuncionario.fxml"));
