@@ -20,6 +20,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
 public class ListarFuncionarioController implements Initializable {
 
@@ -59,40 +60,52 @@ public class ListarFuncionarioController implements Initializable {
 
     @FXML
     void deleteFuncionario(ActionEvent event) {
-        Funcionario funcionario = tabelaFuncionario.getSelectionModel().getSelectedItem();
-        String cpf = funcionario.getCpf();
-        try {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Deletar Funcionarios");
-            alert.setHeaderText("Deseja realmente excluir ?");
-            alert.setContentText(funcionario.getNome());
+        try{
+            Funcionario funcionario = tabelaFuncionario.getSelectionModel().getSelectedItem();
+            String cpf = funcionario.getCpf();
+            try {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Deletar Funcionarios");
+                alert.setHeaderText("Deseja realmente excluir ?");
+                alert.setContentText(funcionario.getNome());
 
-            Optional<ButtonType> resultado = alert.showAndWait();
-            if (resultado.get() == ButtonType.OK){
-                funcionarioDAO.deleteFuncionario(cpf);
-                initTable();
-            }else {
-                Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
-                alert1.setTitle("Deletar Funcionarios");
-                alert1.setHeaderText("Nenhum funcionario selecionado.");
-                alert1.setContentText("Slecione um selecionado.");
+                Optional<ButtonType> resultado = alert.showAndWait();
+                if (resultado.get() == ButtonType.OK){
+                    funcionarioDAO.deleteFuncionario(cpf);
+                    initTable();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        }catch (NullPointerException ex){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Listar Funcionario");
+            alert.setHeaderText("Nenhum funcionario selecionado.");
+            alert.setContentText("Selecione uma linha para excluir.");
+            alert.show();
         }
     }
 
     @FXML
     void atualizarFuncionario(ActionEvent event){
         Funcionario funcionario = tabelaFuncionario.getSelectionModel().getSelectedItem();
-        AtualizarFuncionarioMain atualizarFuncionarioMain = new AtualizarFuncionarioMain(funcionario);
-        try {
-            atualizarFuncionarioMain.start(new Stage());
-            Main main = new Main();
-        }catch (Exception e){
+        if(funcionario != null){
+            AtualizarFuncionarioMain atualizarFuncionarioMain = new AtualizarFuncionarioMain(funcionario);
+            try {
+                atualizarFuncionarioMain.start(new Stage());
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Listar Funcionario");
+            alert.setHeaderText("Nenhum funcionario selecionado.");
+            alert.setContentText("Selecione uma linha para atualizar.");
+            alert.show();
 
+            System.out.println("aaaaa");
         }
 
     }
