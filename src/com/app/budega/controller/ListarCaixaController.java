@@ -1,9 +1,7 @@
 package com.app.budega.controller;
 
 import com.app.budega.dao.CaixaDao;
-import com.app.budega.dao.ClienteDao;
 import com.app.budega.model.Caixa;
-import com.app.budega.model.Cliente;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,7 +13,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.ResourceBundle;
 
 public class ListarCaixaController implements Initializable {

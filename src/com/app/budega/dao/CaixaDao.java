@@ -23,14 +23,13 @@ public class CaixaDao {
             ClassNotFoundException {
         try(Connection connection = conexao.getConnection()){
             PreparedStatement pstmt = connection.prepareStatement(
-                    "INSERT INTO caixa(id, valor, cliente, descricao, funcionario)" +
-                            "VALUES (?,?,?,?,?)");
-            pstmt.setInt(1, caixa.getId());
-            pstmt.setFloat(2, caixa.getValor());
-            pstmt.setDate(3,
+                    "INSERT INTO caixa(id, valor, datacaixa, descricao, funcionario)" +
+                            "VALUES (proximoidcaixa(),?,?,?,?)");
+            pstmt.setFloat(1, caixa.getValor());
+            pstmt.setDate(2,
                     java.sql.Date.valueOf(caixa.getDataCaixa()));
-            pstmt.setString(4, caixa.getDescricao());
-            pstmt.setString(5, caixa.getFuncionario());
+            pstmt.setString(3, caixa.getDescricao());
+            pstmt.setString(4, caixa.getFuncionario());
 
             return pstmt.executeUpdate() > 0;
         }
@@ -40,7 +39,7 @@ public class CaixaDao {
             ClassNotFoundException {
         try(Connection connection = conexao.getConnection()){
             PreparedStatement pstm = connection.prepareStatement(
-                    "SELECT * FROM caixa WHERE idcaixa = ?");
+                    "SELECT * FROM caixa WHERE id = ?");
             pstm.setInt(1, id);
 
             ResultSet rs = pstm.executeQuery();
