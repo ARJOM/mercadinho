@@ -15,17 +15,21 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        stage = primaryStage;
-
-        Parent fxmlListar = FXMLLoader.load(getClass().getResource("../view/fxml/CadastroDependente.fxml"));
-        mainListarFuncionaro = new Scene(fxmlListar);
-
-        Parent fxmlAtualizaFuncionario = FXMLLoader.load(getClass().getResource("../view/fxml/AtualizaFuncionario.fxml"));
-        mainAtualizaFuncionaro = new Scene(fxmlAtualizaFuncionario);
-
-        primaryStage.setScene(mainListarFuncionaro);
+//        stage = primaryStage;
+//
+//        Parent fxmlListar = FXMLLoader.load(getClass().getResource("../view/fxml/CadastroDependente.fxml"));
+//        mainListarFuncionaro = new Scene(fxmlListar);
+//
+//        Parent fxmlAtualizaFuncionario = FXMLLoader.load(getClass().getResource("../view/fxml/AtualizaFuncionario.fxml"));
+//        mainAtualizaFuncionaro = new Scene(fxmlAtualizaFuncionario);
+//
+//        primaryStage.setScene(mainListarFuncionaro);
+//        primaryStage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/CadastroDependente.fxml"));
+        root.getStylesheets().add(getClass().getResource("../view/style/Main.css").toExternalForm());
+        primaryStage.setTitle("Budega App");
+        primaryStage.setScene(new Scene(root));
         primaryStage.show();
-
     }
 
     public static void mudarTelas(String src){
