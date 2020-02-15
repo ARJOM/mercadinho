@@ -1,14 +1,17 @@
 package com.app.budega.controller;
 
+import com.app.budega.App.Main;
 import com.app.budega.dao.FuncionarioDAO;
 import com.app.budega.model.Funcionario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import org.w3c.dom.ls.LSOutput;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -36,6 +39,9 @@ public class ListarFuncionarioController implements Initializable {
         }
     }
 
+    FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+
+
     public void initTable() throws SQLException, ClassNotFoundException {
         colunaCpf.setCellValueFactory(new PropertyValueFactory("cpf"));
         colunaNome.setCellValueFactory(new PropertyValueFactory("nome"));
@@ -47,7 +53,24 @@ public class ListarFuncionarioController implements Initializable {
         return FXCollections.observableArrayList(funcionarioDAO.getFuncionarios());
     }
 
+    @FXML
+    void deleteFuncionario(ActionEvent event) {
+        Funcionario funcionario = tabelaFuncionario.getSelectionModel().getSelectedItem();
+        String cpf = funcionario.getCpf();
+        try {
+            funcionarioDAO.deleteFuncionario(cpf);
+            initTable();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @FXML
+    void atualizarFuncionario(ActionEvent event){
+        Main.mudarTelas("atualizarFuncionario");
+    }
 }
 
 

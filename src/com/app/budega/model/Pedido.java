@@ -8,9 +8,9 @@ public class Pedido {
     private String idPedido;
     private LocalDate dataCompra;
     private float valorCompra;
-    private Fornecedor fornecedor;
+    private String fornecedor;
 
-    public Pedido(String idPedido, LocalDate dataCompra, float valorCompra, Fornecedor fornecedor) {
+    public Pedido(String idPedido, LocalDate dataCompra, float valorCompra, String fornecedor) {
         this.idPedido = idPedido;
         this.dataCompra = dataCompra;
         this.valorCompra = valorCompra;
@@ -41,11 +41,11 @@ public class Pedido {
         this.valorCompra = valorCompra;
     }
 
-    public Fornecedor getFornecedor() {
+    public String getFornecedor() {
         return fornecedor;
     }
 
-    public void setFornecedor(Fornecedor fornecedor) {
+    public void setFornecedor(String fornecedor) {
         this.fornecedor = fornecedor;
     }
 

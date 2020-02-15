@@ -92,8 +92,13 @@ public class CadastroFuncionarioController implements Initializable {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Cadastro de Funcionario");
                     alert.setHeaderText("Cadastrado com sucesso.");
-                    alert.setContentText("Bem Vindo" + campoNome.getText() + ".");
+                    alert.setContentText("Bem Vindo " + campoNome.getText() + ".");
                     alert.showAndWait();
+
+                    campoCpf.setText("");
+                    campoNome.setText("");
+                    campoSenha1.setText("");
+                    campoSenha2.setText("");
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Cadastro de Funcionario");
