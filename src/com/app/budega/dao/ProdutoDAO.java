@@ -51,7 +51,7 @@ public class ProdutoDAO {
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
-                    "DELETE FROM pedidoproduto WHERE codbarras = ?");
+                    "DELETE FROM produto WHERE codbarras = ?");
             pstmt.setString(1, produto.getCodBarras());
 
             return pstmt.executeUpdate() > 0;
