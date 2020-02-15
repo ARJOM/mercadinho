@@ -22,30 +22,32 @@ public class DependenteDAO {
     public boolean salvar(Dependente dependente) throws SQLException, ClassNotFoundException{
         try(Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
-                    "INSERT INTO dependente(responsavel, nome, parentesco, permissao)" +
-                            "VALUES (?,?,?,?)");
-            pstmt.setString(1, dependente.getResponsavel());
-            pstmt.setString(2, dependente.getNome());
-            pstmt.setString(3, dependente.getParentesco());
-            pstmt.setBoolean(4, dependente.getPermissao());
+                    "INSERT INTO dependente(id, responsavel, nome, parentesco, permissao)" +
+                            "VALUES (?,?,?,?,?)");
+            pstmt.setString(1, dependente.getId());
+            pstmt.setString(2, dependente.getResponsavel());
+            pstmt.setString(3, dependente.getNome());
+            pstmt.setString(4, dependente.getParentesco());
+            pstmt.setBoolean(5, Boolean.parseBoolean(dependente.getPermissao()));
 
             return pstmt.executeUpdate() > 0;
         }
     }
 
-    public Dependente buscarPorNomeEResponsavel(String nome, String cpf) throws SQLException, ClassNotFoundException{
+    public Dependente buscarPorId(String id) throws SQLException, ClassNotFoundException{
         try(Connection connection = conexao.getConnection()){
             PreparedStatement pstmt = connection.prepareStatement(
-                    "SELECT * FROM dependente WHERE responsavel = ? AND nome = ?");
-            pstmt.setString(1, cpf);
-            pstmt.setString(2, nome);
+                    "SELECT * FROM dependente WHERE id = ?");
+            pstmt.setString(1, id);
 
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()){
+                String responsavel = rs.getString("responsavel");
+                String nome = rs.getString("nome");
                 String parentesco = rs.getString("parentesco");
-                boolean permissao = rs.getBoolean("permissao");
+                String permissao = String.valueOf(rs.getBoolean("permissao"));
 
-                return new Dependente(cpf, nome, parentesco, permissao);
+                return new Dependente(id, responsavel, nome, parentesco, permissao);
             }
             return null;
         }
@@ -62,12 +64,13 @@ public class DependenteDAO {
 
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
+                String id = rs.getString("id");
                 String responsavel = rs.getString("responsavel");
                 String nome = rs.getString("nome");
                 String parentesco = rs.getString("parentesco");
-                Boolean permissao = rs.getBoolean("permissao");
+                String permissao = String.valueOf(rs.getBoolean("permissao"));
 
-                dependente.add(new Dependente(responsavel, nome, parentesco, permissao));
+                dependente.add(new Dependente(id, responsavel, nome, parentesco, permissao));
             }
             return dependente;
         }

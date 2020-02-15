@@ -1,18 +1,31 @@
 package com.app.budega.model;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ToggleGroup;
+
 import java.util.Objects;
 
 public class Dependente {
 
+    private String id;
     private String responsavel;
     private String nome;
     private String parentesco;
-    private Boolean permissao;
+    private String permissao;
 
-    public Dependente(String responsavel, String nome, String parentesco, Boolean permissao) {
+    public Dependente(String id, String responsavel, String nome, String parentesco, String permissao) {
+        this.id = id;
         this.responsavel = responsavel;
         this.nome = nome;
         this.parentesco = parentesco;
         this.permissao = permissao;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getResponsavel() {
@@ -39,11 +52,11 @@ public class Dependente {
         this.parentesco = parentesco;
     }
 
-    public Boolean getPermissao() {
+    public String getPermissao() {
         return permissao;
     }
 
-    public void setPermissao(Boolean permissao) {
+    public void setPermissao(String permissao) {
         this.permissao = permissao;
     }
 
@@ -58,13 +71,14 @@ public class Dependente {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getResponsavel(), getNome());
+        return Objects.hash(id);
     }
 
     @Override
     public String toString() {
         return "Dependente{" +
-                "responsavel=" + responsavel +
+                "id='" + id + '\'' +
+                ", responsavel='" + responsavel + '\'' +
                 ", nome='" + nome + '\'' +
                 ", parentesco='" + parentesco + '\'' +
                 ", permissao=" + permissao +
