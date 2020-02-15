@@ -11,10 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.sql.*;
@@ -63,7 +60,6 @@ public class CadastroDependenteController implements Initializable {
         Conexao conexao = new Conexao();
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement("SELECT cpf FROM cliente");
-            Set<Cliente> clientes = new HashSet<>();
 
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
@@ -75,6 +71,8 @@ public class CadastroDependenteController implements Initializable {
 
                 cbResponsavel.setItems(responsavelOBS);
             }
+        } catch (ClassNotFoundException e){
+            e.printStackTrace();
         }
     }
 
@@ -103,13 +101,18 @@ public class CadastroDependenteController implements Initializable {
 
             dependenteDAO = new DependenteDAO();
 
-            String responsavel = String.valueOf(cbResponsavel.getItems());
+            String responsavel = String.valueOf(cbResponsavel.getValue());
             String nome = CampoNome.getText();
-            String parentesco = String.valueOf(cbParentesco.getItems());
-//            Boolean permissao = Boolean.valueOf(String.valueOf(gpPermissao.getSelectedToggle()));
-            System.out.println(gpPermissao.getSelectedToggle().selectedProperty().get());
+            String parentesco = String.valueOf(cbParentesco.getValue());
+            Boolean permissao;
+            if (gpPermissao.getSelectedToggle().selectedProperty().get() == true){
+                permissao = true;
+            }
+            else {
+                permissao= false;
+            }
 
-            Dependente dependente = new Dependente("0", responsavel, nome, parentesco, true);
+            Dependente dependente = new Dependente("0", responsavel, nome, parentesco, permissao);
 
             try {
                 if (dependenteDAO.salvar(dependente)) {
