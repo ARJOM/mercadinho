@@ -37,11 +37,11 @@ public class ProdutoDAO {
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
-                    "UPDATE produto SET codbarras = ?, nome = ?, preco = ?, quantidade = ?");
-            pstmt.setString(1, produto.getCodBarras());
-            pstmt.setString(2, produto.getNome());
-            pstmt.setFloat(3, produto.getPreco());
-            pstmt.setInt(4, produto.getQuantidade());
+                    "UPDATE produto SET nome = ?, preco = ?, quantidade = ? WHERE codbarras = ?");
+            pstmt.setString(1, produto.getNome());
+            pstmt.setFloat(2, produto.getPreco());
+            pstmt.setInt(3, produto.getQuantidade());
+            pstmt.setString(4, produto.getCodBarras());
 
             return pstmt.executeUpdate() > 0;
         }

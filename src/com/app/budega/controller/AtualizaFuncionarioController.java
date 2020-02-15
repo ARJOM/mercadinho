@@ -74,7 +74,7 @@ public class AtualizaFuncionarioController implements Initializable {
                 if(funcionarioDAO.atualizaFuncionario(nome, senha, funcionarioRetornado.getCpf()) == true){
                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                    alert.setTitle("Atualização de Funcionario");
-                   alert.setHeaderText("Dados atualizado com sucesso.");
+                   alert.setHeaderText("Dados atualizados com sucesso.");
                    alert.setContentText(labelCPF.getText());
 
                     Optional <ButtonType> resultado = alert.showAndWait();

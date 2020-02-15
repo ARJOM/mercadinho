@@ -6,13 +6,18 @@
 <AnchorPane prefHeight="443.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.ListarProdutoController">
     <children>
         <Label layoutX="212.0" layoutY="24.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Produtos Cadastrados" />
-        <TableView fx:id="tabelaProdutos" layoutX="13.0" layoutY="80.0" prefHeight="339.0" prefWidth="594.0">
+        <Label layoutX="480.0" layoutY="90.0" styleClass="lable" text="Buscar por Cód. de Barras" />
+        <TableView fx:id="tabelaProdutos" layoutX="13.0" layoutY="80.0" prefHeight="339.0" prefWidth="440.0">
             <columns>
-                <TableColumn fx:id="colunaCodBarras" prefWidth="150.0" text="Código de barras" />
-                <TableColumn fx:id="colunaNome" prefWidth="150.0" text="Nome" />
-                <TableColumn fx:id="colunaPreco" prefWidth="150.0" text="Preço" />
-                <TableColumn fx:id="colunaQuantidade" prefWidth="150.0" text="Quantidade" />
+                <TableColumn fx:id="colunaCodBarras" prefWidth="130.0" text="Código de barras" />
+                <TableColumn fx:id="colunaNome" prefWidth="160.0" text="Nome" />
+                <TableColumn fx:id="colunaPreco" prefWidth="50.0" text="Preço" />
+                <TableColumn fx:id="colunaQuantidade" prefWidth="100.0" text="Quantidade" />
             </columns>
         </TableView>
+        <TextField layoutX="479.0" layoutY="122.0" prefHeight="22.0" prefWidth="198.0" styleClass="input" />
+        <Button layoutX="685.0" layoutY="122.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" styleClass="btnBuscar" />
+        <Button fx:id="btnDeletarProduto" layoutX="496.0" layoutY="384.0" mnemonicParsing="false" onAction="#deleteProduto" prefHeight="38.0" prefWidth="109.0" styleClass="btnDeletar" text="Deletar" />
+        <Button fx:id="btnAtualizarProduto" layoutX="620.0" layoutY="384.0" mnemonicParsing="false" onAction="#atualizarProduto" prefHeight="45.0" prefWidth="109.0" styleClass="btnCadastrar" text="Atualizar" />
     </children>
 </AnchorPane>

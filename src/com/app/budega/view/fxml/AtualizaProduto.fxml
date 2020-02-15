@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.AtualizaProdutoController">
+<children>
+    <Pane layoutX="329.0" prefHeight="501.0" prefWidth="447.0" styleClass="camposFuncionario" stylesheets="@../style/Main.css">
+        <children>
+            <Label layoutX="102.0" layoutY="26.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Atualizar Produto" />
+
+            <Label layoutX="83.0" layoutY="142.0" styleClass="lable" stylesheets="@../style/Main.css" text="Nome do Produto" />
+            <TextField fx:id="campoNome" layoutX="81.0" layoutY="172.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+
+            <Label layoutX="83.0" layoutY="214.0" styleClass="lable" stylesheets="@../style/Main.css" text="Preço do Produto" />
+            <TextField fx:id="campoPreco" layoutX="81.0" layoutY="244.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+
+            <Label layoutX="83.0" layoutY="286.0" styleClass="lable" stylesheets="@../style/Main.css" text="Quantidade em estoque" />
+            <TextField fx:id="campoQuantidade" layoutX="81.0" layoutY="316.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+
+            <Button fx:id="btnAtualizaProduto" layoutX="161.0" layoutY="399.0" mnemonicParsing="false" onAction="#acaoAtualizar" prefHeight="45.0" prefWidth="120.0" styleClass="btnCadastrar" text="Atualizar" />
+            <Label fx:id="btnCancelar" layoutX="193.0" layoutY="452.0" styleClass="btnCancelar" text="Cancelar" />
+<!--            <Label layoutX="216.0" layoutY="146.0" styleClass="lableObrigatorio" text="*" />-->
+<!--            <Label layoutX="134.0" layoutY="227.0" styleClass="lableObrigatorio" text="*" />-->
+<!--            <Label layoutX="221.0" layoutY="306.0" styleClass="lableObrigatorio" text="*" />-->
+            <Label layoutX="81.0" layoutY="104.0" styleClass="lable" text="Código de Barras:" />
+            <Label fx:id="labelCodBarras" layoutX="225.0" layoutY="104.0" styleClass="lable" text="000.00.000-00" />
+        </children></Pane>
+    <Pane prefHeight="501.0" prefWidth="331.0" styleClass="gradiente" stylesheets="@../style/Main.css">
+        <children>
+            <Pane layoutX="49.0" layoutY="106.0" prefHeight="289.0" prefWidth="233.0" stylesheets="@../style/Main.css">
+                <styleClass>
+                    <String fx:value="imgAtualizarFuncionario" />
+                    <String fx:value="img" />
+                </styleClass></Pane>
+        </children></Pane>
+</children>
+</AnchorPane>
