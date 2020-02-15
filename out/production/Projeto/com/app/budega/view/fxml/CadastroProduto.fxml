@@ -22,15 +22,15 @@
          <children>
             <Label layoutX="101.0" layoutY="29.0" styleClass="titleFuncionario" text="Cadastro de Produtos" />
             <Label layoutX="88.0" layoutY="99.0" styleClass="lable" text="Codigo de Barras" />
-            <TextField layoutX="88.0" layoutY="133.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+            <TextField fx:id="campoCodBarras" layoutX="88.0" layoutY="133.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
             <Label layoutX="89.0" layoutY="187.0" styleClass="lable" text="Nome " />
-            <TextField layoutX="88.0" layoutY="220.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+            <TextField fx:id="campoNome" layoutX="88.0" layoutY="220.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
             <Label layoutX="93.0" layoutY="276.0" styleClass="lable" text="Preço" />
-            <TextField layoutX="89.0" layoutY="311.0" prefHeight="42.0" prefWidth="130.0" styleClass="input" stylesheets="@../style/Main.css" />
+            <TextField fx:id="campoPreco" layoutX="89.0" layoutY="311.0" prefHeight="42.0" prefWidth="130.0" styleClass="input" stylesheets="@../style/Main.css" />
             <Label layoutX="239.0" layoutY="276.0" styleClass="lable" text="Quantidade" />
-            <TextField layoutX="239.0" layoutY="311.0" prefHeight="42.0" prefWidth="130.0" styleClass="input" stylesheets="@../style/Main.css" />
-            <Button layoutX="152.0" layoutY="369.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="151.0" styleClass="btnCadastrar" text="Cadastrar" />
-            <Label layoutX="199.0" layoutY="428.0" styleClass="btnCancelar" text="Cancelar" />
+            <TextField fx:id="campoQuantidade" layoutX="239.0" layoutY="311.0" prefHeight="42.0" prefWidth="130.0" styleClass="input" stylesheets="@../style/Main.css" />
+            <Button fx:id="btnCadastrar" layoutX="152.0" layoutY="369.0" mnemonicParsing="false" onAction="#acaoCadastrar" prefHeight="51.0" prefWidth="151.0" styleClass="btnCadastrar" text="Cadastrar" />
+            <Label fx:id="btnCancelar" layoutX="199.0" layoutY="428.0" styleClass="btnCancelar" text="Cancelar" />
             <Label layoutX="227.0" layoutY="102.0" styleClass="lableObrigatorio" text="*" />
             <Label layoutX="142.0" layoutY="191.0" styleClass="lableObrigatorio" text="*" />
             <Label layoutX="141.0" layoutY="280.0" styleClass="lableObrigatorio" text="*" />

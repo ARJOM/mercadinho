@@ -13,17 +13,19 @@
         <Pane layoutX="329.0" prefHeight="501.0" prefWidth="447.0" styleClass="camposFuncionario" stylesheets="@../style/Main.css">
             <children>
                 <Label layoutX="102.0" layoutY="26.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Atualizar Funcionario" />
-                <Label layoutX="86.0" layoutY="116.0" styleClass="lable" stylesheets="@../style/Main.css" text="Nome Completo" />
-                <TextField fx:id="campoNome" layoutX="84.0" layoutY="150.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
-                <Button fx:id="btnAtualizaFuncionario" layoutX="164.0" layoutY="373.0" mnemonicParsing="false" onAction="#acaoAtualizar" prefHeight="45.0" prefWidth="120.0" styleClass="btnCadastrar" text="Atualizar" />
-                <Label fx:id="btnCancelar" layoutX="196.0" layoutY="426.0" styleClass="btnCancelar" text="Cancelar" />
-                <Label layoutX="85.0" layoutY="197.0" styleClass="lable" stylesheets="@../style/Main.css" text="Senha" />
-                <PasswordField fx:id="campoSenha1" layoutX="84.0" layoutY="229.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
-                <Label layoutX="86.0" layoutY="276.0" styleClass="lable" stylesheets="@../style/Main.css" text="Confirmar Senha" />
-                <PasswordField fx:id="campoSenha2" layoutX="84.0" layoutY="309.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
-                <Label layoutX="219.0" layoutY="120.0" styleClass="lableObrigatorio" text="*" />
-                <Label layoutX="137.0" layoutY="201.0" styleClass="lableObrigatorio" text="*" />
-                <Label layoutX="224.0" layoutY="280.0" styleClass="lableObrigatorio" text="*" />
+                <Label layoutX="83.0" layoutY="142.0" styleClass="lable" stylesheets="@../style/Main.css" text="Nome Completo" />
+                <TextField fx:id="campoNome" layoutX="81.0" layoutY="176.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+                <Button fx:id="btnAtualizaFuncionario" layoutX="161.0" layoutY="399.0" mnemonicParsing="false" onAction="#acaoAtualizar" prefHeight="45.0" prefWidth="120.0" styleClass="btnCadastrar" text="Atualizar" />
+                <Label fx:id="btnCancelar" layoutX="193.0" layoutY="452.0" styleClass="btnCancelar" text="Cancelar" />
+                <Label layoutX="82.0" layoutY="223.0" styleClass="lable" stylesheets="@../style/Main.css" text="Senha" />
+                <PasswordField fx:id="campoSenha1" layoutX="81.0" layoutY="255.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+                <Label layoutX="83.0" layoutY="302.0" styleClass="lable" stylesheets="@../style/Main.css" text="Confirmar Senha" />
+                <PasswordField fx:id="campoSenha2" layoutX="81.0" layoutY="335.0" prefHeight="32.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+                <Label layoutX="216.0" layoutY="146.0" styleClass="lableObrigatorio" text="*" />
+                <Label layoutX="134.0" layoutY="227.0" styleClass="lableObrigatorio" text="*" />
+                <Label layoutX="221.0" layoutY="306.0" styleClass="lableObrigatorio" text="*" />
+            <Label layoutX="81.0" layoutY="104.0" styleClass="lable" text="CPF:" />
+            <Label fx:id="labelCPF" layoutX="123.0" layoutY="104.0" styleClass="lable" text="000.00.000-00" />
             </children></Pane>
         <Pane prefHeight="501.0" prefWidth="331.0" styleClass="gradiente" stylesheets="@../style/Main.css">
             <children>

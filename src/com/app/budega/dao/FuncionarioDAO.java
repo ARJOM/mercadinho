@@ -37,8 +37,8 @@ public class FuncionarioDAO {
 
             while (rs.next()){
                 String nome = rs.getString(2);
-
-                return new Funcionario(cpf,nome);
+                String senha = rs.getString(3);
+                return new Funcionario(cpf,nome,senha);
             }
             return null;
         }
@@ -54,8 +54,9 @@ public class FuncionarioDAO {
             while (rs.next()){
                 String cpf = rs.getString(1);
                 String nome = rs.getString(2);
+                String senha = rs.getString(3);
 
-                funcionarios.add(new Funcionario(cpf,nome));
+                funcionarios.add(new Funcionario(cpf,nome,senha));
             }
             return funcionarios;
         }

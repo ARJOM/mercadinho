@@ -1,5 +1,7 @@
 package com.app.budega.model;
 
+import javafx.collections.ObservableList;
+
 import java.util.Objects;
 
 public class Funcionario {
