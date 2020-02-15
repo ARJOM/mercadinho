@@ -25,8 +25,8 @@
          <children>
             <Label layoutX="104.0" layoutY="31.0" styleClass="titleFuncionario" text="Cadastro de Dependentes" />
             <Label layoutX="96.0" layoutY="102.0" styleClass="lable" text="Responsavel" />
-            <TextField fx:id="jTextNomeDep" layoutX="99.0" layoutY="222.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
-            <ComboBox fx:id="cbResponsaveu" layoutX="99.0" layoutY="137.0" prefHeight="42.0" prefWidth="279.0" promptText="-Selecione-" styleClass="comboBox" />
+            <TextField fx:id="CampoNome" layoutX="99.0" layoutY="222.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+            <ComboBox fx:id="cbResponsavel" layoutX="99.0" layoutY="137.0" prefHeight="42.0" prefWidth="279.0" promptText="-Selecione-" styleClass="comboBox" />
             <Label layoutX="101.0" layoutY="188.0" styleClass="lable" text="Nome" />
             <ComboBox fx:id="cbParentesco" layoutX="99.0" layoutY="307.0" prefHeight="42.0" prefWidth="279.0" promptText="-Selecione-" styleClass="comboBox" />
             <Label layoutX="100.0" layoutY="272.0" styleClass="lable" text="Parentesco" />
@@ -43,7 +43,7 @@
                   <String fx:value="lable" />
                </styleClass>
             </RadioButton>
-            <Button layoutX="160.0" layoutY="438.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" text="Cadastrar" />
+            <Button layoutX="160.0" layoutY="438.0" onAction="#acaoCadastrar" mnemonicParsing="false" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" text="Cadastrar" />
             <Label layoutX="205.0" layoutY="494.0" styleClass="btnCancelar" text="Cancelar" />
             <RadioButton layoutX="102.0" layoutY="396.0" mnemonicParsing="false" stylesheets="@../style/Main.css" text="Sim" toggleGroup="$gpPermissao">
                <font>
