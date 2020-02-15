@@ -23,25 +23,24 @@ public class CaixaDao {
             ClassNotFoundException {
         try(Connection connection = conexao.getConnection()){
             PreparedStatement pstmt = connection.prepareStatement(
-                    "INSERT INTO caixa(idcaixa, valor, cliente, descricao, funcionario)" +
-                            "VALUES (?,?,?,?,?)");
-            pstmt.setInt(1, caixa.getIdCaixa());
-            pstmt.setFloat(2, caixa.getValor());
-            pstmt.setDate(3,
+                    "INSERT INTO caixa(id, valor, datacaixa, descricao, funcionario)" +
+                            "VALUES (proximoidcaixa(),?,?,?,?)");
+            pstmt.setFloat(1, caixa.getValor());
+            pstmt.setDate(2,
                     java.sql.Date.valueOf(caixa.getDataCaixa()));
-            pstmt.setString(4, caixa.getDescricao());
-            pstmt.setString(5, caixa.getFuncionario());
+            pstmt.setString(3, caixa.getDescricao());
+            pstmt.setString(4, caixa.getFuncionario());
 
             return pstmt.executeUpdate() > 0;
         }
     }
 
-    public Caixa buscarPorId(int idcaixa) throws SQLException,
+    public Caixa buscarPorId(int id) throws SQLException,
             ClassNotFoundException {
         try(Connection connection = conexao.getConnection()){
             PreparedStatement pstm = connection.prepareStatement(
-                    "SELECT * FROM caixa WHERE idcaixa = ?");
-            pstm.setInt(1, idcaixa);
+                    "SELECT * FROM caixa WHERE id = ?");
+            pstm.setInt(1, id);
 
             ResultSet rs = pstm.executeQuery();
             if (rs.next()){
@@ -50,26 +49,26 @@ public class CaixaDao {
                 String descricao = rs.getString("descricao");
                 String funcionario = rs.getString("funcionario");
 
-                return new Caixa(idcaixa, valor, datacaixa, descricao,funcionario);
+                return new Caixa(id, valor, datacaixa, descricao,funcionario);
             }
             return null;
         }
     }
 
-    public Set<Caixa> getAbates() throws SQLException, ClassNotFoundException{
+    public Set<Caixa> getRegistros() throws SQLException, ClassNotFoundException{
         try(Connection connection = conexao.getConnection()){
             PreparedStatement pstm = connection.prepareStatement("SELECT * FROM caixa");
             Set<Caixa> caixas = new HashSet<>();
 
             ResultSet rs = pstm.executeQuery();
             while (rs.next()){
-                int idcaixa = rs.getInt("idcaixa");
+                int id = rs.getInt("id");
                 float valor = rs.getFloat("valor");
                 LocalDate datacaixa = rs.getDate("datacaixa").toLocalDate();
                 String descricao = rs.getString("descricao");
                 String funcionario = rs.getString("funcionario");
 
-                caixas.add(new Caixa(idcaixa, valor, datacaixa, descricao,funcionario));
+                caixas.add(new Caixa(id, valor, datacaixa, descricao,funcionario));
             }
             return caixas;
         }

@@ -5,26 +5,26 @@ import java.util.Objects;
 
 public class Caixa {
 
-    private int idCaixa;
+    private int id;
     private float valor;
     private LocalDate dataCaixa;
     private String descricao;
     private String funcionario;
 
     public Caixa(int idCaixa, float valor, LocalDate dataCaixa, String descricao, String funcionario) {
-        this.idCaixa = idCaixa;
+        this.id = idCaixa;
         this.valor = valor;
         this.dataCaixa = dataCaixa;
         this.descricao = descricao;
         this.funcionario = funcionario;
     }
 
-    public int getIdCaixa() {
-        return idCaixa;
+    public int getId() {
+        return id;
     }
 
-    public void setIdCaixa(int idCaixa) {
-        this.idCaixa = idCaixa;
+    public void setId(int idCaixa) {
+        this.id = idCaixa;
     }
 
     public float getValor() {
@@ -64,18 +64,18 @@ public class Caixa {
         if (this == o) return true;
         if (!(o instanceof Caixa)) return false;
         Caixa caixa = (Caixa) o;
-        return getIdCaixa() == caixa.getIdCaixa();
+        return getId() == caixa.getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getIdCaixa());
+        return Objects.hash(getId());
     }
 
     @Override
     public String toString() {
         return "Caixa{" +
-                "idCaixa=" + idCaixa +
+                "idCaixa=" + id +
                 ", valor=" + valor +
                 ", dataCaixa=" + dataCaixa +
                 ", descricao='" + descricao + '\'' +
