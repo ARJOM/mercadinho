@@ -103,13 +103,13 @@ public class CadastroDependenteController implements Initializable {
 
             dependenteDAO = new DependenteDAO();
 
-            String id = "proximoIdDependente()";
             String responsavel = String.valueOf(cbResponsavel.getItems());
             String nome = CampoNome.getText();
             String parentesco = String.valueOf(cbParentesco.getItems());
-            String permissao = String.valueOf(gpPermissao.getSelectedToggle());
+//            Boolean permissao = Boolean.valueOf(String.valueOf(gpPermissao.getSelectedToggle()));
+            System.out.println(gpPermissao.getSelectedToggle().selectedProperty().get());
 
-            Dependente dependente = new Dependente(id, responsavel, nome, parentesco, permissao);
+            Dependente dependente = new Dependente("0", responsavel, nome, parentesco, true);
 
             try {
                 if (dependenteDAO.salvar(dependente)) {

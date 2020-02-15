@@ -10,9 +10,9 @@ public class Dependente {
     private String responsavel;
     private String nome;
     private String parentesco;
-    private String permissao;
+    private Boolean permissao;
 
-    public Dependente(String id, String responsavel, String nome, String parentesco, String permissao) {
+    public Dependente(String id, String responsavel, String nome, String parentesco, Boolean permissao) {
         this.id = id;
         this.responsavel = responsavel;
         this.nome = nome;
@@ -52,11 +52,11 @@ public class Dependente {
         this.parentesco = parentesco;
     }
 
-    public String getPermissao() {
+    public Boolean getPermissao() {
         return permissao;
     }
 
-    public void setPermissao(String permissao) {
+    public void setPermissao(Boolean permissao) {
         this.permissao = permissao;
     }
 

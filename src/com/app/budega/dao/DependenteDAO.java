@@ -23,12 +23,11 @@ public class DependenteDAO {
         try(Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
                     "INSERT INTO dependente(id, responsavel, nome, parentesco, permissao)" +
-                            "VALUES (?,?,?,?,?)");
-            pstmt.setString(1, dependente.getId());
-            pstmt.setString(2, dependente.getResponsavel());
-            pstmt.setString(3, dependente.getNome());
-            pstmt.setString(4, dependente.getParentesco());
-            pstmt.setBoolean(5, Boolean.parseBoolean(dependente.getPermissao()));
+                            "VALUES (proximoIdDependente(), ?,?,?,?)");
+            pstmt.setString(1, dependente.getResponsavel());
+            pstmt.setString(2, dependente.getNome());
+            pstmt.setString(3, dependente.getParentesco());
+            pstmt.setBoolean(4, dependente.getPermissao());
 
             return pstmt.executeUpdate() > 0;
         }
@@ -45,7 +44,7 @@ public class DependenteDAO {
                 String responsavel = rs.getString("responsavel");
                 String nome = rs.getString("nome");
                 String parentesco = rs.getString("parentesco");
-                String permissao = String.valueOf(rs.getBoolean("permissao"));
+                Boolean permissao = rs.getBoolean("permissao");
 
                 return new Dependente(id, responsavel, nome, parentesco, permissao);
             }
@@ -68,7 +67,7 @@ public class DependenteDAO {
                 String responsavel = rs.getString("responsavel");
                 String nome = rs.getString("nome");
                 String parentesco = rs.getString("parentesco");
-                String permissao = String.valueOf(rs.getBoolean("permissao"));
+                Boolean permissao = rs.getBoolean("permissao");
 
                 dependente.add(new Dependente(id, responsavel, nome, parentesco, permissao));
             }
