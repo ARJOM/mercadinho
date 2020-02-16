@@ -16,13 +16,13 @@
    <children>
       <Pane layoutY="-1.0" prefHeight="583.0" prefWidth="955.0" styleClass="main" stylesheets="@../style/Main.css">
          <children>
-            <TableView layoutX="260.0" layoutY="115.0" prefHeight="402.0" prefWidth="459.0" stylesheets="@../style/Main.css">
+            <TableView fx:id="tabelaCaixa" layoutX="260.0" layoutY="115.0" prefHeight="402.0" prefWidth="469.0" stylesheets="@../style/Main.css">
               <columns>
-                <TableColumn prefWidth="75.0" text="ID" />
-                <TableColumn prefWidth="75.0" text="Valor" />
-                  <TableColumn prefWidth="85.66668701171875" text="Funcionario" />
-                  <TableColumn prefWidth="75.0" text="Data" />
-                  <TableColumn prefWidth="147.0" text="Descriçao" />
+                <TableColumn fx:id="colunaID" prefWidth="35.0" styleClass=".colunas" text="ID" />
+                <TableColumn fx:id="colunaValor" prefWidth="65.0" text="Valor" />
+                  <TableColumn fx:id="colunaFuncionario" prefWidth="124.0" text="Funcionario" />
+                  <TableColumn fx:id="colunaData" prefWidth="106.0" text="Data" />
+                  <TableColumn fx:id="colunaDesc" prefWidth="140.0" text="Descriçao" />
               </columns>
             </TableView>
             <Pane layoutX="-3.0" layoutY="-8.0" prefHeight="596.0" prefWidth="239.0" styleClass="mainMenu">
@@ -172,7 +172,7 @@
             </Pane>
             <Label layoutX="785.0" layoutY="14.0" styleClass="lable" text="Funcionario Logado" />
             <Label layoutX="900.0" layoutY="547.0" styleClass="lable" text="Data" />
-            <Pane layoutX="745.0" layoutY="115.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
+            <Pane fx:id="cardNovaVenda" layoutX="750.0" layoutY="115.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
                <children>
                   <Label layoutX="49.0" layoutY="75.0" styleClass="lable" text="Nova Venda" />
                   <Pane layoutX="57.0" layoutY="14.0" prefHeight="53.0" prefWidth="68.0" stylesheets="@../style/Main.css">
@@ -183,9 +183,9 @@
                   </Pane>
                </children></Pane>
             <Label layoutX="260.0" layoutY="44.0" styleClass="titleFuncionario" text="Registros do Caixa" />
-            <Pane layoutX="745.0" layoutY="395.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
+            <Pane layoutX="750.0" layoutY="395.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
                <children>
-                  <Label layoutX="42.0" layoutY="78.0" styleClass="lable" text="Nova Registro" />
+                  <Label fx:id="cardNovoRegistro" layoutX="42.0" layoutY="78.0" styleClass="lable" text="Nova Registro" />
                   <Pane layoutX="64.0" layoutY="14.0" prefHeight="53.0" prefWidth="68.0" stylesheets="@../style/Main.css">
                      <styleClass>
                         <String fx:value="btnMais" />
@@ -194,10 +194,10 @@
                   </Pane>
                </children>
             </Pane>
-            <Pane layoutX="745.0" layoutY="255.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
+            <Pane layoutX="750.0" layoutY="255.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
                <children>
                   <Label layoutX="17.0" layoutY="77.0" styleClass="lable" text="Historico de vendas " />
-                  <Pane layoutX="57.0" layoutY="14.0" prefHeight="53.0" prefWidth="68.0" stylesheets="@../style/Main.css">
+                  <Pane fx:id="cardListarVenda" layoutX="57.0" layoutY="14.0" prefHeight="53.0" prefWidth="68.0" stylesheets="@../style/Main.css">
                      <styleClass>
                         <String fx:value="btnMais" />
                         <String fx:value="btnListarVendas" />
