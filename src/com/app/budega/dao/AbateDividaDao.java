@@ -2,7 +2,6 @@ package com.app.budega.dao;
 
 import com.app.budega.conexao.Conexao;
 import com.app.budega.model.AbateDivida;
-import com.app.budega.model.Funcionario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -68,6 +67,31 @@ public class AbateDividaDao {
                 abates.add(new AbateDivida(idAbate, cliente, funcionario, valor));
             }
             return abates;
+        }
+    }
+
+    public boolean deletar(AbateDivida abateDivida) throws SQLException,
+            ClassNotFoundException{
+        try (Connection connection = conexao.getConnection()) {
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "DELETE FROM abatedivida WHERE idabate = ?");
+            pstmt.setString(1, abateDivida.getIdAbate());
+
+            return pstmt.executeUpdate() > 0;
+        }
+    }
+
+    public boolean atualizar(AbateDivida abateDivida) throws SQLException,
+            ClassNotFoundException {
+        try (Connection connection = conexao.getConnection()) {
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "UPDATE abatedivida SET funcionario = ?, cliente = ?, valor = ? WHERE idabate = ?");
+           pstmt.setString(1, abateDivida.getFuncionario());
+           pstmt.setString(2, abateDivida.getCliente());
+           pstmt.setFloat(3, abateDivida.getValor());
+           pstmt.setString(4, abateDivida.getIdAbate());
+
+            return pstmt.executeUpdate() > 0;
         }
     }
 }

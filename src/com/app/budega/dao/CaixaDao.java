@@ -73,4 +73,30 @@ public class CaixaDao {
             return caixas;
         }
     }
+
+    public boolean deletar(Caixa caixa) throws SQLException,
+            ClassNotFoundException{
+        try (Connection connection = conexao.getConnection()) {
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "DELETE FROM caixa WHERE id = ?");
+            pstmt.setInt(1, caixa.getId());
+
+            return pstmt.executeUpdate() > 0;
+        }
+    }
+
+    public boolean atualizar(Caixa caixa) throws SQLException,
+            ClassNotFoundException {
+        try (Connection connection = conexao.getConnection()) {
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "UPDATE caixa SET valor = ?, datacaixa = ?, descricao = ?, funcionario = ? WHERE id = ?");
+            pstmt.setFloat(1, caixa.getValor());
+            pstmt.setDate(2, java.sql.Date.valueOf(caixa.getDataCaixa()));
+            pstmt.setString(3, caixa.getDescricao());
+            pstmt.setString(4, caixa.getFuncionario());
+            pstmt.setInt(5, caixa.getId());
+
+            return pstmt.executeUpdate() > 0;
+        }
+    }
 }

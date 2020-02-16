@@ -35,11 +35,11 @@ public class PedidoProdutoDAO {
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
-                    "UPDATE pedidoproduto SET pedido = ?, produto = ?, quantidade = ?, precounitario = ?");
-            pstmt.setString(1, pedidoProduto.getPedido());
-            pstmt.setString(2, pedidoProduto.getProduto());
-            pstmt.setInt(3, pedidoProduto.getQuantidade());
-            pstmt.setFloat(4, pedidoProduto.getPrecoUnitario());
+                    "UPDATE pedidoproduto SET quantidade = ?, precounitario = ? WHERE pedido = ? AND produto = ?");
+            pstmt.setInt(1, pedidoProduto.getQuantidade());
+            pstmt.setFloat(2, pedidoProduto.getPrecoUnitario());
+            pstmt.setString(3, pedidoProduto.getPedido());
+            pstmt.setString(4, pedidoProduto.getProduto());
 
             return pstmt.executeUpdate() > 0;
         }
@@ -49,23 +49,24 @@ public class PedidoProdutoDAO {
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
-                    "DELETE FROM pedidoproduto WHERE pedido = ?");
+                    "DELETE FROM pedidoproduto WHERE pedido = ? AND produto = ?");
             pstmt.setString(1, pedidoProduto.getPedido());
+            pstmt.setString(2, pedidoProduto.getProduto());
 
             return pstmt.executeUpdate() > 0;
         }
     }
 
-    public PedidoProduto buscarPorPedido(String pedido) throws SQLException,
+    public PedidoProduto buscarPorPedidoProduto(String pedido, String produto) throws SQLException,
             ClassNotFoundException{
         try(Connection connection = conexao.getConnection()){
             PreparedStatement pstmt = connection.prepareStatement(
-                    "SELECT * FROM pedidoproduto WHERE pedido = ?");
+                    "SELECT * FROM pedidoproduto WHERE pedido = ? AND produto = ?");
             pstmt.setString(1, pedido);
+            pstmt.setString(2, produto);
 
             ResultSet rs = pstmt.executeQuery();
             if(rs.next()){
-                String produto = rs.getString("produto");
                 Integer quantidade = rs.getInt("quantidade");
                 Float precounitario = rs.getFloat("precounitario");
 

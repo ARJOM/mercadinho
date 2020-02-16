@@ -1,7 +1,6 @@
 package com.app.budega.dao;
 
 import com.app.budega.conexao.Conexao;
-import com.app.budega.model.PedidoProduto;
 import com.app.budega.model.Produto;
 
 import java.sql.Connection;

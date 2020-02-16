@@ -2,7 +2,6 @@ package com.app.budega.dao;
 
 import com.app.budega.conexao.Conexao;
 import com.app.budega.model.Dependente;
-import com.app.budega.model.Fornecedor;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -72,6 +71,31 @@ public class DependenteDAO {
                 dependente.add(new Dependente(id, responsavel, nome, parentesco, permissao));
             }
             return dependente;
+        }
+    }
+
+    public boolean deletar(Dependente dependente) throws SQLException,
+            ClassNotFoundException{
+        try (Connection connection = conexao.getConnection()) {
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "DELETE FROM dependente WHERE id = ?");
+            pstmt.setString(1, dependente.getId());
+
+            return pstmt.executeUpdate() > 0;
+        }
+    }
+
+    public boolean atualizar(Dependente dependente) throws SQLException,
+                ClassNotFoundException {
+        try (Connection connection = conexao.getConnection()) {
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "UPDATE dependente SET nome = ?, parentesco = ?, permissao = ? WHERE id = ?");
+            pstmt.setString(1, dependente.getNome());
+            pstmt.setString(2, dependente.getParentesco());
+            pstmt.setBoolean(3, dependente.getPermissao());
+            pstmt.setString(4, dependente.getId());
+
+            return pstmt.executeUpdate() > 0;
         }
     }
 }

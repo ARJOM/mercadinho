@@ -69,4 +69,28 @@ public class ClienteDao {
         }
     }
 
+    public boolean deletar(Cliente cliente) throws SQLException,
+            ClassNotFoundException{
+        try (Connection connection = conexao.getConnection()) {
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "DELETE FROM cliente WHERE cpf = ?");
+            pstmt.setString(1, cliente.getCpf());
+
+            return pstmt.executeUpdate() > 0;
+        }
+    }
+
+    public boolean atualizar(Cliente cliente) throws SQLException,
+            ClassNotFoundException {
+        try (Connection connection = conexao.getConnection()) {
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "UPDATE cliente SET nome = ?, divida = ?, contato = ? WHERE cpf = ?");
+            pstmt.setString(1, cliente.getNome());
+            pstmt.setFloat(2, cliente.getDivida());
+            pstmt.setString(3, cliente.getContato());
+            pstmt.setString(4, cliente.getCpf());
+
+            return pstmt.executeUpdate() > 0;
+        }
+    }
 }

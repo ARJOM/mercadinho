@@ -34,11 +34,11 @@ public class PedidoDAO {
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
-                    "UPDATE pedido SET idpedido = ?, datacompra = ?, valorcompra = ?, fornecedor = ?");
-            pstmt.setString(1, pedido.getIdPedido());
-            pstmt.setString(2, String.valueOf(pedido.getDataCompra()));
-            pstmt.setFloat(3, pedido.getValorCompra());
-            pstmt.setString(4, pedido.getFornecedor());
+                    "UPDATE pedido SET datacompra = ?, valorcompra = ?, fornecedor = ? WHERE idpedido = ?");
+            pstmt.setString(1, String.valueOf(pedido.getDataCompra()));
+            pstmt.setFloat(2, pedido.getValorCompra());
+            pstmt.setString(3, pedido.getFornecedor());
+            pstmt.setString(4, pedido.getIdPedido());
 
             return pstmt.executeUpdate() > 0;
         }
