@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/ListarDependente.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/ListarClientes.fxml"));
         root.getStylesheets().add(getClass().getResource("../view/style/Main.css").toExternalForm());
         primaryStage.setTitle("Budega App");
         primaryStage.setScene(new Scene(root));

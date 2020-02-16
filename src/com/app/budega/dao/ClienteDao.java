@@ -69,12 +69,12 @@ public class ClienteDao {
         }
     }
 
-    public boolean deletar(Cliente cliente) throws SQLException,
+    public boolean deletar(String cpf) throws SQLException,
             ClassNotFoundException{
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
                     "DELETE FROM cliente WHERE cpf = ?");
-            pstmt.setString(1, cliente.getCpf());
+            pstmt.setString(1, cpf);
 
             return pstmt.executeUpdate() > 0;
         }

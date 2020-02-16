@@ -201,6 +201,7 @@
     -fx-background-color: #ffffff;
     fx-border-radius: 4px;
     -fx-effect: dropshadow(gaussian, #BDBDBD, 15, 0.2, 3, 4);
+    -fx-cursor: hand;
 }
 .card:pressed{
     -fx-border-color: #BDBDBD;
