@@ -1,11 +1,9 @@
 package com.app.budega.controller;
 
+import com.app.budega.App.Main;
 import com.app.budega.conexao.Conexao;
 import com.app.budega.dao.DependenteDAO;
-import com.app.budega.dao.FornecedorDAO;
-import com.app.budega.model.Cliente;
 import com.app.budega.model.Dependente;
-import com.app.budega.model.Fornecedor;
 import com.app.budega.model.Parentesco;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -14,14 +12,22 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
 import java.net.URL;
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.ResourceBundle;
 
-import static javafx.collections.FXCollections.*;
+import static javafx.collections.FXCollections.observableArrayList;
 
-public class CadastroDependenteController implements Initializable {
+public class AtualizaDependenteController implements Initializable {
 
     DependenteDAO dependenteDAO;
+
+    private static Dependente dependenteRetornado;
 
     @FXML
     private TextField CampoNome;
@@ -35,7 +41,8 @@ public class CadastroDependenteController implements Initializable {
     @FXML
     private ToggleGroup gpPermissao;
 
-    private boolean permissao;
+    @FXML
+    private Label labelID;
 
     private List<String> responsavel = new ArrayList<>();
     private ObservableList<String> responsavelOBS;
@@ -47,6 +54,7 @@ public class CadastroDependenteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
+            setaDependente();
             carregarResponsavel();
             carregarParentesco();
         } catch (SQLException e) {
@@ -56,14 +64,6 @@ public class CadastroDependenteController implements Initializable {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-    }
-
-    public void yes(ActionEvent actionEvent){
-        permissao = true;
-    }
-
-    public void no(ActionEvent actionEvent){
-        permissao = false;
     }
 
     public void carregarResponsavel() throws SQLException, ClassNotFoundException {
@@ -100,38 +100,43 @@ public class CadastroDependenteController implements Initializable {
         cbParentesco.setItems(parentescoOBS);
     }
 
-    public void acaoCadastrar(ActionEvent actionEvent) {
-        if (CampoNome.getText().equals("")) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Cadastro de Dependente");
+    @FXML
+    void acaoAtualizar(ActionEvent event){
+        if(CampoNome.getText().equals("") ){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Atualização de Dependente");
             alert.setHeaderText("Todos os Campos com * devem ser preenchidos.");
             alert.setContentText("Verifique os campos e tente novamente.");
-            alert.showAndWait();
-        } else {
 
-            dependenteDAO = new DependenteDAO();
+            alert.showAndWait();
+        }else {
+            DependenteDAO dependenteDAO = new DependenteDAO();
 
             String responsavel = String.valueOf(cbResponsavel.getValue());
             String nome = CampoNome.getText();
             String parentesco = String.valueOf(cbParentesco.getValue());
-
-
-            Dependente dependente = new Dependente("0", responsavel, nome, parentesco, permissao);
-
+            Boolean permissao;
+            String id = dependenteRetornado.getId();
+            if (gpPermissao.getSelectedToggle().selectedProperty().get() == true){
+                permissao = true;
+            }
+            else {
+                permissao = false;
+            }
             try {
-                if (dependenteDAO.salvar(dependente)) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Cadastro de Dependente");
-                    alert.setHeaderText("Cadastrado com sucesso.");
-                    alert.showAndWait();
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Cadastro de Dependente");
-                    alert.setHeaderText("Erro ao Cadastrar.");
-                    alert.setContentText("Por favor tente novamente.");
-                    alert.showAndWait();
-                }
+                Dependente dependente = new Dependente(id, responsavel, nome, parentesco, permissao);
+                dependenteDAO.atualizar(dependente);
+                if(dependenteDAO.atualizar(dependente) == true){
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Atualização de Funcionario");
+                    alert.setHeaderText("Dados atualizados com sucesso.");
+                    alert.setContentText(labelID.getText());
 
+                    Optional<ButtonType> resultado = alert.showAndWait();
+                    if (resultado.get() == ButtonType.OK){
+                        Main main = new Main();
+                    }
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
             } catch (ClassNotFoundException e) {
@@ -139,4 +144,20 @@ public class CadastroDependenteController implements Initializable {
             }
         }
     }
+
+    public void setaDependente(){
+        labelID.setText(dependenteRetornado.getId());
+        CampoNome.setText(dependenteRetornado.getNome());
+        cbResponsavel.setValue(dependenteRetornado.getResponsavel());
+
+    }
+
+    public static Dependente getDependenteRetornado(){
+        return dependenteRetornado;
+    }
+
+    public static void setDependenteRetornado(Dependente dependenteRetornado){
+        AtualizaDependenteController.dependenteRetornado = dependenteRetornado;
+    }
+
 }

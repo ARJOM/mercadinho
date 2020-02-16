@@ -3,6 +3,7 @@ package com.app.budega.dao;
 import com.app.budega.conexao.Conexao;
 import com.app.budega.model.Dependente;
 
+import java.io.StringReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,6 +52,28 @@ public class DependenteDAO {
         }
     }
 
+    public boolean deleteDependente(String id) throws SQLException, ClassNotFoundException{
+        try(Connection connection = conexao.getConnection()){
+            PreparedStatement pstm = connection.prepareStatement("DELETE FROM dependente WHERE i = ?");
+            pstm.setString(1,id);
+
+            return pstm.executeUpdate() > 0;
+        }
+    }
+
+    public boolean atualizaDependente(String id, String responsavel, String nome, String parentesco, Boolean permissao ) throws SQLException, ClassNotFoundException{
+        try(Connection connection = conexao.getConnection()){
+            PreparedStatement pstm = connection.prepareStatement("UPDATE dependente SET responsavel = ?, nome = ?, parentesco = ?, permissao = ? WHERE id = ? ");
+            pstm.setString(1, responsavel);
+            pstm.setString(2, nome);
+            pstm.setString(3, parentesco);
+            pstm.setBoolean(4, permissao);
+            pstm.setString(5, id);
+
+            return pstm.executeUpdate() > 0;
+        }
+    }
+
     public Set<Dependente> getDependentes() throws SQLException,
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
@@ -89,13 +112,15 @@ public class DependenteDAO {
                 ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
-                    "UPDATE dependente SET nome = ?, parentesco = ?, permissao = ? WHERE id = ?");
-            pstmt.setString(1, dependente.getNome());
-            pstmt.setString(2, dependente.getParentesco());
-            pstmt.setBoolean(3, dependente.getPermissao());
-            pstmt.setString(4, dependente.getId());
+                    "UPDATE dependente SET responsavel = ?, nome = ?, parentesco = ?, permissao = ? WHERE id = ?");
+            pstmt.setString(1, dependente.getResponsavel());
+            pstmt.setString(2, dependente.getNome());
+            pstmt.setString(3, dependente.getParentesco());
+            pstmt.setBoolean(4, dependente.getPermissao());
+            pstmt.setString(5, dependente.getId());
 
             return pstmt.executeUpdate() > 0;
         }
     }
+
 }
