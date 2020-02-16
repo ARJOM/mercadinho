@@ -23,11 +23,10 @@ public class AbateDividaDao {
         try(Connection connection = conexao.getConnection()){
             PreparedStatement pstmt = connection.prepareStatement(
                     "INSERT INTO abatedivida(idabate, cliente, funcionario, valor)" +
-                            "VALUES (?,?,?,?)");
-            pstmt.setString(1, abate.getIdAbate());
-            pstmt.setString(2, abate.getCliente());
-            pstmt.setString(3, abate.getFuncionario());
-            pstmt.setFloat(4, abate.getValor());
+                            "VALUES (proximoIdAbateDivida(),?,?,?)");
+            pstmt.setString(1, abate.getCliente());
+            pstmt.setString(2, abate.getFuncionario());
+            pstmt.setFloat(3, abate.getValor());
 
             return pstmt.executeUpdate() > 0;
         }
