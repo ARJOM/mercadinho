@@ -50,6 +50,7 @@ public class AtualizaDependenteController implements Initializable {
     private List<Parentesco> parentescos = new ArrayList<>();
     private ObservableList<Parentesco> parentescoOBS;
 
+    Boolean permissao;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -65,6 +66,15 @@ public class AtualizaDependenteController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    public void yes(ActionEvent actionEvent){
+        permissao = true;
+    }
+
+    public void no(ActionEvent actionEvent){
+        permissao = false;
+    }
+
 
     public void carregarResponsavel() throws SQLException, ClassNotFoundException {
         Conexao conexao = new Conexao();
@@ -115,14 +125,8 @@ public class AtualizaDependenteController implements Initializable {
             String responsavel = String.valueOf(cbResponsavel.getValue());
             String nome = CampoNome.getText();
             String parentesco = String.valueOf(cbParentesco.getValue());
-            Boolean permissao;
+
             String id = dependenteRetornado.getId();
-            if (gpPermissao.getSelectedToggle().selectedProperty().get() == true){
-                permissao = true;
-            }
-            else {
-                permissao = false;
-            }
             try {
                 Dependente dependente = new Dependente(id, responsavel, nome, parentesco, permissao);
                 dependenteDAO.atualizar(dependente);
