@@ -35,9 +35,9 @@ public class FuncionarioDAO {
 
             ResultSet rs = pstm.executeQuery();
 
-            while (rs.next()){
-                String nome = rs.getString(2);
-                String senha = rs.getString(3);
+            if (rs.next()){
+                String nome = rs.getString("nome");
+                String senha = rs.getString("senha");
                 return new Funcionario(cpf,nome,senha);
             }
             return null;

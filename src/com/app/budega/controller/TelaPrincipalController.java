@@ -1,7 +1,9 @@
 package com.app.budega.controller;
 
 import com.app.budega.dao.CaixaDao;
+import com.app.budega.dao.FuncionarioDAO;
 import com.app.budega.model.Caixa;
+import com.app.budega.model.Funcionario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,6 +22,8 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class TelaPrincipalController implements Initializable {
+
+    private static String funcionario;
 
     @FXML
     private TableView<Caixa> tabelaCaixa;
@@ -48,10 +52,15 @@ public class TelaPrincipalController implements Initializable {
     @FXML
     private Pane cardListarVenda;
 
+    @FXML
+    private Label labelFuncionario;
+
     @Override
     public void initialize(URL url, ResourceBundle rs){
         try {
+            System.out.println(funcionario);
             initTable();
+            nomeFuncionario();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -71,5 +80,24 @@ public class TelaPrincipalController implements Initializable {
     private ObservableList<Caixa> atualizaTable() throws SQLException, ClassNotFoundException {
         CaixaDao caixaDao = new CaixaDao();
         return FXCollections.observableArrayList(caixaDao.getRegistros());
+    }
+
+    public static String getFuncionario() {
+        return funcionario;
+    }
+
+    public static void setFuncionario(String funcionario) {
+        TelaPrincipalController.funcionario = funcionario;
+    }
+
+    public void nomeFuncionario() {
+        try {
+            FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+            Funcionario funcionario = funcionarioDAO.buscarPorCpf(TelaPrincipalController.funcionario);
+            labelFuncionario.setText(funcionario.getNome());
+        } catch (SQLException | ClassNotFoundException e){
+            labelFuncionario.setText("?????????");
+        }
+
     }
 }

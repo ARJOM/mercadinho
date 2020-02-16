@@ -50,9 +50,7 @@ public class Funcionario {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Funcionario that = (Funcionario) o;
-        return Objects.equals(cpf, that.cpf) &&
-                Objects.equals(nome, that.nome) &&
-                Objects.equals(senha, that.senha);
+        return Objects.equals(cpf, that.cpf);
     }
 
     @Override

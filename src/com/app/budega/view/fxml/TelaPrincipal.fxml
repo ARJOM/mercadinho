@@ -170,7 +170,7 @@
                   </MenuBar>
                </children>
             </Pane>
-            <Label layoutX="785.0" layoutY="14.0" styleClass="lable" text="Funcionario Logado" />
+            <Label fx:id="labelFuncionario" layoutX="785.0" layoutY="14.0" styleClass="lable" text="Funcionario Logado" />
             <Label layoutX="900.0" layoutY="547.0" styleClass="lable" text="Data" />
             <Pane fx:id="cardNovaVenda" layoutX="750.0" layoutY="115.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
                <children>
