@@ -6,6 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
 <AnchorPane prefHeight="443.0" prefWidth="709.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.ListarFornecedorController">
     <children>
         <Label layoutX="212.0" layoutY="24.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Fornecedores Cadastrados" />
@@ -16,5 +18,9 @@
                 <TableColumn fx:id="colunaContato" prefWidth="150.0" text="Contato" />
             </columns>
         </TableView>
+        <TextField layoutX="479.0" layoutY="122.0" prefHeight="22.0" prefWidth="198.0" styleClass="input" />
+        <Button layoutX="685.0" layoutY="122.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" styleClass="btnBuscar" />
+        <Button fx:id="btnDeletarProduto" layoutX="496.0" layoutY="384.0" mnemonicParsing="false" onAction="#deleteProduto" prefHeight="38.0" prefWidth="109.0" styleClass="btnDeletar" text="Deletar" />
+        <Button fx:id="btnAtualizarProduto" layoutX="620.0" layoutY="384.0" mnemonicParsing="false" onAction="#atualizarProduto" prefHeight="45.0" prefWidth="109.0" styleClass="btnCadastrar" text="Atualizar" />
     </children>
 </AnchorPane>
