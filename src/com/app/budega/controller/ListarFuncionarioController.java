@@ -9,10 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -32,6 +29,9 @@ public class ListarFuncionarioController implements Initializable {
 
     @FXML
     private TableColumn<Funcionario, String> colunaNome;
+
+    @FXML
+    private Button btnAtualizarFuncionario;
 
     @Override
     public void initialize(URL url, ResourceBundle rs){
@@ -95,6 +95,8 @@ public class ListarFuncionarioController implements Initializable {
             AtualizarFuncionarioMain atualizarFuncionarioMain = new AtualizarFuncionarioMain(funcionario);
             try {
                 atualizarFuncionarioMain.start(new Stage());
+                Stage stage = (Stage) btnAtualizarFuncionario.getScene().getWindow();
+                stage.close();
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -104,8 +106,6 @@ public class ListarFuncionarioController implements Initializable {
             alert.setHeaderText("Nenhum funcionario selecionado.");
             alert.setContentText("Selecione uma linha para atualizar.");
             alert.show();
-
-            System.out.println("aaaaa");
         }
 
     }

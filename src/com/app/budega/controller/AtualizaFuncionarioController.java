@@ -79,7 +79,8 @@ public class AtualizaFuncionarioController implements Initializable {
 
                     Optional <ButtonType> resultado = alert.showAndWait();
                        if (resultado.get() == ButtonType.OK){
-                           Main main = new Main();
+                           Stage stage = (Stage) btnAtualizaFuncionario.getScene().getWindow();
+                           stage.close();
                        }
                 }
             } catch (SQLException e) {
@@ -97,7 +98,6 @@ public class AtualizaFuncionarioController implements Initializable {
         campoSenha2.setText(funcionarioRetornado.getSenha());
 
     }
-
     public static Funcionario getFuncionarioRetornado(){
         return funcionarioRetornado;
     }

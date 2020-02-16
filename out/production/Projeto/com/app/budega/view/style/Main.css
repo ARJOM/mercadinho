@@ -118,6 +118,14 @@
 .btnDeletar:pressed{
     -fx-border-color: #BDBDBD;
 }
+.mainButton{
+    -fx-border-radius: 100px;
+    -fx-background-color: #2196F3;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+}
 .comboBox{
     -fx-border-style: solid;
     -fx-border-color: #BDBDBD;
@@ -164,4 +172,71 @@
 .table-view:focused{
     -fx-background-color: transparent;
     -fx-border-color: #BDBDBD;
+}
+.mainMenu{
+    -fx-background-color: #313131;
+}
+.labelMenu{
+    -fx-font-weight: bold;
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 20px;
+    -fx-text-fill: #ffffff;
+}
+.menuItem:hover{
+    -fx-text-fill: #2196F3;
+}
+.menuIcon{
+    -fx-background-image: url("../icon/cart.png");
+    -fx-background-position: center;
+    -fx-background-size: 100%;
+    -fx-background-repeat: no-repeat;
+}
+.card{
+    -fx-pref-width: 195;
+    -fx-pref-height: 120;
+    -fx-background-color: #ffffff;
+    fx-border-radius: 4px;
+    -fx-effect: dropshadow(gaussian, #BDBDBD, 15, 0.2, 3, 4);
+}
+.btnMais{
+    -fx-background-position: center;
+    -fx-background-size: 70%;
+    -fx-background-repeat: no-repeat;
+}
+.btnNovaVenda{
+    -fx-background-image: url("../icon/iconVenda.png");
+}
+.btnNovoRegistro{
+    -fx-background-image: url("../icon/buy.png");
+}
+.btnListarVendas{
+    -fx-background-image: url("../icon/ListarVendas.png");
+}
+.menu{
+    -fx-background-color: #313131;
+    -fx-text-fill: #ffffff;
+    -fx-border-style: none;
+    -fx-effect: inherit;
+}
+.menu:hover{
+    -fx-text-fill: #ffffff;
+}
+.menuLabel{
+    -fx-font-weight: bold;
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 16px;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+}
+.menuItem{
+    -fx-font-weight: bold;
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+    -fx-background-color: #313131;
+    -fx-pref-height: 40px;
+}
+.menuItem:hover{
+    -fx-background-color: #2196F3;
 }
