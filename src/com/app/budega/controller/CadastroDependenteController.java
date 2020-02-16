@@ -35,6 +35,8 @@ public class CadastroDependenteController implements Initializable {
     @FXML
     private ToggleGroup gpPermissao;
 
+    private boolean permissao;
+
     private List<String> responsavel = new ArrayList<>();
     private ObservableList<String> responsavelOBS;
 
@@ -54,6 +56,14 @@ public class CadastroDependenteController implements Initializable {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+    }
+
+    public void yes(ActionEvent actionEvent){
+        permissao = true;
+    }
+
+    public void no(ActionEvent actionEvent){
+        permissao = false;
     }
 
     public void carregarResponsavel() throws SQLException, ClassNotFoundException {
@@ -104,13 +114,7 @@ public class CadastroDependenteController implements Initializable {
             String responsavel = String.valueOf(cbResponsavel.getValue());
             String nome = CampoNome.getText();
             String parentesco = String.valueOf(cbParentesco.getValue());
-            Boolean permissao;
-            if (gpPermissao.getSelectedToggle().selectedProperty().get() == true){
-                permissao = true;
-            }
-            else {
-                permissao= false;
-            }
+
 
             Dependente dependente = new Dependente("0", responsavel, nome, parentesco, permissao);
 
