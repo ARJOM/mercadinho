@@ -31,7 +31,7 @@
             <ComboBox fx:id="cbParentesco" layoutX="99.0" layoutY="307.0" prefHeight="42.0" prefWidth="279.0" promptText="-Selecione-" styleClass="comboBox" />
             <Label layoutX="100.0" layoutY="272.0" styleClass="lable" text="Parentesco" />
             <Label layoutX="99.0" layoutY="362.0" styleClass="lable" text="Dependente autorizado ?" />
-            <RadioButton layoutX="190.0" layoutY="397.0" mnemonicParsing="false" stylesheets="@../style/Main.css" text="Nao">
+            <RadioButton layoutX="190.0" layoutY="397.0" mnemonicParsing="false" stylesheets="@../style/Main.css" text="Nao" toggleGroup="$gpPermissao">
                <font>
                   <Font name="Open Sans" size="14.0" />
                </font>
