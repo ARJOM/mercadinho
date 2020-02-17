@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
+<?import javafx.scene.control.Button?>
 <AnchorPane prefHeight="582.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.TelaPrincipalController">
    <children>
       <Pane layoutY="-1.0" prefHeight="583.0" prefWidth="955.0" styleClass="main" stylesheets="@../style/Main.css">
@@ -168,6 +169,7 @@
                         <Insets top="10.0" />
                      </padding>
                   </MenuBar>
+                  <Button layoutX="32.0" layoutY="500.0" mnemonicParsing="false" onAction="#abaterDivida" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" stylesheets="@../style/Main.css" text="Abater Divida" />
                </children>
             </Pane>
             <Label fx:id="labelFuncionario" layoutX="785.0" layoutY="14.0" styleClass="lable" text="Funcionario Logado" />
