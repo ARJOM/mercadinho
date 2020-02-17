@@ -2,6 +2,7 @@ package com.app.budega.controller;
 
 import com.app.budega.App.LogarFuncionarioMain;
 import com.app.budega.App.PassarFuncionarioAbateMain;
+import com.app.budega.App.PassarFuncionarioCaixaMain;
 import com.app.budega.dao.CaixaDao;
 import com.app.budega.dao.FuncionarioDAO;
 import com.app.budega.model.Caixa;
@@ -106,6 +107,19 @@ public class TelaPrincipalController implements Initializable {
             alert.showAndWait();
         }
 
+    }
+
+    public void registrarCaixa(){
+        try {
+            PassarFuncionarioCaixaMain passarFuncionarioCaixaMain = new PassarFuncionarioCaixaMain(funcionario);
+            passarFuncionarioCaixaMain.start(new Stage());
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Abate de Divida");
+            alert.setHeaderText("Não foi possível abrir a janela.");
+            alert.setContentText("Tente se autenticar e repita a ação.");
+            alert.showAndWait();
+        }
     }
 
     public void nomeFuncionario() {
