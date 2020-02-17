@@ -8,6 +8,8 @@ import com.app.budega.dao.CaixaDao;
 import com.app.budega.dao.FuncionarioDAO;
 import com.app.budega.model.Caixa;
 import com.app.budega.model.Funcionario;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,16 +21,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.awt.event.KeyEvent;
 import java.net.URL;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Locale;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class TelaPrincipalController implements Initializable {
 
@@ -94,15 +95,19 @@ public class TelaPrincipalController implements Initializable {
     @FXML
     private Button btnCadastrarFornecedor;
 
+    @FXML
+    private Label labelData;
+
+    private SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss a");
 
     @Override
     public void initialize(URL url, ResourceBundle rs){
-        nomeFuncionario();
         new Timer().scheduleAtFixedRate(new TimerTask(){
             @Override
             public void run(){
                 try {
                     initTable();
+                    nomeFuncionario();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 } catch (ClassNotFoundException e) {
@@ -110,6 +115,11 @@ public class TelaPrincipalController implements Initializable {
                 }
             }
         },0,5000);
+
+        KeyFrame frame = new KeyFrame(Duration.millis(1000),e -> capturaHora());
+        Timeline timeLine = new Timeline(frame);
+        timeLine.setCycleCount(Timeline.INDEFINITE);
+        timeLine.play();
     }
 
     private void initTable() throws SQLException, ClassNotFoundException {
@@ -146,19 +156,6 @@ public class TelaPrincipalController implements Initializable {
             alert.showAndWait();
         }
 
-    }
-
-    public void registrarCaixa(ActionEvent actionEvent) {
-        try {
-            PassarFuncionarioCaixaMain passarFuncionarioCaixaMain = new PassarFuncionarioCaixaMain(funcionario);
-            passarFuncionarioCaixaMain.start(new Stage());
-        } catch (Exception e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Registro de Caixa");
-            alert.setHeaderText("Não foi possível abrir a janela.");
-            alert.setContentText("Tente se autenticar e repita a ação.");
-            alert.showAndWait();
-        }
     }
 
     public void nomeFuncionario() {
@@ -283,13 +280,20 @@ public class TelaPrincipalController implements Initializable {
     }
 
     public void novoRegistro(MouseEvent mouseEvent) {
-        CadastroCaixaMain cadastroCaixaMain = new CadastroCaixaMain();
         try {
-            cadastroCaixaMain.start(new Stage());
-            Stage stageNovoRegistro = (Stage) cardNovoRegistro.getScene().getWindow();
-            stageNovoRegistro.show();
+            PassarFuncionarioCaixaMain passarFuncionarioCaixaMain = new PassarFuncionarioCaixaMain(funcionario);
+            passarFuncionarioCaixaMain.start(new Stage());
         } catch (Exception e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Registro de Caixa");
+            alert.setHeaderText("Não foi possível abrir a janela.");
+            alert.setContentText("Tente se autenticar e repita a ação.");
+            alert.showAndWait();
         }
+    }
+
+    private void capturaHora(){
+        Date hora = new Date();
+        labelData.setText(format.format(hora));
     }
 }

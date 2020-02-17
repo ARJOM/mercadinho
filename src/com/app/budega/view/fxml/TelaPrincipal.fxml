@@ -169,12 +169,11 @@
                         <Insets top="10.0" />
                      </padding>
                   </MenuBar>
-                  <Button layoutX="32.0" layoutY="500.0" mnemonicParsing="false" onAction="#abaterDivida" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" stylesheets="@../style/Main.css" text="Abater Divida" />
-                  <Button layoutX="32.0" layoutY="460.0" mnemonicParsing="false" onAction="#registrarCaixa" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" stylesheets="@../style/Main.css" text="Abater Divida" />
+                  <Button layoutX="46.0" layoutY="505.0" mnemonicParsing="false" onAction="#abaterDivida" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" stylesheets="@../style/Main.css" text="Abater Divida" />
                </children>
             </Pane>
-            <Label fx:id="labelFuncionario" layoutX="785.0" layoutY="14.0" styleClass="lable" text="Funcionario Logado" />
-            <Label layoutX="900.0" layoutY="547.0" styleClass="lable" text="Data" />
+            <Label fx:id="labelFuncionario" layoutX="720.0" layoutY="535.0" styleClass="lableFuncionarioLogado" text="Funcionario" textAlignment="CENTER" />
+            <Label fx:id="labelData" layoutX="840.0" layoutY="535.0" styleClass="lable" text="Data" />
             <Pane fx:id="cardNovaVenda" layoutX="750.0" layoutY="115.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
                <children>
                   <Label layoutX="49.0" layoutY="75.0" styleClass="lable" text="Nova Venda" />
@@ -188,7 +187,7 @@
             <Label layoutX="260.0" layoutY="44.0" styleClass="titleFuncionario" text="Registros do Caixa" />
             <Pane fx:id="cardNovoRegistro" layoutX="750.0" layoutY="395.0" onMouseClicked="#novoRegistro" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
                <children>
-                  <Label layoutX="42.0" layoutY="78.0" styleClass="lable" text="Nova Registro" />
+                  <Label layoutX="42.0" layoutY="78.0" styleClass="lable" text="Novo Registro" />
                   <Pane layoutX="64.0" layoutY="14.0" prefHeight="53.0" prefWidth="68.0" stylesheets="@../style/Main.css">
                      <styleClass>
                         <String fx:value="btnMais" />

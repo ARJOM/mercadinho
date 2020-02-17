@@ -57,6 +57,13 @@
     -fx-font-family: "Open Sans";
     -fx-font-size: 16px;
 }
+.lableFuncionarioLogado{
+    -fx-text-alignment: left;
+    -fx-font-weight: bold;
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 16px;
+}
+
 .input{
     -fx-border-style: solid;
     -fx-border-color: #BDBDBD;
