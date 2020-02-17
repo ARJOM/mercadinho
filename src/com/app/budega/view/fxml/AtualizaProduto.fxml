@@ -34,7 +34,7 @@
         <children>
             <Pane layoutX="49.0" layoutY="106.0" prefHeight="289.0" prefWidth="233.0" stylesheets="@../style/Main.css">
                 <styleClass>
-                    <String fx:value="imgAtualizarFuncionario" />
+                    <String fx:value="imgAtualizarProduto" />
                     <String fx:value="img" />
                 </styleClass></Pane>
         </children></Pane>

@@ -13,10 +13,10 @@
     <children>
         <Pane prefHeight="471.0" prefWidth="286.0" styleClass="gradiente" stylesheets="@../style/Main.css">
             <children>
-                <Pane layoutX="49.0" layoutY="143.0" prefHeight="186.0" prefWidth="188.0">
+                <Pane layoutX="40.0" layoutY="133.0" prefHeight="205.0" prefWidth="207.0">
                     <styleClass>
                         <String fx:value="img" />
-                        <String fx:value="imgCliente" />
+                        <String fx:value="imgPagamento" />
                     </styleClass></Pane>
             </children>
         </Pane>

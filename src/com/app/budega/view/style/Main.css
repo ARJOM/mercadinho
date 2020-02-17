@@ -23,7 +23,7 @@
     -fx-background-image: url("../image/undraw_profile_6l1l.png");
 }
 .imgCliente{
-    -fx-background-image: url("../image/undraw_speech_to_text_9uir.png");
+    -fx-background-image: url("../image/undraw_interview_rmcf.png");
 }
 .imgDependente{
     -fx-background-image: url("../image/dependente.png");
@@ -34,11 +34,17 @@
 .imgProduto{
     -fx-background-image: url("../image/produto.png");
 }
-.imgLogin{
-    -fx-background-image: url("../image/undraw_access_account_99n5.png");
-}
 .imgAtualizarFuncionario{
     -fx-background-image: url("../image/undraw_update_uxn2.png");
+}
+.imgPagamento{
+    -fx-background-image: url("../image/512.png");
+}
+.imgCaixa{
+    -fx-background-image: url("../image/caixa.png");
+}
+.imgAtualizarProduto{
+    -fx-background-image: url("../image/undraw_cloud_files_wmo8.png");
 }
 .titleFuncionario{
     -fx-text-alignment: center;
