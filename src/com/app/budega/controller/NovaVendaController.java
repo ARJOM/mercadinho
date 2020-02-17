@@ -1,0 +1,96 @@
+package com.app.budega.controller;
+
+import com.app.budega.dao.ProdutoDAO;
+import com.app.budega.model.Produto;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+public class NovaVendaController implements Initializable {
+
+    @FXML
+    private TableView<Produto> tabelaProdutos;
+
+    @FXML
+    private TableColumn<Produto, String> colunaCodBarras;
+
+    @FXML
+    private TableColumn<Produto, String> colunaNome;
+
+    @FXML
+    private TableColumn<Produto, Float> colunaPreco;
+
+    @FXML
+    private TableColumn<Produto, Double> colunaQuantidade;
+
+    @FXML
+    private TableView<Produto> tabelaItensVenda;
+
+    @FXML
+    private TableColumn<Produto, String> nomeProduto;
+
+    @FXML
+    private TableColumn<Produto, Double> qauntidadeProduto;
+    private Object ProdutoDAO;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rs){
+        try {
+            initTable();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        tabelaProdutos.setOnMouseClicked(mouseEvent -> {
+            try {
+                capturarTupla();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public void initTable() throws SQLException, ClassNotFoundException {
+        colunaCodBarras.setCellValueFactory(new PropertyValueFactory<>("codBarras"));
+        colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+        colunaPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
+        colunaQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+        tabelaProdutos.setItems(atualizaTable());
+    }
+
+    public ObservableList<Produto> atualizaTable() throws SQLException, ClassNotFoundException {
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        return FXCollections.observableArrayList(produtoDAO.getProdutos());
+    }
+
+    int cont = 0;
+    public void capturarTupla() throws SQLException, ClassNotFoundException {
+        Produto produto = tabelaProdutos.getSelectionModel().getSelectedItem();
+        ArrayList<Produto> itens = new ArrayList<>();
+        produto.setNome(produto.getNome());
+        produto.setQuantidade(cont);
+        itens.add(produto);
+        System.out.println(produto.getNome());
+        cont  = cont+1;
+        System.out.println(cont);
+
+        nomeProduto.setCellValueFactory(new PropertyValueFactory<>("Nome"));
+        qauntidadeProduto.setCellValueFactory(new PropertyValueFactory<>("Quantidade"));
+        tabelaItensVenda.setItems(FXCollections.observableList(itens));
+    }
+
+
+}
