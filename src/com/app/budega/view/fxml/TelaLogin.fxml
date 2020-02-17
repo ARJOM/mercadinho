@@ -16,7 +16,7 @@
                 <MaskTextField fx:id="campoCpf" layoutX="35.0" layoutY="118.0" prefHeight="42.0" prefWidth="263.0" styleClass="input" stylesheets="@../style/Main.css" />
                 <Label layoutX="136.0" layoutY="24.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Login" />
                 <Label layoutX="35.0" layoutY="81.0" styleClass="lable" stylesheets="@../style/Main.css" text="CPF" />
-                <Button layoutX="96.0" layoutY="286.0" mnemonicParsing="false" onAction="#acaoLogar" prefHeight="52.0" prefWidth="139.0" styleClass="btnCadastrar" stylesheets="@../style/TelaLogin.css" text="Login" />
+                <Button layoutX="96.0" layoutY="286.0" mnemonicParsing="false" onAction="#acaoLogar" prefHeight="52.0" prefWidth="139.0" styleClass="btnCadastrar" text="Login" />
                 <Label layoutX="137.0" layoutY="343.0" styleClass="btnCancelar" text="Cancelar" />
                 <PasswordField fx:id="campoSenha" layoutX="35.0" layoutY="214.0" prefWidth="263.0" styleClass="input" />
             </children></Pane>

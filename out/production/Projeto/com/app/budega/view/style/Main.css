@@ -236,6 +236,9 @@
     -fx-text-fill: #ffffff;
     -fx-cursor: hand;
 }
+.menuLabel:hover{
+    -fx-text-fill: #2196F3;
+}
 .menuItem{
     -fx-font-weight: bold;
     -fx-font-family: "Open Sans";
@@ -244,12 +247,14 @@
     -fx-cursor: hand;
     -fx-background-color: #313131;
     -fx-pref-height: 40px;
-    -fx-pref-width: 140px;
 }
 .menuItem:hover{
-    -fx-background-color: #2196F3;
+    -fx-text-fill: #2196F3;
 }
 .btnMenuItem{
     -fx-background-color: transparent;
     -fx-text-fill: #ffffff;
+}
+.btnMenuItem:hover{
+    -fx-text-fill: #2196F3;
 }
