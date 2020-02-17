@@ -7,7 +7,9 @@ import com.app.budega.model.Produto;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -60,15 +62,14 @@ public class AtualizaProdutoController implements Initializable {
 
             try {
                 if (produtoDAO.atualizar(produto)){
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Atualização de Produto");
                     alert.setHeaderText("Dados atualizados com sucesso.");
                     alert.setContentText(labelCodBarras.getText());
+                    alert.show();
 
-                    Optional<ButtonType> resultado = alert.showAndWait();
-                    if (resultado.get() == ButtonType.OK){
-                        Main main = new Main();
-                    }
+                    Stage stageCancelar = (Stage) btnAtualizaProduto.getScene().getWindow();
+                    stageCancelar.close();
                 }
             } catch (SQLException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -97,5 +98,10 @@ public class AtualizaProdutoController implements Initializable {
         campoNome.setText(produtoRetornado.getNome());
         campoPreco.setText(String.valueOf(produtoRetornado.getPreco()));
         campoQuantidade.setText(String.valueOf(produtoRetornado.getQuantidade()));
+    }
+
+    public void acaoCancelar(MouseEvent mouseEvent) {
+        Stage stageCancelar = (Stage) btnCancelar.getScene().getWindow();
+        stageCancelar.close();
     }
 }

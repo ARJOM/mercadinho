@@ -43,8 +43,8 @@
                   <String fx:value="lable" />
                </styleClass>
             </RadioButton>
-            <Button layoutX="172.0" layoutY="435.0" mnemonicParsing="false" onAction="#acaoCadastrar" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" text="Cadastrar" />
-            <Label layoutX="216.0" layoutY="494.0" styleClass="btnCancelar" text="Cancelar" />
+            <Button layoutX="172.0" fx:id="btnCadastrar" layoutY="435.0" mnemonicParsing="false" onAction="#acaoCadastrar" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" text="Cadastrar" />
+            <Label layoutX="216.0" fx:id="btnCancelar" layoutY="494.0" styleClass="btnCancelar"  onMouseClicked="#acaoCancelar" text="Cancelar" />
             <RadioButton layoutX="105.0" layoutY="396.0" mnemonicParsing="true" onAction="#yes" stylesheets="@../style/Main.css" text="Sim" toggleGroup="$gpPermissao">
                <font>
                   <Font name="Open Sans" size="14.0" />

@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -72,16 +73,13 @@ public class AtualizaFuncionarioController implements Initializable {
             try {
                 funcionarioDAO.atualizaFuncionario(nome, senha, funcionarioRetornado.getCpf());
                 if(funcionarioDAO.atualizaFuncionario(nome, senha, funcionarioRetornado.getCpf()) == true){
-                   Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                   Alert alert = new Alert(Alert.AlertType.INFORMATION);
                    alert.setTitle("Atualização de Funcionario");
                    alert.setHeaderText("Dados atualizados com sucesso.");
                    alert.setContentText(labelCPF.getText());
 
-                    Optional <ButtonType> resultado = alert.showAndWait();
-                       if (resultado.get() == ButtonType.OK){
-                           Stage stage = (Stage) btnAtualizaFuncionario.getScene().getWindow();
-                           stage.close();
-                       }
+                    Stage stageCancelar = (Stage) btnAtualizaFuncionario.getScene().getWindow();
+                    stageCancelar.close();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -104,5 +102,10 @@ public class AtualizaFuncionarioController implements Initializable {
 
     public static void setFuncionarioRetornado(Funcionario funcionarioRetornado){
         AtualizaFuncionarioController.funcionarioRetornado = funcionarioRetornado;
+    }
+
+    public void acaoCancelar(MouseEvent mouseEvent) {
+        Stage stageCancelar = (Stage) btnCancelar.getScene().getWindow();
+        stageCancelar.close();
     }
 }

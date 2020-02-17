@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="526.0" prefWidth="837.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.ListarCaixaController">
+    <children>
+        <Label layoutX="318.0" layoutY="14.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Registros do Caixa" />
+        <TableView fx:id="tabelaCaixa" layoutX="14.0" layoutY="88.0" prefHeight="396.0" prefWidth="629.0">
+            <columns>
+                <TableColumn fx:id="colunaId" prefWidth="56.0" text="Id" />
+                <TableColumn fx:id="colunaValor" prefWidth="105.0" text="Valor" />
+                <TableColumn fx:id="colunaDataCaixa" prefWidth="111.0" text="Data" />
+                <TableColumn fx:id="colunaDescricao" prefWidth="168.0" text="Descricao" />
+                <TableColumn fx:id="colunaFuncionario" prefWidth="210.0" text="Funcionario" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

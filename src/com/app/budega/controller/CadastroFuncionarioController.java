@@ -13,14 +13,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import util.MaskTextField;
 
 import javax.swing.*;
 import javax.swing.plaf.basic.BasicTreeUI;
 import javax.swing.text.MaskFormatter;
 import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -99,6 +100,10 @@ public class CadastroFuncionarioController implements Initializable {
                     campoNome.setText("");
                     campoSenha1.setText("");
                     campoSenha2.setText("");
+
+                    Stage stageEncerrar = (Stage) btnCadastrar.getScene().getWindow();
+                    stageEncerrar.close();
+
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Cadastro de Funcionario");
@@ -113,5 +118,10 @@ public class CadastroFuncionarioController implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void acaoCancelar(MouseEvent mouseEvent) {
+        Stage stageCancelar = (Stage) btnCancelar.getScene().getWindow();
+        stageCancelar.close();
     }
 }

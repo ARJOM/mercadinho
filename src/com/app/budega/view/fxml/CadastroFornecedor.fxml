@@ -29,7 +29,7 @@
             <Label layoutX="72.0" layoutY="269.0" styleClass="lable" text="Telefone" />
             <MaskTextField fx:id="campoContato" layoutX="69.0" layoutY="304.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
             <Button fx:id="btnCadastrar" onAction="#acaoCadastrar" layoutX="132.0" layoutY="364.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="154.0" styleClass="btnCadastrar" text="Cadastrar" />
-            <Label fx:id="btnCancelar" layoutX="180.0" layoutY="422.0" styleClass="btnCancelar" text="Cancelar" />
+            <Label fx:id="btnCancelar" onMouseClicked="#acaoCancelar" layoutX="180.0" layoutY="422.0" styleClass="btnCancelar" text="Cancelar" />
             <Label layoutX="113.0" layoutY="97.0" styleClass="lableObrigatorio" text="*" />
             <Label layoutX="122.0" layoutY="185.0" styleClass="lableObrigatorio" text="*" />
             <Label layoutX="144.0" layoutY="273.0" styleClass="lableObrigatorio" text="*" />

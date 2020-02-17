@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="543.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.NovaVendaController">
+   <children>
+      <Pane prefHeight="543.0" prefWidth="862.0" styleClass="main" stylesheets="@../style/Main.css">
+         <children>
+             <TableView fx:id="tabelaProdutos" layoutX="30.0" layoutY="115.0" prefHeight="339.0" prefWidth="454.0" stylesheets="@../style/Main.css">
+                 <columns>
+                     <TableColumn fx:id="colunaCodBarras" prefWidth="135.0" text="Código de barras" />
+                     <TableColumn fx:id="colunaNome" prefWidth="148.0" text="Nome" />
+                     <TableColumn fx:id="colunaPreco" prefWidth="75.0" text="Preço" />
+                     <TableColumn fx:id="colunaQuantidade" prefWidth="100.0" text="Quantidade" />
+                 </columns>
+             </TableView>
+            <Label layoutX="369.0" layoutY="28.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Nova Venda" />
+            <TableView fx:id="tabelaItensVenda" layoutX="519.0" layoutY="115.0" prefHeight="339.0" prefWidth="307.0" stylesheets="@../style/Main.css">
+              <columns>
+                <TableColumn fx:id="nomeProduto" prefWidth="201.33331298828125" text="Produto" />
+                <TableColumn fx:id="qauntidadeProduto" prefWidth="104.66668701171875" text="Quanridade" />
+              </columns>
+            </TableView>
+         </children></Pane>
+   </children>
+</AnchorPane>

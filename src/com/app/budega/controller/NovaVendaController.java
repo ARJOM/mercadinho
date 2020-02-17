@@ -79,18 +79,5 @@ public class NovaVendaController implements Initializable {
     int cont = 0;
     public void capturarTupla() throws SQLException, ClassNotFoundException {
         Produto produto = tabelaProdutos.getSelectionModel().getSelectedItem();
-        ArrayList<Produto> itens = new ArrayList<>();
-        produto.setNome(produto.getNome());
-        produto.setQuantidade(cont);
-        itens.add(produto);
-        System.out.println(produto.getNome());
-        cont  = cont+1;
-        System.out.println(cont);
-
-        nomeProduto.setCellValueFactory(new PropertyValueFactory<>("Nome"));
-        qauntidadeProduto.setCellValueFactory(new PropertyValueFactory<>("Quantidade"));
-        tabelaItensVenda.setItems(FXCollections.observableList(itens));
     }
-
-
 }
