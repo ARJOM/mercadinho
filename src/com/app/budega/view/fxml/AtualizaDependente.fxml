@@ -23,15 +23,15 @@
             </children></Pane>
         <Pane layoutX="317.0" prefHeight="528.0" prefWidth="476.0" styleClass="main" stylesheets="@../style/Main.css">
             <children>
-                <Label layoutX="104.0" layoutY="31.0" styleClass="titleFuncionario" text="Editar Dependente" />
-                <Label layoutX="96.0" layoutY="102.0" styleClass="lable" text="Responsavel" />
-                <TextField fx:id="CampoNome" layoutX="99.0" layoutY="222.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
-                <ComboBox fx:id="cbResponsavel" layoutX="99.0" layoutY="137.0" prefHeight="42.0" prefWidth="279.0" promptText="-Selecione-" styleClass="comboBox" />
-                <Label layoutX="101.0" layoutY="188.0" styleClass="lable" text="Nome" />
-                <ComboBox fx:id="cbParentesco" layoutX="99.0" layoutY="307.0" prefHeight="42.0" prefWidth="279.0" promptText="-Selecione-" styleClass="comboBox" />
-                <Label layoutX="100.0" layoutY="272.0" styleClass="lable" text="Parentesco" />
-                <Label layoutX="99.0" layoutY="362.0" styleClass="lable" text="Dependente autorizado ?" />
-                <RadioButton layoutX="190.0" layoutY="397.0" mnemonicParsing="false" stylesheets="@../style/Main.css" text="Nao">
+                <Label layoutX="121.0" layoutY="23.0" styleClass="titleFuncionario" text="Atualizar Dependente" />
+                <Label layoutX="97.0" layoutY="102.0" styleClass="lable" text="Responsavel" />
+                <TextField fx:id="CampoNome" layoutX="100.0" layoutY="222.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+                <ComboBox fx:id="cbResponsavel" layoutX="100.0" layoutY="137.0" prefHeight="42.0" prefWidth="279.0" promptText="-Selecione-" styleClass="comboBox" />
+                <Label layoutX="102.0" layoutY="188.0" styleClass="lable" text="Nome" />
+                <ComboBox fx:id="cbParentesco" layoutX="100.0" layoutY="307.0" prefHeight="42.0" prefWidth="279.0" promptText="-Selecione-" styleClass="comboBox" />
+                <Label layoutX="101.0" layoutY="272.0" styleClass="lable" text="Parentesco" />
+                <Label layoutX="100.0" layoutY="362.0" styleClass="lable" text="Dependente autorizado ?" />
+                <RadioButton layoutX="191.0" layoutY="397.0" mnemonicParsing="false" stylesheets="@../style/Main.css" text="Nao">
                     <font>
                         <Font name="Open Sans" size="14.0" />
                     </font>
@@ -43,9 +43,9 @@
                         <String fx:value="lable" />
                     </styleClass>
                 </RadioButton>
-                <Button layoutX="160.0" layoutY="438.0" onAction="#acaoAtualizar" mnemonicParsing="false" prefHeight="48.0" prefWidth="146.0" styleClass="btnAtualizaDependente" text="Atualizar" />
-                <Label layoutX="205.0" layoutY="494.0" styleClass="btnCancelar" text="Cancelar" />
-                <RadioButton layoutX="102.0" layoutY="396.0" mnemonicParsing="true" stylesheets="@../style/Main.css" text="Sim" toggleGroup="$gpPermissao">
+                <Button layoutX="176.0" layoutY="444.0" mnemonicParsing="false" onAction="#acaoAtualizar" prefHeight="48.0" prefWidth="121.0" styleClass="btnCadastrar" text="Atualizar" />
+                <Label layoutX="208.0" layoutY="494.0" styleClass="btnCancelar" text="Cancelar" />
+                <RadioButton layoutX="103.0" layoutY="396.0" mnemonicParsing="true" stylesheets="@../style/Main.css" text="Sim" toggleGroup="$gpPermissao">
                     <font>
                         <Font name="Open Sans" size="14.0" />
                     </font>
@@ -54,12 +54,12 @@
                         <String fx:value="lable" />
                     </styleClass>
                 </RadioButton>
-                <Label layoutX="200.0" layoutY="105.0" styleClass="lableObrigatorio" text="*" />
-                <Label layoutX="153.0" layoutY="192.0" styleClass="lableObrigatorio" text="*" />
-                <Label layoutX="194.0" layoutY="276.0" styleClass="lableObrigatorio" text="*" />
-                <Label layoutX="303.0" layoutY="364.0" styleClass="lableObrigatorio" text="*" />
-                <Label layoutX="210.0" layoutY="70.0" styleClass="lable" text="ID:" />
-                <Label fx:id="labelID" layoutX="240.0" layoutY="70.0" styleClass="lable" text="000" />
+                <Label layoutX="201.0" layoutY="105.0" styleClass="lableObrigatorio" text="*" />
+                <Label layoutX="154.0" layoutY="192.0" styleClass="lableObrigatorio" text="*" />
+                <Label layoutX="195.0" layoutY="276.0" styleClass="lableObrigatorio" text="*" />
+                <Label layoutX="304.0" layoutY="364.0" styleClass="lableObrigatorio" text="*" />
+                <Label layoutX="97.0" layoutY="70.0" styleClass="lable" text="ID:" />
+                <Label fx:id="labelID" layoutX="126.0" layoutY="70.0" styleClass="lable" text="000" />
             </children>
         </Pane>
     </children>

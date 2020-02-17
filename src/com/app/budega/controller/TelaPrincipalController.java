@@ -97,12 +97,12 @@ public class TelaPrincipalController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rs){
+        nomeFuncionario();
         new Timer().scheduleAtFixedRate(new TimerTask(){
             @Override
             public void run(){
                 try {
                     initTable();
-                    nomeFuncionario();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 } catch (ClassNotFoundException e) {
