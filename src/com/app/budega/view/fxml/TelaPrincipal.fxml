@@ -75,7 +75,12 @@
                               </CustomMenuItem>
                               <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
                                  <content>
-                                    <Button fx:id="btnCadastrarCliente" mnemonicParsing="false" onAction="#novoCliente" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Cadastrar Clientes" />
+                                    <Button fx:id="btnCadastrarCliente" mnemonicParsing="false" onAction="#novoCliente" prefHeight="53.0" prefWidth="146.0" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Cadastrar Clientes" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
+                                 <content>
+                                    <Button mnemonicParsing="false" onAction="#abaterDivida" prefHeight="48.0" prefWidth="146.0" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Abater Divida" />
                                  </content>
                               </CustomMenuItem>
                            </items>
@@ -169,7 +174,6 @@
                         <Insets top="10.0" />
                      </padding>
                   </MenuBar>
-                  <Button layoutX="46.0" layoutY="505.0" mnemonicParsing="false" onAction="#abaterDivida" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" stylesheets="@../style/Main.css" text="Abater Divida" />
                </children>
             </Pane>
             <Label fx:id="labelFuncionario" layoutX="720.0" layoutY="535.0" styleClass="lableFuncionarioLogado" text="Funcionario" textAlignment="CENTER" />
