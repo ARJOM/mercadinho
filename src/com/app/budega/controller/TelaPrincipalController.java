@@ -1,7 +1,7 @@
 package com.app.budega.controller;
 
 import com.app.budega.App.*;
-import com.app.budega.App.LogarFuncionarioMain;
+//import com.app.budega.App.LogarFuncionarioMain;
 import com.app.budega.App.PassarFuncionarioAbateMain;
 import com.app.budega.App.PassarFuncionarioCaixaMain;
 import com.app.budega.dao.CaixaDao;
@@ -171,113 +171,114 @@ public class TelaPrincipalController implements Initializable {
         }
 
     }
-    public void novoCliente(javafx.event.ActionEvent event) {
-        CadastroClienteMain cadastroClienteMain = new CadastroClienteMain();
-        try {
-            cadastroClienteMain.start(new Stage());
-            Stage stageNovoCliente = (Stage) btnCadastrarCliente.getScene().getWindow();
-            stageNovoCliente.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-    public void novoFuncionario(ActionEvent event) {
-        CadastrarFuncionarioMain cadastrarFuncionarioMain = new CadastrarFuncionarioMain();
-        try {
-            cadastrarFuncionarioMain.start(new Stage());
-            Stage stageNovoFuncionario = (Stage) btnCadastrarFuncionario.getScene().getWindow();
-            stageNovoFuncionario.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void novoDependente(ActionEvent event) {
-        CadastrarDependentesMain cadastrarDependentesMain = new CadastrarDependentesMain();
-        try {
-            cadastrarDependentesMain.start(new Stage());
-            Stage stageNovoDependente = (Stage) btnCadastrarDependentes.getScene().getWindow();
-            stageNovoDependente.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void novoProduto(ActionEvent event) {
-        CadastrarProdutoMain cadastrarProdutoMain = new CadastrarProdutoMain();
-        try {
-            cadastrarProdutoMain.start(new Stage());
-            Stage stageNovoProduto = (Stage) btnCadastrarProduto.getScene().getWindow();
-            stageNovoProduto.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void novoFornecedor(ActionEvent event) {
-        CadastrarFornecedorMain cadastrarFornecedorMain = new CadastrarFornecedorMain();
-        try {
-            cadastrarFornecedorMain.start(new Stage());
-            Stage stageNovoFornecedor = (Stage) btnCadastrarFornecedor.getScene().getWindow();
-            stageNovoFornecedor.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void gerenciarClientes(ActionEvent event) {
-        ListarClientesMain listarClientesMain = new ListarClientesMain();
-        try {
-            listarClientesMain.start(new Stage());
-            Stage stageGerenciarClientes = (Stage) btnGerenciarClientes.getScene().getWindow();
-            stageGerenciarClientes.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void gerenciarFuncionarios(ActionEvent event) {
-        ListarFuncionariosMain listarFuncionariosMain = new ListarFuncionariosMain();
-        try {
-            listarFuncionariosMain.start(new Stage());
-            Stage stageGerenciarFuncionarios = (Stage) btnGerenciarFuncionarios.getScene().getWindow();
-            stageGerenciarFuncionarios.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void gerenciarDependentes(ActionEvent event) {
-        ListarDependentesMain listarDependentesMain = new ListarDependentesMain();
-        try {
-            listarDependentesMain.start(new Stage());
-            Stage stageGerenciarDependentes = (Stage) btnGerenciarDependentes.getScene().getWindow();
-            stageGerenciarDependentes.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void gerenciarProdutos(ActionEvent event) {
-        ListarProdutosMain listarProdutosMain = new ListarProdutosMain();
-        try {
-            listarProdutosMain.start(new Stage());
-            Stage stageGerenciarProduto = (Stage) btnGerenciarProdutos.getScene().getWindow();
-            stageGerenciarProduto.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void gerenciarFornecedores(ActionEvent event) {
-        ListarFornecedoresMain listarFornecedoresMain = new ListarFornecedoresMain();
-        try {
-            listarFornecedoresMain.start(new Stage());
-            Stage stageGerenciarFornecedores = (Stage) btnGerenciarFornecedores.getScene().getWindow();
-            stageGerenciarFornecedores.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+//    public void novoCliente(javafx.event.ActionEvent event) {
+//        CadastroClienteMain cadastroClienteMain = new CadastroClienteMain();
+//        try {
+//            cadastroClienteMain.start(new Stage());
+//            Stage stageNovoCliente = (Stage) btnCadastrarCliente.getScene().getWindow();
+//            stageNovoCliente.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void novoFuncionario(ActionEvent event) {
+//        CadastrarFuncionarioMain cadastrarFuncionarioMain = new CadastrarFuncionarioMain();
+//        try {
+//            cadastrarFuncionarioMain.start(new Stage());
+//            Stage stageNovoFuncionario = (Stage) btnCadastrarFuncionario.getScene().getWindow();
+//            stageNovoFuncionario.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void novoDependente(ActionEvent event) {
+//        CadastrarDependentesMain cadastrarDependentesMain = new CadastrarDependentesMain();
+//        try {
+//            cadastrarDependentesMain.start(new Stage());
+//            Stage stageNovoDependente = (Stage) btnCadastrarDependentes.getScene().getWindow();
+//            stageNovoDependente.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void novoProduto(ActionEvent event) {
+//        CadastrarProdutoMain cadastrarProdutoMain = new CadastrarProdutoMain();
+//        try {
+//            cadastrarProdutoMain.start(new Stage());
+//            Stage stageNovoProduto = (Stage) btnCadastrarProduto.getScene().getWindow();
+//            stageNovoProduto.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void novoFornecedor(ActionEvent event) {
+//        CadastrarFornecedorMain cadastrarFornecedorMain = new CadastrarFornecedorMain();
+//        try {
+//            cadastrarFornecedorMain.start(new Stage());
+//            Stage stageNovoFornecedor = (Stage) btnCadastrarFornecedor.getScene().getWindow();
+//            stageNovoFornecedor.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void gerenciarClientes(ActionEvent event) {
+//        ListarClientesMain listarClientesMain = new ListarClientesMain();
+//        try {
+//            listarClientesMain.start(new Stage());
+//            Stage stageGerenciarClientes = (Stage) btnGerenciarClientes.getScene().getWindow();
+//            stageGerenciarClientes.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void gerenciarFuncionarios(ActionEvent event) {
+//        ListarFuncionariosMain listarFuncionariosMain = new ListarFuncionariosMain();
+//        try {
+//            listarFuncionariosMain.start(new Stage());
+//            Stage stageGerenciarFuncionarios = (Stage) btnGerenciarFuncionarios.getScene().getWindow();
+//            stageGerenciarFuncionarios.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void gerenciarDependentes(ActionEvent event) {
+//        ListarDependentesMain listarDependentesMain = new ListarDependentesMain();
+//        try {
+//            listarDependentesMain.start(new Stage());
+//            Stage stageGerenciarDependentes = (Stage) btnGerenciarDependentes.getScene().getWindow();
+//            stageGerenciarDependentes.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void gerenciarProdutos(ActionEvent event) {
+//        ListarProdutosMain listarProdutosMain = new ListarProdutosMain();
+//        try {
+//            listarProdutosMain.start(new Stage());
+//            Stage stageGerenciarProduto = (Stage) btnGerenciarProdutos.getScene().getWindow();
+//            stageGerenciarProduto.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//    public void gerenciarFornecedores(ActionEvent event) {
+//        ListarFornecedoresMain listarFornecedoresMain = new ListarFornecedoresMain();
+//        try {
+//            listarFornecedoresMain.start(new Stage());
+//            Stage stageGerenciarFornecedores = (Stage) btnGerenciarFornecedores.getScene().getWindow();
+//            stageGerenciarFornecedores.show();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

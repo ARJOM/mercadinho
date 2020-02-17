@@ -23,6 +23,8 @@ import static javafx.collections.FXCollections.observableArrayList;
 
 public class CadastroAbateDividaController implements Initializable {
 
+    private static String funcionario;
+
     @FXML
     private TextField campoValor;
 
@@ -95,6 +97,10 @@ public class CadastroAbateDividaController implements Initializable {
                 alert.showAndWait();
             }
         }
+    }
+
+    public static void setFuncionario(String funcionario) {
+        CadastroAbateDividaController.funcionario = funcionario;
     }
 
 }
