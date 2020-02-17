@@ -170,6 +170,7 @@
                      </padding>
                   </MenuBar>
                   <Button layoutX="32.0" layoutY="500.0" mnemonicParsing="false" onAction="#abaterDivida" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" stylesheets="@../style/Main.css" text="Abater Divida" />
+                  <Button layoutX="32.0" layoutY="460.0" mnemonicParsing="false" onAction="#registrarCaixa" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" stylesheets="@../style/Main.css" text="Abater Divida" />
                </children>
             </Pane>
             <Label fx:id="labelFuncionario" layoutX="785.0" layoutY="14.0" styleClass="lable" text="Funcionario Logado" />

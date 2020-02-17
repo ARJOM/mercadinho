@@ -15,11 +15,17 @@ import java.util.*;
 
 public class CadastroCaixaController implements Initializable {
 
+    private static String funcionario;
+
     @FXML
     private TextField campoValor;
 
     @FXML
     private TextField campoDescricao;
+
+    public static void setFuncionario(String funcionario) {
+        CadastroCaixaController.funcionario = funcionario;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,9 +49,7 @@ public class CadastroCaixaController implements Initializable {
 
             LocalDate data = LocalDate.now();
 
-            // TODO pegar cpf do funcionario logado
-
-            Caixa caixa = new Caixa(0, valor, data, descricao, null);
+            Caixa caixa = new Caixa(0, valor, data, descricao, funcionario);
 
             try{
                 if (caixaDao.salvar(caixa)){
@@ -62,7 +66,7 @@ public class CadastroCaixaController implements Initializable {
                 }
             } catch (SQLException | ClassNotFoundException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Cadastro de Produto");
+                alert.setTitle("Registro do Caixa");
                 alert.setHeaderText("Erro ao cadastrar");
                 alert.setContentText("Erro desconhecido");
                 alert.showAndWait();
