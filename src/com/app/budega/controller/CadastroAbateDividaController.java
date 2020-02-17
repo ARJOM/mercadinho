@@ -23,8 +23,6 @@ import static javafx.collections.FXCollections.observableArrayList;
 
 public class CadastroAbateDividaController implements Initializable {
 
-    private static String funcionario;
-
     @FXML
     private TextField campoValor;
 
@@ -79,8 +77,9 @@ public class CadastroAbateDividaController implements Initializable {
 
             float valor = Float.parseFloat(campoValor.getText());
             String cliente = String.valueOf(cbCliente.getValue());
+            //TODO pegar o funcionario logado
 
-            AbateDivida abateDivida = new AbateDivida("0", cliente, funcionario, valor);
+            AbateDivida abateDivida = new AbateDivida("0", cliente, null, valor);
 
             try {
                 if (abateDividaDao.salvar(abateDivida)) {
@@ -96,10 +95,6 @@ public class CadastroAbateDividaController implements Initializable {
                 alert.showAndWait();
             }
         }
-    }
-
-    public static void setFuncionario(String funcionario){
-        CadastroAbateDividaController.funcionario = funcionario;
     }
 
 }

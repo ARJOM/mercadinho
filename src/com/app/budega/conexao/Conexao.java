@@ -10,9 +10,9 @@ public class Conexao {
     private String senha;
 
     public Conexao(){
-        url = "jdbc:postgresql://localhost:5433/mercadinho";
+        url = "jdbc:postgresql://localhost:5432/Budega";
         usuario = "postgres";
-        senha = "123";
+        senha = "admin123";
     }
 
     public Connection getConnection() throws ClassNotFoundException, SQLException {

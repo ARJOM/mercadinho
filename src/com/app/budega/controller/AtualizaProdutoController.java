@@ -69,13 +69,6 @@ public class AtualizaProdutoController implements Initializable {
                     if (resultado.get() == ButtonType.OK){
                         Main main = new Main();
                     }
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Atualização de Produto");
-                    alert.setHeaderText("Um erro impediu os dados de serem atualizados.");
-                    alert.setContentText("Tente novamente.");
-
-                    alert.showAndWait();
                 }
             } catch (SQLException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);

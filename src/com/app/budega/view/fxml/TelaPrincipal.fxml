@@ -3,16 +3,16 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CustomMenuItem?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<?import javafx.scene.control.Button?>
 <AnchorPane prefHeight="582.0" prefWidth="953.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.TelaPrincipalController">
    <children>
       <Pane layoutY="-1.0" prefHeight="583.0" prefWidth="955.0" styleClass="main" stylesheets="@../style/Main.css">
@@ -33,18 +33,6 @@
                   <MenuBar layoutX="30.0" layoutY="100.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="24.0" prefWidth="119.0" styleClass="menu">
                     <menus>
                       <Menu mnemonicParsing="false" styleClass="menuItem">
-                        <items>
-                          <MenuItem mnemonicParsing="false" styleClass="menuItem">
-                                 <graphic>
-                                    <Label text="Gerenciar Funcionarios" />
-                                 </graphic>
-                              </MenuItem>
-                              <MenuItem mnemonicParsing="false" styleClass="menuItem">
-                                 <graphic>
-                                    <Label text="Cadastrar Funcionario" />
-                                 </graphic>
-                              </MenuItem>
-                        </items>
                            <graphic>
                               <Label styleClass="menuLabel" text="Funcionarios">
                                  <padding>
@@ -52,6 +40,18 @@
                                  </padding>
                               </Label>
                            </graphic>
+                           <items>
+                              <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
+                                 <content>
+                                    <Button fx:id="btnGerenciarFuncionarios" mnemonicParsing="false" onAction="#gerenciarFuncionarios" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Gerenciar Funcionarios" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
+                                 <content>
+                                    <Button fx:id="btnCadastrarFuncionario" mnemonicParsing="false" onAction="#novoFuncionario" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Cadastrar Funcionario" />
+                                 </content>
+                              </CustomMenuItem>
+                           </items>
                       </Menu>
                     </menus>
                      <cursor>
@@ -64,21 +64,21 @@
                   <MenuBar layoutX="30.0" layoutY="135.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="24.0" prefWidth="119.0" styleClass="menu">
                      <menus>
                         <Menu mnemonicParsing="false" styleClass="menuItem">
-                           <items>
-                              <MenuItem mnemonicParsing="false" styleClass="menuItem">
-                                 <graphic>
-                                    <Label text="Gerenciar Clientes" />
-                                 </graphic>
-                              </MenuItem>
-                              <MenuItem mnemonicParsing="false" styleClass="menuItem">
-                                 <graphic>
-                                    <Label text="Cadastrar Clientes" />
-                                 </graphic>
-                              </MenuItem>
-                           </items>
                            <graphic>
                               <Label layoutX="30.0" layoutY="100.0" styleClass="menuLabel" text="Clientes" />
                            </graphic>
+                           <items>
+                              <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
+                                 <content>
+                                    <Button fx:id="btnGerenciarClientes" mnemonicParsing="false" onAction="#gerenciarClientes" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Gerenciar Clientes" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
+                                 <content>
+                                    <Button fx:id="btnCadastrarCliente" mnemonicParsing="false" onAction="#novoCliente" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Cadastrar Clientes" />
+                                 </content>
+                              </CustomMenuItem>
+                           </items>
                         </Menu>
                      </menus>
                      <cursor>
@@ -91,21 +91,21 @@
                   <MenuBar layoutX="30.0" layoutY="170.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="24.0" prefWidth="119.0" styleClass="menu">
                      <menus>
                         <Menu mnemonicParsing="false" styleClass="menuItem">
-                           <items>
-                              <MenuItem mnemonicParsing="false" styleClass="menuItem">
-                                 <graphic>
-                                    <Label text="Gerenciar Dependentes" />
-                                 </graphic>
-                              </MenuItem>
-                              <MenuItem mnemonicParsing="false" styleClass="menuItem">
-                                 <graphic>
-                                    <Label text="Cadastrar Dependentes" />
-                                 </graphic>
-                              </MenuItem>
-                           </items>
                            <graphic>
                               <Label styleClass="menuLabel" text="Denpendes" />
                            </graphic>
+                           <items>
+                              <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
+                                 <content>
+                                    <Button fx:id="btnGerenciarDependentes" mnemonicParsing="false" onAction="#gerenciarDependentes" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Gerenciar Dependentes" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
+                                 <content>
+                                    <Button fx:id="btnCadastrarDependentes" mnemonicParsing="false" onAction="#novoDependente" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Cadastrar Dependentes" />
+                                 </content>
+                              </CustomMenuItem>
+                           </items>
                         </Menu>
                      </menus>
                      <cursor>
@@ -118,21 +118,21 @@
                   <MenuBar layoutX="30.0" layoutY="205.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="24.0" prefWidth="119.0" styleClass="menu">
                      <menus>
                         <Menu mnemonicParsing="false" styleClass="menuItem">
-                           <items>
-                              <MenuItem mnemonicParsing="false" styleClass="menuItem">
-                                 <graphic>
-                                    <Label text="Gerenciar Produtos" />
-                                 </graphic>
-                              </MenuItem>
-                              <MenuItem mnemonicParsing="false" styleClass="menuItem">
-                                 <graphic>
-                                    <Label text="Cadastrar Produtos" />
-                                 </graphic>
-                              </MenuItem>
-                           </items>
                            <graphic>
                               <Label styleClass="menuLabel" text="Produtos" />
                            </graphic>
+                           <items>
+                              <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
+                                 <content>
+                                    <Button fx:id="btnGerenciarProdutos" mnemonicParsing="false" onAction="#gerenciarProdutos" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Gerenciar Produtos" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
+                                 <content>
+                                    <Button fx:id="btnCadastrarProduto" mnemonicParsing="false" onAction="#novoProduto" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Cadastrar Produto" />
+                                 </content>
+                              </CustomMenuItem>
+                           </items>
                         </Menu>
                      </menus>
                      <cursor>
@@ -145,21 +145,21 @@
                   <MenuBar layoutX="30.0" layoutY="240.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="24.0" prefWidth="119.0" styleClass="menu">
                      <menus>
                         <Menu mnemonicParsing="false" styleClass="menuItem">
-                           <items>
-                              <MenuItem mnemonicParsing="false" styleClass="menuItem">
-                                 <graphic>
-                                    <Label text="Gerenciar Fornecedores" />
-                                 </graphic>
-                              </MenuItem>
-                              <MenuItem mnemonicParsing="false" styleClass="menuItem">
-                                 <graphic>
-                                    <Label text="Cadastrar Fornecedores" />
-                                 </graphic>
-                              </MenuItem>
-                           </items>
                            <graphic>
                               <Label styleClass="menuLabel" text="Fornecedores" />
                            </graphic>
+                           <items>
+                              <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
+                                 <content>
+                                    <Button fx:id="btnGerenciarFornecedores" mnemonicParsing="false" onAction="#gerenciarFornecedores" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Gerenciar Fornecedores" />
+                                 </content>
+                              </CustomMenuItem>
+                              <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
+                                 <content>
+                                    <Button fx:id="btnCadastrarFornecedor" mnemonicParsing="false" onAction="#novoFornecedor" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Cadastrar Fornecedor" />
+                                 </content>
+                              </CustomMenuItem>
+                           </items>
                         </Menu>
                      </menus>
                      <cursor>
@@ -169,11 +169,9 @@
                         <Insets top="10.0" />
                      </padding>
                   </MenuBar>
-                  <Button layoutX="32.0" layoutY="500.0" mnemonicParsing="false" onAction="#abaterDivida" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" stylesheets="@../style/Main.css" text="Abater Divida" />
-                  <Button layoutX="32.0" layoutY="460.0" mnemonicParsing="false" onAction="#registrarCaixa" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" stylesheets="@../style/Main.css" text="RegistrarCaixa" />
                </children>
             </Pane>
-            <Label fx:id="labelFuncionario" layoutX="785.0" layoutY="14.0" styleClass="lable" text="Funcionario Logado" />
+            <Label layoutX="785.0" layoutY="14.0" styleClass="lable" text="Funcionario Logado" />
             <Label layoutX="900.0" layoutY="547.0" styleClass="lable" text="Data" />
             <Pane fx:id="cardNovaVenda" layoutX="750.0" layoutY="115.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
                <children>
@@ -186,9 +184,9 @@
                   </Pane>
                </children></Pane>
             <Label layoutX="260.0" layoutY="44.0" styleClass="titleFuncionario" text="Registros do Caixa" />
-            <Pane layoutX="750.0" layoutY="395.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
+            <Pane fx:id="cardNovoRegistro" layoutX="750.0" layoutY="395.0" onMouseClicked="#novoRegistro" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
                <children>
-                  <Label fx:id="cardNovoRegistro" layoutX="42.0" layoutY="78.0" styleClass="lable" text="Nova Registro" />
+                  <Label layoutX="42.0" layoutY="78.0" styleClass="lable" text="Nova Registro" />
                   <Pane layoutX="64.0" layoutY="14.0" prefHeight="53.0" prefWidth="68.0" stylesheets="@../style/Main.css">
                      <styleClass>
                         <String fx:value="btnMais" />
@@ -197,10 +195,10 @@
                   </Pane>
                </children>
             </Pane>
-            <Pane layoutX="750.0" layoutY="255.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
+            <Pane fx:id="cardListarVenda" layoutX="750.0" layoutY="255.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
                <children>
                   <Label layoutX="17.0" layoutY="77.0" styleClass="lable" text="Historico de vendas " />
-                  <Pane fx:id="cardListarVenda" layoutX="57.0" layoutY="14.0" prefHeight="53.0" prefWidth="68.0" stylesheets="@../style/Main.css">
+                  <Pane layoutX="57.0" layoutY="14.0" prefHeight="53.0" prefWidth="68.0" stylesheets="@../style/Main.css">
                      <styleClass>
                         <String fx:value="btnMais" />
                         <String fx:value="btnListarVendas" />

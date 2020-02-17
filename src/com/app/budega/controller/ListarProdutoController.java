@@ -37,6 +37,8 @@ public class ListarProdutoController implements Initializable {
     @FXML
     private TableColumn<Produto, Double> colunaQuantidade;
 
+    private ProdutoDAO produtoDAO;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -70,13 +72,13 @@ public class ListarProdutoController implements Initializable {
             atualizarProdutoMain.start(new Stage());
         }catch(NullPointerException e) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Listar Produtos");
+            alert.setTitle("Listar Produto");
             alert.setHeaderText("Nenhum produto selecionado.");
             alert.setContentText("Selecione uma linha para atualizar.");
             alert.show();
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Listar Produtos");
+            alert.setTitle("Listar Produto");
             alert.setHeaderText("Erro ao abrir a janela de atualização.");
             alert.setContentText("Tente novamente mais tarde.");
             alert.show();
@@ -88,10 +90,10 @@ public class ListarProdutoController implements Initializable {
         try{
             Produto produto = tabelaProdutos.getSelectionModel().getSelectedItem();
 
-            ProdutoDAO produtoDAO = new ProdutoDAO();
+            produtoDAO = new ProdutoDAO();
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Deletar Produto");
+            alert.setTitle("Deletar Produtos");
             alert.setHeaderText("Deseja realmente excluir ?");
             alert.setContentText(produto.getNome());
 
@@ -103,13 +105,13 @@ public class ListarProdutoController implements Initializable {
             }
         } catch (SQLException | ClassNotFoundException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Deletar Produto");
+            alert.setTitle("Listar Produto");
             alert.setHeaderText("Um erro desconhecido ocorreu.");
             alert.setContentText("Tente novamente mais tarde");
             alert.show();
         } catch (NullPointerException e){
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Deletar Produto");
+            alert.setTitle("Listar Produtos");
             alert.setHeaderText("Nenhum produto selecionado.");
             alert.setContentText("Selecione uma linha para excluir.");
             alert.show();

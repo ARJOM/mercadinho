@@ -1,6 +1,7 @@
 package com.app.budega.App;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/ListarClientes.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../view/fxml/TelaPrincipal.fxml"));
         root.getStylesheets().add(getClass().getResource("../view/style/Main.css").toExternalForm());
         primaryStage.setTitle("Budega App");
         primaryStage.setScene(new Scene(root));
