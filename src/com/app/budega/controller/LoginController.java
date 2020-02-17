@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import util.MaskTextField;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -18,14 +19,14 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
 
     @FXML
-    private TextField campoCpf;
+    private MaskTextField campoCpf;
 
     @FXML
     private PasswordField campoSenha;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Começou");
+        campoCpf.setMask("NNN.NNN.NNN-NN");
     }
 
     public void acaoLogar(){
@@ -59,7 +60,11 @@ public class LoginController implements Initializable {
 
                     campoSenha.setStyle("-fx-border-color: #BDBDBD");
                 } else{
-                    System.out.println("é igual");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Login");
+                    alert.setHeaderText("Funcionario autenticado.");
+                    alert.setContentText("Bem vindo ao sistema.");
+                    alert.showAndWait();
                     LogarFuncionarioMain logarFuncionarioMain = new LogarFuncionarioMain(cpf);
                     logarFuncionarioMain.start(new Stage());
                 }
