@@ -80,7 +80,7 @@
                               </CustomMenuItem>
                               <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
                                  <content>
-                                    <Button mnemonicParsing="false" onAction="#abaterDivida" prefHeight="48.0" prefWidth="146.0" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Abater Divida" />
+                                    <Button mnemonicParsing="false" onAction="#abaterDivida" prefHeight="53.0" prefWidth="146.0" styleClass="btnMenuItem" stylesheets="@../style/Main.css" text="Creditar Divida" />
                                  </content>
                               </CustomMenuItem>
                            </items>

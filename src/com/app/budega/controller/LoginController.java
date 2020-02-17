@@ -7,6 +7,7 @@ import com.app.budega.model.Funcionario;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -24,13 +25,15 @@ public class LoginController implements Initializable {
     @FXML
     private PasswordField campoSenha;
 
+    @FXML
+    private Button btnLogin;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         campoCpf.setMask("NNN.NNN.NNN-NN");
     }
 
     public void acaoLogar(){
-        System.out.println("Tentando");
         if(campoCpf.getText().equals("") || campoSenha.getText().equals("")){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Cadastro de Funcionario");
@@ -39,14 +42,11 @@ public class LoginController implements Initializable {
 
             alert.showAndWait();
         } else{
-
             try {
                 FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
                 String senha = campoSenha.getText();
-                System.out.println(senha);
                 String cpf = campoCpf.getText();
-                System.out.println(cpf);
 
                 Funcionario funcionario = funcionarioDAO.buscarPorCpf(cpf);
                 if(!funcionario.getSenha().equals(senha)){
@@ -54,7 +54,7 @@ public class LoginController implements Initializable {
 
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Login");
-                    alert.setHeaderText("As senhas não batem.");
+                    alert.setHeaderText("Senha incorreta");
                     alert.setContentText("Verifique a senha e tente novamente.");
                     alert.showAndWait();
 
@@ -67,6 +67,9 @@ public class LoginController implements Initializable {
                     alert.showAndWait();
                     LogarFuncionarioMain logarFuncionarioMain = new LogarFuncionarioMain(cpf);
                     logarFuncionarioMain.start(new Stage());
+
+                    Stage stageFecharLogin = (Stage) btnLogin.getScene().getWindow();
+                    stageFecharLogin.close();
                 }
             } catch (NullPointerException e){
                 Alert alert = new Alert(Alert.AlertType.ERROR);

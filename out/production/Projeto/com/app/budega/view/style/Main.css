@@ -267,6 +267,8 @@
 .btnMenuItem{
     -fx-background-color: transparent;
     -fx-text-fill: #ffffff;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 40px;
 }
 .btnMenuItem:hover{
     -fx-text-fill: #2196F3;
