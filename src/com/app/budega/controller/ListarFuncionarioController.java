@@ -17,6 +17,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Logger;
 
 public class ListarFuncionarioController implements Initializable {
@@ -35,13 +37,18 @@ public class ListarFuncionarioController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rs){
-        try {
-            initTable();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        new Timer().scheduleAtFixedRate(new TimerTask(){
+            @Override
+            public void run(){
+                try {
+                    initTable();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        },0,5000);
     }
 
     FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
@@ -95,8 +102,6 @@ public class ListarFuncionarioController implements Initializable {
             AtualizarFuncionarioMain atualizarFuncionarioMain = new AtualizarFuncionarioMain(funcionario);
             try {
                 atualizarFuncionarioMain.start(new Stage());
-                Stage stage = (Stage) btnAtualizarFuncionario.getScene().getWindow();
-                stage.close();
             }catch (Exception e){
                 e.printStackTrace();
             }

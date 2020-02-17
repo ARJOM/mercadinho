@@ -46,6 +46,9 @@
 .imgAtualizarProduto{
     -fx-background-image: url("../image/undraw_cloud_files_wmo8.png");
 }
+.imgLogin{
+    -fx-background-image: url("../image/undraw_welcome_cats_thqn.png");
+}
 .titleFuncionario{
     -fx-text-alignment: center;
     -fx-font-size: 22px;

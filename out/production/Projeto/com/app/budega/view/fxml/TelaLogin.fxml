@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -8,17 +9,27 @@
 <?import javafx.scene.layout.Pane?>
 
 <?import util.MaskTextField?>
-<AnchorPane prefHeight="398.0" prefWidth="319.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.LoginController">
+
+<AnchorPane prefHeight="398.0" prefWidth="578.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.LoginController">
     <children>
-        <Pane prefHeight="398.0" prefWidth="332.0" styleClass="main" stylesheets="@../style/Main.css">
+        <Pane layoutX="240.0" prefHeight="398.0" prefWidth="332.0" styleClass="main" stylesheets="@../style/Main.css">
             <children>
                 <Label layoutX="35.0" layoutY="179.0" styleClass="lable" stylesheets="@../style/Main.css" text="Senha" />
                 <MaskTextField fx:id="campoCpf" layoutX="35.0" layoutY="118.0" prefHeight="42.0" prefWidth="263.0" styleClass="input" stylesheets="@../style/Main.css" />
                 <Label layoutX="136.0" layoutY="24.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Login" />
                 <Label layoutX="35.0" layoutY="81.0" styleClass="lable" stylesheets="@../style/Main.css" text="CPF" />
-                <Button layoutX="96.0" layoutY="286.0" mnemonicParsing="false" onAction="#acaoLogar" prefHeight="52.0" prefWidth="139.0" styleClass="btnCadastrar" text="Login" />
+                <Button fx:id="btnLogin" layoutX="96.0" layoutY="286.0" mnemonicParsing="false" onAction="#acaoLogar" prefHeight="52.0" prefWidth="139.0" styleClass="btnCadastrar" text="Login" />
                 <Label layoutX="137.0" layoutY="343.0" styleClass="btnCancelar" text="Cancelar" />
                 <PasswordField fx:id="campoSenha" layoutX="35.0" layoutY="214.0" prefWidth="263.0" styleClass="input" />
             </children></Pane>
+      <Pane prefHeight="398.0" prefWidth="240.0" styleClass="gradiente" stylesheets="@../style/Main.css">
+         <children>
+            <Pane layoutX="34.0" layoutY="119.0" prefHeight="161.0" prefWidth="173.0">
+               <styleClass>
+                  <String fx:value="img" />
+                  <String fx:value="imgLogin" />
+               </styleClass>
+            </Pane>
+         </children></Pane>
     </children>
 </AnchorPane>
