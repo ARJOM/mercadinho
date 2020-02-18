@@ -82,6 +82,7 @@ public class ListarDependenteController implements Initializable {
         try{
             Dependente dependente = tabelaDependente.getSelectionModel().getSelectedItem();
             String id = dependente.getId();
+            System.out.println(id);
             try {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Deletar Funcionarios");

@@ -44,7 +44,7 @@ public class AtualizaDependenteController implements Initializable {
     private ToggleGroup gpPermissao;
 
     @FXML
-    private Button btnAtulizarDependente;
+    private Button btnAtualizarDependente;
 
     @FXML
     private Label btnCancelar;
@@ -141,7 +141,7 @@ public class AtualizaDependenteController implements Initializable {
                     alert.setContentText(labelID.getText());
                     alert.show();
 
-                    Stage stageCancelar = (Stage) btnAtulizarDependente.getScene().getWindow();
+                    Stage stageCancelar = (Stage) btnAtualizarDependente.getScene().getWindow();
                     stageCancelar.close();
 
                 }

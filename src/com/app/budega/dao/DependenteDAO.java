@@ -54,7 +54,7 @@ public class DependenteDAO {
 
     public boolean deleteDependente(String id) throws SQLException, ClassNotFoundException{
         try(Connection connection = conexao.getConnection()){
-            PreparedStatement pstm = connection.prepareStatement("DELETE FROM dependente WHERE i = ?");
+            PreparedStatement pstm = connection.prepareStatement("DELETE FROM dependente WHERE id = ?");
             pstm.setString(1,id);
 
             return pstm.executeUpdate() > 0;
