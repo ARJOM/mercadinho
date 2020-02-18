@@ -31,25 +31,25 @@ public class FornecedorDAO {
         }
     }
 
-    public boolean atualizar(Fornecedor fornecedor) throws SQLException,
+    public boolean atualizar(String cnpj, String nome, String contato) throws SQLException,
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
                     "UPDATE fornecedor SET nome = ?, contato = ? WHERE cnpj = ?");
-            pstmt.setString(1, fornecedor.getNome());
-            pstmt.setString(2, fornecedor.getTelefone());
-            pstmt.setString(3, fornecedor.getCnpj());
+            pstmt.setString(1, nome);
+            pstmt.setString(2, contato);
+            pstmt.setString(3, cnpj);
 
             return pstmt.executeUpdate() > 0;
         }
     }
 
-    public boolean deletar(Fornecedor fornecedor) throws SQLException,
+    public boolean deletar(String cnpj) throws SQLException,
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
                     "DELETE FROM fornecedor WHERE cnpj = ?");
-            pstmt.setString(1, fornecedor.getCnpj());
+            pstmt.setString(1, cnpj);
 
             return pstmt.executeUpdate() > 0;
         }
