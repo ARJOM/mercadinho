@@ -19,7 +19,7 @@
                 <Label layoutX="136.0" layoutY="24.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Login" />
                 <Label layoutX="35.0" layoutY="81.0" styleClass="lable" stylesheets="@../style/Main.css" text="CPF" />
                 <Button fx:id="btnLogin" layoutX="96.0" layoutY="286.0" mnemonicParsing="false" onAction="#acaoLogar" prefHeight="52.0" prefWidth="139.0" styleClass="btnCadastrar" text="Login" />
-                <Label layoutX="137.0" layoutY="343.0" styleClass="btnCancelar" text="Cancelar" />
+                <Label fx:id="btnCancelar" onMouseClicked="#acaoCancelar" layoutX="137.0" layoutY="343.0" styleClass="btnCancelar" text="Cancelar" />
                 <PasswordField fx:id="campoSenha" layoutX="35.0" layoutY="214.0" prefWidth="263.0" styleClass="input" />
             </children></Pane>
       <Pane prefHeight="398.0" prefWidth="240.0" styleClass="gradiente" stylesheets="@../style/Main.css">

@@ -6,7 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import util.MaskTextField;
 
 import java.net.URL;
@@ -25,6 +29,12 @@ public class CadastroClienteController implements Initializable {
 
     @FXML
     private MaskTextField campoContato;
+
+    @FXML
+    private Button btnCadastrar;
+
+    @FXML
+    private Label btnCancelar;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,6 +66,9 @@ public class CadastroClienteController implements Initializable {
                     alert.setTitle("Cadastro de Cliente");
                     alert.setHeaderText("Cliente cadastrado com sucesso.");
                     alert.showAndWait();
+
+                    Stage stageCancelar = (Stage) btnCadastrar.getScene().getWindow();
+                    stageCancelar.close();
                 } else{
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Cadastro de Cliente");
@@ -79,4 +92,8 @@ public class CadastroClienteController implements Initializable {
         }
     }
 
+    public void acaoCancelar(MouseEvent mouseEvent) {
+        Stage stageCancelar = (Stage) btnCancelar.getScene().getWindow();
+        stageCancelar.close();
+    }
 }

@@ -6,10 +6,8 @@ import com.app.budega.dao.FuncionarioDAO;
 import com.app.budega.model.Funcionario;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import util.MaskTextField;
 
@@ -27,6 +25,9 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button btnLogin;
+
+    @FXML
+    private Label btnCancelar;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -63,7 +64,7 @@ public class LoginController implements Initializable {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Login");
                     alert.setHeaderText("Funcionario autenticado.");
-                    alert.setContentText("Bem vindo ao sistema.");
+                    alert.setContentText("Bem vindo " + campoCpf.getText());
                     alert.showAndWait();
                     LogarFuncionarioMain logarFuncionarioMain = new LogarFuncionarioMain(cpf);
                     logarFuncionarioMain.start(new Stage());
@@ -88,4 +89,8 @@ public class LoginController implements Initializable {
         }
     }
 
+    public void acaoCancelar(MouseEvent mouseEvent) {
+        Stage stageCancelar = (Stage) btnCancelar.getScene().getWindow();
+        stageCancelar.close();
+    }
 }

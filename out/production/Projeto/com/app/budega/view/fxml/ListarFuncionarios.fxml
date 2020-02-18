@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="442.0" prefWidth="753.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.ListarFuncionarioController">
+   <children>
+      <Pane prefHeight="444.0" prefWidth="753.0" styleClass="main" stylesheets="@../style/Main.css">
+         <children>
+            <Label layoutX="212.0" layoutY="16.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Funcionarios Cadastrados" />
+            <Label layoutX="480.0" layoutY="90.0" styleClass="lable" text="Buscar por CPF" />
+            <TableView fx:id="tabelaFuncionario" layoutX="14.0" layoutY="90.0" prefHeight="339.0" prefWidth="434.0" stylesheets="@../style/Main.css">
+              <columns>
+                <TableColumn fx:id="colunaCpf" prefWidth="210.0" text="CPF" />
+                <TableColumn fx:id="colunaNome" prefWidth="223.0" text="Nome" />
+              </columns>
+            </TableView>
+            <TextField layoutX="479.0" layoutY="122.0" prefHeight="22.0" prefWidth="198.0" styleClass="input" />
+            <Button layoutX="685.0" layoutY="122.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" styleClass="btnBuscar" />
+            <Button fx:id="btnDeletarFuncionario" layoutX="496.0" layoutY="384.0" mnemonicParsing="false" onAction="#deleteFuncionario" prefHeight="38.0" prefWidth="109.0" styleClass="btnDeletar" text="Deletar" />
+            <Button fx:id="btnAtualizarFuncionario" layoutX="620.0" layoutY="384.0" mnemonicParsing="false" onAction="#atualizarFuncionario" prefHeight="45.0" prefWidth="109.0" styleClass="btnCadastrar" text="Atualizar" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

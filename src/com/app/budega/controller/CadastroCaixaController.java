@@ -6,7 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -22,6 +26,12 @@ public class CadastroCaixaController implements Initializable {
 
     @FXML
     private TextField campoDescricao;
+
+    @FXML
+    private Button btnRegistrar;
+
+    @FXML
+    private Label btnCancelar;
 
     public static void setFuncionario(String funcionario) {
         CadastroCaixaController.funcionario = funcionario;
@@ -57,6 +67,9 @@ public class CadastroCaixaController implements Initializable {
                     alert.setTitle("Registro do Caixa");
                     alert.setHeaderText("Registro realizado com sucesso.");
                     alert.showAndWait();
+
+                    Stage stageCancelar = (Stage) btnRegistrar.getScene().getWindow();
+                    stageCancelar.close();
                 } else{
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Registro do Caixa");
@@ -74,4 +87,8 @@ public class CadastroCaixaController implements Initializable {
         }
     }
 
+    public void acaoCancelar(MouseEvent mouseEvent) {
+        Stage stageCancelar = (Stage) btnCancelar.getScene().getWindow();
+        stageCancelar.close();
+    }
 }

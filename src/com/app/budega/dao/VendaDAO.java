@@ -19,7 +19,7 @@ public class VendaDAO {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
                     "INSERT INTO venda(idvenda, funcionario, total, datavenda)" +
-                            "VALUES (proximoidvenda,?,?,?)");
+                            "VALUES (proximoidvenda(),?,?,?)");
             pstmt.setString(1, venda.getFuncionario());
             pstmt.setFloat(2, venda.getTotal());
             pstmt.setDate(3, Date.valueOf(venda.getData()));

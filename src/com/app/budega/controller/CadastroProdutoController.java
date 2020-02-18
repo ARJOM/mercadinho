@@ -9,6 +9,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 
 import java.net.URL;
@@ -69,6 +71,9 @@ public class CadastroProdutoController implements Initializable {
                     alert.setTitle("Cadastro de Produto");
                     alert.setHeaderText("Produto cadastrado com sucesso.");
                     alert.showAndWait();
+
+                    Stage stageEncerrar = (Stage) btnCadastrar.getScene().getWindow();
+                    stageEncerrar.close();
                 } else{
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Cadastro de Produto");
@@ -90,5 +95,10 @@ public class CadastroProdutoController implements Initializable {
                 alert.showAndWait();
             }
         }
+    }
+
+    public void acaoCancelar(MouseEvent mouseEvent) {
+        Stage stageCancelar = (Stage) btnCancelar.getScene().getWindow();
+        stageCancelar.close();
     }
 }

@@ -10,6 +10,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -40,6 +42,12 @@ public class AtualizaDependenteController implements Initializable {
 
     @FXML
     private ToggleGroup gpPermissao;
+
+    @FXML
+    private Button btnAtulizarDependente;
+
+    @FXML
+    private Label btnCancelar;
 
     @FXML
     private Label labelID;
@@ -127,15 +135,15 @@ public class AtualizaDependenteController implements Initializable {
                 Dependente dependente = new Dependente(id, responsavel, nome, parentesco, permissao);
                 dependenteDAO.atualizar(dependente);
                 if(dependenteDAO.atualizar(dependente) == true){
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Atualização de Funcionario");
                     alert.setHeaderText("Dados atualizados com sucesso.");
                     alert.setContentText(labelID.getText());
+                    alert.show();
 
-                    Optional<ButtonType> resultado = alert.showAndWait();
-                    if (resultado.get() == ButtonType.OK){
-                        Main main = new Main();
-                    }
+                    Stage stageCancelar = (Stage) btnAtulizarDependente.getScene().getWindow();
+                    stageCancelar.close();
+
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -160,4 +168,8 @@ public class AtualizaDependenteController implements Initializable {
         AtualizaDependenteController.dependenteRetornado = dependenteRetornado;
     }
 
+    public void acaoCancelar(MouseEvent mouseEvent) {
+        Stage stageCancelar = (Stage) btnCancelar.getScene().getWindow();
+        stageCancelar.close();
+    }
 }

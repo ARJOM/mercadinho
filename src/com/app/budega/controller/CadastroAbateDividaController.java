@@ -8,9 +8,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -30,6 +30,12 @@ public class CadastroAbateDividaController implements Initializable {
 
     @FXML
     private ComboBox<String> cbCliente;
+
+    @FXML
+    private Button btnAbater;
+
+    @FXML
+    private Label btnCancelar;
 
     private ObservableList<String> clientesOBS;
 
@@ -79,7 +85,7 @@ public class CadastroAbateDividaController implements Initializable {
 
             float valor = Float.parseFloat(campoValor.getText());
             String cliente = String.valueOf(cbCliente.getValue());
-            //TODO pegar o funcionario logado
+
 
             AbateDivida abateDivida = new AbateDivida("0", cliente, null, valor);
 
@@ -89,6 +95,9 @@ public class CadastroAbateDividaController implements Initializable {
                     alert.setTitle("Abatimento de Dívida");
                     alert.setHeaderText("Dívida abatida com sucesso em "+ abateDivida.getValor()+" reais");
                     alert.showAndWait();
+
+                    Stage stageCancelar = (Stage) btnAbater.getScene().getWindow();
+                    stageCancelar.close();
                 }
             } catch (SQLException | ClassNotFoundException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -103,4 +112,8 @@ public class CadastroAbateDividaController implements Initializable {
         CadastroAbateDividaController.funcionario = funcionario;
     }
 
+    public void acaoCancelar(MouseEvent mouseEvent) {
+        Stage stageCancelar = (Stage) btnCancelar.getScene().getWindow();
+        stageCancelar.close();
+    }
 }

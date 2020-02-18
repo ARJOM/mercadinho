@@ -12,6 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.*;
@@ -34,6 +36,12 @@ public class CadastroDependenteController implements Initializable {
 
     @FXML
     private ToggleGroup gpPermissao;
+
+    @FXML
+    private Button btnCadastrar;
+
+    @FXML
+    private Label btnCancelar;
 
     private boolean permissao;
 
@@ -124,6 +132,9 @@ public class CadastroDependenteController implements Initializable {
                     alert.setTitle("Cadastro de Dependente");
                     alert.setHeaderText("Cadastrado com sucesso.");
                     alert.showAndWait();
+
+                    Stage stageEncerrar = (Stage) btnCadastrar.getScene().getWindow();
+                    stageEncerrar.close();
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Cadastro de Dependente");
@@ -138,5 +149,10 @@ public class CadastroDependenteController implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void acaoCancelar(MouseEvent mouseEvent) {
+        Stage stageCancelar = (Stage) btnCancelar.getScene().getWindow();
+        stageCancelar.close();
     }
 }

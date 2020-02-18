@@ -30,7 +30,7 @@
             <Label layoutX="239.0" layoutY="276.0" styleClass="lable" text="Quantidade" />
             <TextField fx:id="campoQuantidade" layoutX="239.0" layoutY="311.0" prefHeight="42.0" prefWidth="130.0" styleClass="input" stylesheets="@../style/Main.css" />
             <Button fx:id="btnCadastrar" layoutX="152.0" layoutY="369.0" mnemonicParsing="false" onAction="#acaoCadastrar" prefHeight="51.0" prefWidth="151.0" styleClass="btnCadastrar" text="Cadastrar" />
-            <Label fx:id="btnCancelar" layoutX="199.0" layoutY="428.0" styleClass="btnCancelar" text="Cancelar" />
+            <Label fx:id="btnCancelar" onMouseClicked="#acaoCancelar" layoutX="199.0" layoutY="428.0" styleClass="btnCancelar" text="Cancelar" />
             <Label layoutX="227.0" layoutY="102.0" styleClass="lableObrigatorio" text="*" />
             <Label layoutX="142.0" layoutY="191.0" styleClass="lableObrigatorio" text="*" />
             <Label layoutX="141.0" layoutY="280.0" styleClass="lableObrigatorio" text="*" />
