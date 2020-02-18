@@ -33,6 +33,9 @@ public class ListarFuncionarioController implements Initializable {
     private TableColumn<Funcionario, String> colunaNome;
 
     @FXML
+    private TextField campoBuscar;
+
+    @FXML
     private Button btnAtualizarFuncionario;
 
     @Override
@@ -63,6 +66,14 @@ public class ListarFuncionarioController implements Initializable {
     public ObservableList<Funcionario> atualizaTable() throws SQLException, ClassNotFoundException {
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
         return FXCollections.observableArrayList(funcionarioDAO.getFuncionarios());
+    }
+
+    @FXML
+     public ObservableList<Funcionario> acaoBuscar() throws SQLException, ClassNotFoundException {
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        String cpf = campoBuscar.getText();
+        return FXCollections.observableArrayList(funcionarioDAO.buscarPorCpf(cpf));
+
     }
 
     @FXML
