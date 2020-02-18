@@ -4,11 +4,13 @@ import com.app.budega.dao.ProdutoDAO;
 import com.app.budega.model.Produto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -79,5 +81,11 @@ public class NovaVendaController implements Initializable {
     int cont = 0;
     public void capturarTupla() throws SQLException, ClassNotFoundException {
         Produto produto = tabelaProdutos.getSelectionModel().getSelectedItem();
+    }
+
+    public void acaoVender(ActionEvent event) {
+    }
+
+    public void acaoCancelar(MouseEvent mouseEvent) {
     }
 }

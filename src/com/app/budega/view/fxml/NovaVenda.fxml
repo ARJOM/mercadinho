@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="543.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.NovaVendaController">
+<AnchorPane prefHeight="429.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.NovaVendaController">
    <children>
-      <Pane prefHeight="543.0" prefWidth="862.0" styleClass="main" stylesheets="@../style/Main.css">
+      <Pane layoutY="-1.0" prefHeight="429.0" prefWidth="691.0" styleClass="main" stylesheets="@../style/Main.css">
          <children>
-             <TableView fx:id="tabelaProdutos" layoutX="30.0" layoutY="115.0" prefHeight="339.0" prefWidth="454.0" stylesheets="@../style/Main.css">
-                 <columns>
-                     <TableColumn fx:id="colunaCodBarras" prefWidth="135.0" text="Código de barras" />
-                     <TableColumn fx:id="colunaNome" prefWidth="148.0" text="Nome" />
-                     <TableColumn fx:id="colunaPreco" prefWidth="75.0" text="Preço" />
-                     <TableColumn fx:id="colunaQuantidade" prefWidth="100.0" text="Quantidade" />
-                 </columns>
-             </TableView>
-            <Label layoutX="369.0" layoutY="28.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Nova Venda" />
-            <TableView fx:id="tabelaItensVenda" layoutX="519.0" layoutY="115.0" prefHeight="339.0" prefWidth="307.0" stylesheets="@../style/Main.css">
-              <columns>
-                <TableColumn fx:id="nomeProduto" prefWidth="201.33331298828125" text="Produto" />
-                <TableColumn fx:id="qauntidadeProduto" prefWidth="104.66668701171875" text="Quanridade" />
-              </columns>
-            </TableView>
-         </children></Pane>
+            <Label layoutX="355.0" layoutY="30.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Realizar uma nova venda" />
+            <Pane layoutY="1.0" prefHeight="429.0" prefWidth="302.0" styleClass="gradiente">
+               <children>
+                  <Pane layoutX="51.0" layoutY="115.0" prefHeight="200.0" prefWidth="200.0">
+                     <styleClass>
+                        <String fx:value="img" />
+                        <String fx:value="imgVendas" />
+                     </styleClass></Pane>
+               </children>
+            </Pane>
+            <Label layoutX="370.0" layoutY="85.0" styleClass="lable" text="Codigo de barras" />
+            <TextField fx:id="campoCodBarras" layoutX="370.0" layoutY="125.0" prefWidth="246.0" styleClass="input" />
+            <Label layoutX="370.0" layoutY="197.0" styleClass="lable" text="Quantidade" />
+            <TextField fx:id="campoQuantidade" layoutX="480.0" layoutY="189.0" prefWidth="134.0" styleClass="input" />
+            <Label layoutX="370.0" layoutY="246.0" styleClass="lable" text="Venda Fiado" />
+            <ComboBox fx:id="comboBoxFiado" layoutX="370.0" layoutY="280.0" prefHeight="38.0" prefWidth="246.0" styleClass="comboBox" />
+            <Button fx:id="btnVender" layoutX="443.0" layoutY="342.0" mnemonicParsing="false" onAction="#acaoVender" prefWidth="119.0" styleClass="btnCadastrar" text="Vender" />
+            <Label fx:id="btnCancelar" layoutX="475.0" layoutY="395.0" onMouseClicked="#acaoCancelar" styleClass="btnCancelar" text="Cancelar" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

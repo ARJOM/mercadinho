@@ -49,6 +49,9 @@
 .imgLogin{
     -fx-background-image: url("../image/undraw_welcome_cats_thqn.png");
 }
+.imgVendas{
+    -fx-background-image: url("../image/vendA.png");
+}
 .titleFuncionario{
     -fx-text-alignment: center;
     -fx-font-size: 22px;
