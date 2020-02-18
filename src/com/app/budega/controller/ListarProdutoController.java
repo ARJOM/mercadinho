@@ -14,11 +14,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import util.MaskTextField;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ListarProdutoController implements Initializable {
 
@@ -37,18 +40,28 @@ public class ListarProdutoController implements Initializable {
     @FXML
     private TableColumn<Produto, Double> colunaQuantidade;
 
+    @FXML
+    private MaskTextField campoBuscarCodBarras;
+
     private ProdutoDAO produtoDAO;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        try {
-            initTable();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        new Timer().scheduleAtFixedRate(new TimerTask(){
+            @Override
+            public void run(){
+                try {
+                    initTable();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        },0,5000);
+
+        campoBuscarCodBarras.setMask("NNNNNNNNNNNNNNNNNNNN");
     }
 
     public void initTable() throws SQLException, ClassNotFoundException {
@@ -117,5 +130,32 @@ public class ListarProdutoController implements Initializable {
             alert.show();
         }
 
+    }
+
+    public void buscarCodBarras(ActionEvent event) {
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        String codBarras = campoBuscarCodBarras.getText();
+
+        try {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Produto");
+            alert.setHeaderText("Nome: " + produtoDAO.buscarPorCodBarras(codBarras).getNome()+
+                    "\n" + "Quantidade: " + produtoDAO.buscarPorCodBarras(codBarras).getQuantidade()+
+                    "\n" + "Preço Unitario: " + produtoDAO.buscarPorCodBarras(codBarras).getPreco());
+            alert.setContentText("Busca concluida.");
+            alert.show();
+
+            campoBuscarCodBarras.setText("");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }catch (NullPointerException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar Produto");
+            alert.setHeaderText("A busca não pode ser excutada com o campo vazio.");
+            alert.setContentText("Verifique o campo e tente novamente.");
+            alert.show();
+        }
     }
 }

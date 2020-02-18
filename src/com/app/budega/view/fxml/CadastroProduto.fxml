@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
+<?import util.MaskTextField?>
 <AnchorPane prefHeight="457.0" prefWidth="781.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.CadastroProdutoController">
    <children>
       <Pane prefHeight="457.0" prefWidth="326.0" styleClass="gradiente" stylesheets="@../style/Main.css">
@@ -22,7 +23,7 @@
          <children>
             <Label layoutX="101.0" layoutY="29.0" styleClass="titleFuncionario" text="Cadastro de Produtos" />
             <Label layoutX="88.0" layoutY="99.0" styleClass="lable" text="Codigo de Barras" />
-            <TextField fx:id="campoCodBarras" layoutX="88.0" layoutY="133.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+            <MaskTextField fx:id="campoCodBarras" layoutX="88.0" layoutY="133.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
             <Label layoutX="89.0" layoutY="187.0" styleClass="lable" text="Nome " />
             <TextField fx:id="campoNome" layoutX="88.0" layoutY="220.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
             <Label layoutX="93.0" layoutY="276.0" styleClass="lable" text="Preço" />

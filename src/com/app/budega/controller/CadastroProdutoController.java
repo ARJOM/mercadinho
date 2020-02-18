@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import util.MaskTextField;
 
 
 import java.net.URL;
@@ -22,7 +23,7 @@ public class CadastroProdutoController implements Initializable {
     private ProdutoDAO produtoDAO;
 
     @FXML
-    private TextField campoCodBarras;
+    private MaskTextField campoCodBarras;
 
     @FXML
     private TextField campoNome;
@@ -41,7 +42,7 @@ public class CadastroProdutoController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        campoCodBarras.setMask("NNNNNNNNNNNNNNNNNNNN");
     }
 
     public void acaoCadastrar(ActionEvent actionEvent){

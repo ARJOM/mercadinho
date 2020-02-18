@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import util.MaskTextField?>
 <AnchorPane prefHeight="443.0" prefWidth="767.0" stylesheets="@../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.ListarProdutoController">
     <children>
         <Label layoutX="233.0" layoutY="23.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Produtos Cadastrados" />
@@ -19,8 +20,8 @@
                 <TableColumn fx:id="colunaQuantidade" prefWidth="100.0" text="Quantidade" />
             </columns>
         </TableView>
-        <TextField layoutX="488.0" layoutY="115.0" prefHeight="22.0" prefWidth="198.0" styleClass="input" />
-        <Button layoutX="696.0" layoutY="115.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" styleClass="btnBuscar" />
+        <MaskTextField layoutX="488.0" fx:id="campoBuscarCodBarras" layoutY="115.0" prefHeight="22.0" prefWidth="198.0" styleClass="input" />
+        <Button layoutX="696.0" layoutY="115.0" onAction="#buscarCodBarras" mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" styleClass="btnBuscar" />
         <Button fx:id="btnDeletarProduto" layoutX="515.0" layoutY="377.0" mnemonicParsing="false" onAction="#deleteProduto" prefHeight="38.0" prefWidth="109.0" styleClass="btnDeletar" text="Deletar" />
         <Button fx:id="btnAtualizarProduto" layoutX="631.0" layoutY="377.0" mnemonicParsing="false" onAction="#atualizarProduto" prefHeight="45.0" prefWidth="109.0" styleClass="btnCadastrar" text="Atualizar" />
     </children>
