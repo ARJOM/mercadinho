@@ -52,7 +52,7 @@ public class ListarFornecedorController implements Initializable {
                     e.printStackTrace();
                 }
             }
-        },0,5000);
+        },0,2000);
 
         campoBuscarCNPJ.setMask("NNNNNNNNNNNNNN");
     }

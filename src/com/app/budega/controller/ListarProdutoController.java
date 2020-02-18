@@ -60,7 +60,6 @@ public class ListarProdutoController implements Initializable {
                 }
             }
         },0,5000);
-
         campoBuscarCodBarras.setMask("NNNNNNNNNNNNNNNNNNNN");
     }
 
