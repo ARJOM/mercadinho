@@ -10,17 +10,17 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import util.MaskTextField;
 
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ListarFornecedorController implements Initializable {
 
@@ -36,15 +36,25 @@ public class ListarFornecedorController implements Initializable {
     @FXML
     private TableColumn<Fornecedor, String> colunaContato;
 
+    @FXML
+    private MaskTextField campoBuscarCNPJ;
+
     @Override
     public void initialize(URL url, ResourceBundle rs){
-        try {
-            initTable();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        new Timer().scheduleAtFixedRate(new TimerTask(){
+            @Override
+            public void run(){
+                try {
+                    initTable();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        },0,5000);
+
+        campoBuscarCNPJ.setMask("NNNNNNNNNNNNNN");
     }
 
     FornecedorDAO fornecedorDAO = new FornecedorDAO();
@@ -112,4 +122,30 @@ public class ListarFornecedorController implements Initializable {
 
     }
 
+    public void buscarCNPJ(ActionEvent event) {
+        FornecedorDAO fornecedorDAO = new FornecedorDAO();
+        String cnpj = campoBuscarCNPJ.getText();
+
+        try {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Fornecedor");
+            alert.setHeaderText("Nome: "+ fornecedorDAO.buscarPorCnpj(cnpj).getNome()+
+                    "\n"+ "Telefone: " + fornecedorDAO.buscarPorCnpj(cnpj).getTelefone());
+            alert.setContentText("Busca concluida.");
+            alert.show();
+
+            campoBuscarCNPJ.setText("");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }catch (NullPointerException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar Fornecedor");
+            alert.setHeaderText("O campo de busca não pode estar vazio.");
+            alert.setContentText("Verifique o campo e tente novamente.");
+            alert.show();
+        }
+
+    }
 }
