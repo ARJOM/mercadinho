@@ -6,8 +6,10 @@ import com.app.budega.App.PassarFuncionarioAbateMain;
 import com.app.budega.App.PassarFuncionarioCaixaMain;
 import com.app.budega.dao.CaixaDao;
 import com.app.budega.dao.FuncionarioDAO;
+import com.app.budega.dao.VendaDAO;
 import com.app.budega.model.Caixa;
 import com.app.budega.model.Funcionario;
+import com.app.budega.model.Venda;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -261,11 +263,26 @@ public class TelaPrincipalController implements Initializable {
 
     public void novoRegistro(MouseEvent mouseEvent) {
         try {
-            PassarFuncionarioCaixaMain passarFuncionarioCaixaMain = new PassarFuncionarioCaixaMain(funcionario);
-            passarFuncionarioCaixaMain.start(new Stage());
+            VendaDAO vendaDAO = new VendaDAO();
+
+            String id = vendaDAO.proximoId();
+
+            LocalDate data = LocalDate.now();
+            Venda venda = new Venda("0", funcionario, 0, data);
+            if(vendaDAO.salvar(venda)){
+                PassarFuncionarioCaixaMain passarFuncionarioCaixaMain = new PassarFuncionarioCaixaMain(id);
+                passarFuncionarioCaixaMain.start(new Stage());
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Nova Venda");
+                alert.setHeaderText("Não foi possível criar uma nova venda.");
+                alert.setContentText("Tente se autenticar e repita a ação.");
+                alert.showAndWait();
+            }
+
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Registro de Caixa");
+            alert.setTitle("Nova Venda");
             alert.setHeaderText("Não foi possível abrir a janela.");
             alert.setContentText("Tente se autenticar e repita a ação.");
             alert.showAndWait();
@@ -273,7 +290,7 @@ public class TelaPrincipalController implements Initializable {
     }
 
     public void chamarNovaVenda() {
-        NovaVendaMain novaVendaMain = new NovaVendaMain();
+        NovaVendaMain novaVendaMain = new NovaVendaMain(TelaPrincipalController.funcionario);
         try {
             novaVendaMain.start(new Stage());
         } catch (Exception e) {

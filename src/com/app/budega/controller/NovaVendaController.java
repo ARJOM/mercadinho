@@ -11,6 +11,8 @@ import java.awt.event.MouseEvent;
 
 public class NovaVendaController {
 
+    private static String venda;
+
     @FXML
     private TextField campoCodBarras;
 
@@ -37,5 +39,9 @@ public class NovaVendaController {
     }
 
     public void acaoCancelar(javafx.scene.input.MouseEvent mouseEvent) {
+    }
+
+    public static void setVenda(String venda){
+        NovaVendaController.venda = venda;
     }
 }

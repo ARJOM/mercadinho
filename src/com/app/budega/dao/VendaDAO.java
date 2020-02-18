@@ -72,7 +72,7 @@ public class VendaDAO {
         }
     }
 
-    private Set<Venda> getVenda() throws SQLException,
+    public Set<Venda> getVenda() throws SQLException,
             ClassNotFoundException {
         try (Connection connection = conexao.getConnection()) {
             PreparedStatement pstmt = connection.prepareStatement(
@@ -90,6 +90,18 @@ public class VendaDAO {
                 vendas.add(new Venda(idvenda, funcionario, total, datavenda));
             }
             return vendas;
+        }
+    }
+
+    public String proximoId() throws SQLException, ClassNotFoundException {
+        try (Connection connection = conexao.getConnection()) {
+            PreparedStatement pstmt = connection.prepareStatement(
+                    "SELECT * FROM proximoiditemvenda()");
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return String.valueOf(rs.getInt("proximoiditemvenda"));
+            }
+            return null;
         }
     }
 }
