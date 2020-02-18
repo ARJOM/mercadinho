@@ -10,26 +10,28 @@
 
 <AnchorPane prefHeight="429.0" prefWidth="687.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.NovaVendaController">
    <children>
-      <Pane layoutY="-1.0" prefHeight="429.0" prefWidth="691.0" styleClass="main" stylesheets="@../style/Main.css">
+      <Pane layoutY="-1.0" prefHeight="479.0" prefWidth="729.0" styleClass="main" stylesheets="@../style/Main.css">
          <children>
-            <Label layoutX="355.0" layoutY="30.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Realizar uma nova venda" />
-            <Pane layoutY="1.0" prefHeight="429.0" prefWidth="302.0" styleClass="gradiente">
+            <Label layoutX="390.0" layoutY="21.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Realizar uma nova venda" />
+            <Pane layoutY="1.0" prefHeight="478.0" prefWidth="324.0" styleClass="gradiente">
                <children>
-                  <Pane layoutX="51.0" layoutY="115.0" prefHeight="200.0" prefWidth="200.0">
+                  <Pane layoutX="50.0" layoutY="127.0" prefHeight="224.0" prefWidth="225.0">
                      <styleClass>
                         <String fx:value="img" />
                         <String fx:value="imgVendas" />
                      </styleClass></Pane>
                </children>
             </Pane>
-            <Label layoutX="370.0" layoutY="85.0" styleClass="lable" text="Codigo de barras" />
-            <TextField fx:id="campoCodBarras" layoutX="370.0" layoutY="125.0" prefWidth="246.0" styleClass="input" />
-            <Label layoutX="370.0" layoutY="197.0" styleClass="lable" text="Quantidade" />
-            <TextField fx:id="campoQuantidade" layoutX="480.0" layoutY="189.0" prefWidth="134.0" styleClass="input" />
-            <Label layoutX="370.0" layoutY="246.0" styleClass="lable" text="Venda Fiado" />
-            <ComboBox fx:id="comboBoxFiado" layoutX="370.0" layoutY="280.0" prefHeight="38.0" prefWidth="246.0" styleClass="comboBox" />
-            <Button fx:id="btnVender" layoutX="443.0" layoutY="342.0" mnemonicParsing="false" onAction="#acaoVender" prefWidth="119.0" styleClass="btnCadastrar" text="Vender" />
-            <Label fx:id="btnCancelar" layoutX="475.0" layoutY="395.0" onMouseClicked="#acaoCancelar" styleClass="btnCancelar" text="Cancelar" />
+            <Label layoutX="415.0" layoutY="78.0" styleClass="lable" text="Codigo de barras" />
+            <TextField fx:id="campoCodBarras" layoutX="415.0" layoutY="113.0" prefWidth="246.0" styleClass="input" />
+            <Label layoutX="415.0" layoutY="173.0" styleClass="lable" text="Quantidade" />
+            <TextField fx:id="campoQuantidade" layoutX="528.0" layoutY="165.0" prefWidth="134.0" styleClass="input" />
+            <Label layoutX="415.0" layoutY="214.0" styleClass="lable" text="Venda Fiado" />
+            <ComboBox fx:id="comboBoxFiado" layoutX="415.0" layoutY="244.0" prefHeight="38.0" prefWidth="246.0" styleClass="comboBox" />
+            <Button fx:id="btnVender" layoutX="479.0" layoutY="392.0" mnemonicParsing="false" onAction="#acaoVender" prefWidth="119.0" styleClass="btnCadastrar" text="Vender" />
+            <Label fx:id="btnCancelar" layoutX="511.0" layoutY="445.0" onMouseClicked="#acaoCancelar" styleClass="btnCancelar" text="Cancelar" />
+            <Label layoutX="415.0" layoutY="293.0" styleClass="lable" text="Dependente" />
+            <ComboBox fx:id="comboBoxFiado1" layoutX="415.0" layoutY="325.0" prefHeight="38.0" prefWidth="246.0" styleClass="comboBox" />
          </children>
       </Pane>
    </children>
