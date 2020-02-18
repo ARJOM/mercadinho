@@ -1,5 +1,8 @@
 package com.app.budega.model;
 
+import com.app.budega.dao.ProdutoDAO;
+
+import java.sql.SQLException;
 import java.util.Objects;
 
 public class ItemVenda {
@@ -8,16 +11,18 @@ public class ItemVenda {
     private int quantidade;
     private float valorUnitario;
     private float subTotal;
-    private Produto produto;
-    private Venda venda;
+    private String produto;
+    private String venda;
 
-    public ItemVenda(String idItemVenda, int quantidade, float valorUnitario, Produto produto, Venda venda) {
+    public ItemVenda(String idItemVenda, int quantidade, float valorUnitario, String produto, String venda) throws SQLException, ClassNotFoundException {
         this.idItemVenda = idItemVenda;
         this.quantidade = quantidade;
-        this.valorUnitario = produto.getPreco();
-        this.subTotal = this.quantidade*this.valorUnitario;
         this.produto = produto;
         this.venda = venda;
+        ProdutoDAO produtoDAO = new ProdutoDAO();
+        Produto produto1 = produtoDAO.buscarPorCodBarras(produto);
+        this.valorUnitario = produto1.getPreco();
+        this.subTotal = this.quantidade*this.valorUnitario;
     }
 
     public String getIdItemVenda() {
@@ -52,19 +57,19 @@ public class ItemVenda {
         this.subTotal = subTotal;
     }
 
-    public Produto getProduto() {
+    public String getProduto() {
         return produto;
     }
 
-    public void setProduto(Produto produto) {
+    public void setProduto(String produto) {
         this.produto = produto;
     }
 
-    public Venda getVenda() {
+    public String getVenda() {
         return venda;
     }
 
-    public void setVenda(Venda venda) {
+    public void setVenda(String venda) {
         this.venda = venda;
     }
 
