@@ -28,10 +28,10 @@
             <TextField fx:id="campoQuantidade" layoutX="528.0" layoutY="165.0" prefWidth="134.0" styleClass="input" />
             <Label layoutX="415.0" layoutY="214.0" styleClass="lable" text="Venda Fiado" />
             <ComboBox fx:id="comboBoxFiado" layoutX="415.0" layoutY="244.0" prefHeight="38.0" prefWidth="246.0" styleClass="comboBox" />
-            <Button fx:id="btnVender" layoutX="479.0" layoutY="392.0" mnemonicParsing="false" onAction="#acaoVender" prefWidth="119.0" styleClass="btnCadastrar" text="Vender" />
+            <Button fx:id="btnVender" layoutX="470.0" layoutY="392.0" mnemonicParsing="false" onAction="#acaoAdicionar" prefWidth="150.0" styleClass="btnCadastrar" text="Adicionar Item" />
             <Label fx:id="btnCancelar" layoutX="511.0" layoutY="445.0" onMouseClicked="#acaoCancelar" styleClass="btnCancelar" text="Cancelar" />
             <Label layoutX="415.0" layoutY="293.0" styleClass="lable" text="Dependente" />
-            <ComboBox fx:id="comboBoxFiado1" layoutX="415.0" layoutY="325.0" prefHeight="38.0" prefWidth="246.0" styleClass="comboBox" />
+            <ComboBox fx:id="ComboBoxFiado1" layoutX="415.0" layoutY="325.0" prefHeight="38.0" prefWidth="246.0" styleClass="comboBox" />
          </children>
       </Pane>
    </children>

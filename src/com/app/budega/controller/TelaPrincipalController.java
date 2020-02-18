@@ -263,26 +263,11 @@ public class TelaPrincipalController implements Initializable {
 
     public void novoRegistro(MouseEvent mouseEvent) {
         try {
-            VendaDAO vendaDAO = new VendaDAO();
-
-            String id = vendaDAO.proximoId();
-
-            LocalDate data = LocalDate.now();
-            Venda venda = new Venda("0", funcionario, 0, data);
-            if(vendaDAO.salvar(venda)){
-                PassarFuncionarioCaixaMain passarFuncionarioCaixaMain = new PassarFuncionarioCaixaMain(id);
-                passarFuncionarioCaixaMain.start(new Stage());
-            }else{
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Nova Venda");
-                alert.setHeaderText("Não foi possível criar uma nova venda.");
-                alert.setContentText("Tente se autenticar e repita a ação.");
-                alert.showAndWait();
-            }
-
+            PassarFuncionarioCaixaMain passarFuncionarioCaixaMain = new PassarFuncionarioCaixaMain(funcionario);
+            passarFuncionarioCaixaMain.start(new Stage());
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Nova Venda");
+            alert.setTitle("Registro de Caixa");
             alert.setHeaderText("Não foi possível abrir a janela.");
             alert.setContentText("Tente se autenticar e repita a ação.");
             alert.showAndWait();
@@ -290,9 +275,23 @@ public class TelaPrincipalController implements Initializable {
     }
 
     public void chamarNovaVenda() {
-        NovaVendaMain novaVendaMain = new NovaVendaMain(TelaPrincipalController.funcionario);
         try {
-            novaVendaMain.start(new Stage());
+            VendaDAO vendaDAO = new VendaDAO();
+
+            String id = vendaDAO.proximoId();
+
+            LocalDate data = LocalDate.now();
+            Venda venda = new Venda("0", funcionario, 0, data);
+            if(vendaDAO.salvar(venda)) {
+                NovaVendaMain novaVendaMain = new NovaVendaMain(id);
+                novaVendaMain.start(new Stage());
+            }else{
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Nova Venda");
+                alert.setHeaderText("Não foi possível criar uma nova venda.");
+                alert.setContentText("Tente se autenticar e repita a ação.");
+                alert.showAndWait();
+            }
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Nova Venda");

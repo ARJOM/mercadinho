@@ -24,12 +24,11 @@ public class ItemVendaDao {
         try(Connection connection = conexao.getConnection()){
             PreparedStatement pstmt = connection.prepareStatement(
                     "INSERT INTO itemvenda(iditemvenda, produto, preco, quantidade, subtotal, idvenda)" +
-                            "VALUES (proximoiditemvenda(),?,?,?,?,?)");
+                            "VALUES (proximoiditemvenda(),?,?,?,0,?)");
             pstmt.setString(1, itemVenda.getProduto());
-            pstmt.setFloat(1, itemVenda.getValorUnitario());
+            pstmt.setFloat(2, itemVenda.getValorUnitario());
             pstmt.setInt(3, itemVenda.getQuantidade());
-            pstmt.setFloat(4, itemVenda.getSubTotal());
-            pstmt.setString(5, itemVenda.getVenda());
+            pstmt.setString(4, itemVenda.getVenda());
 
             return pstmt.executeUpdate() > 0;
         }
@@ -94,6 +93,7 @@ public class ItemVendaDao {
             pstmt.setInt(3, itemVenda.getQuantidade());
             pstmt.setFloat(4, itemVenda.getSubTotal());
             pstmt.setString(5, itemVenda.getVenda());
+            pstmt.setString(6, itemVenda.getIdItemVenda());
 
             return pstmt.executeUpdate() > 0;
         }
