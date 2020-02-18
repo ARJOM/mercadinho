@@ -2,31 +2,48 @@ package com.app.budega.model;
 
 import java.time.LocalDate;
 
-public class VendaFiado extends Venda {
+public class VendaFiado {
 
-    private Cliente cliente;
+    private String idvenda;
+    private String cliente;
+    private String dependente;
 
-    public VendaFiado(String idVenda, Funcionario funcionario, float total, LocalDate data, Cliente cliente) {
-        super(idVenda, String.valueOf(funcionario), total, data);
+    public VendaFiado(String idVenda, String cliente, String dependente) {
+        this.idvenda = idVenda;
         this.cliente = cliente;
+        this.dependente = dependente;
     }
 
-    public Cliente getCliente() {
+    public String getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(String cliente) {
         this.cliente = cliente;
+    }
+
+    public String getDependente() {
+        return dependente;
+    }
+
+    public String getIdvenda() {
+        return idvenda;
+    }
+
+    public void setIdvenda(String idvenda) {
+        this.idvenda = idvenda;
+    }
+
+    public void setDependente(String dependente) {
+        this.dependente = dependente;
     }
 
     @Override
     public String toString() {
         return "VendaFiado{" +
-                "idVenda='" + getIdVenda() + '\'' +
-                ", funcionario=" + getFuncionario() +
-                ", total=" + getTotal() +
-                ", data=" + getData() +
+                "idVenda='" + idvenda +
                 "cliente=" + cliente +
+                "dependente=" + dependente +
                 '}';
     }
 }

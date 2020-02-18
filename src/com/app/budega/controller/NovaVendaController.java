@@ -1,13 +1,7 @@
 package com.app.budega.controller;
 
-import com.app.budega.dao.ClienteDao;
-import com.app.budega.dao.DependenteDAO;
-import com.app.budega.dao.ItemVendaDao;
-import com.app.budega.dao.ProdutoDAO;
-import com.app.budega.model.Cliente;
-import com.app.budega.model.Dependente;
-import com.app.budega.model.ItemVenda;
-import com.app.budega.model.Produto;
+import com.app.budega.dao.*;
+import com.app.budega.model.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -84,7 +78,7 @@ public class NovaVendaController implements Initializable {
 
                 Produto produto = produtoDAO.buscarPorCodBarras(codBarras);
                 float preco = produto.getPreco();
-//                System.out.println(comboBoxFiado.getValue());
+                System.out.println(comboBoxFiado.getValue());
 
                 ItemVenda itemVenda = new ItemVenda("0", quantidade, preco, codBarras, venda);
 
@@ -120,9 +114,24 @@ public class NovaVendaController implements Initializable {
 
     }
 
-//    public void acaoEncerrar(ActionEvent actionEvent){
-//        if(comboBoxFiado.getValue()){
-//    }
+    public void acaoEncerrar(ActionEvent actionEvent){
+        if(comboBoxFiado.getValue()!=null) {
+            VendaFiadoDao vendaFiadoDao = new VendaFiadoDao();
+            String cliente = comboBoxFiado.getValue();
+            String dependente = ComboBoxFiado1.getValue();
+            VendaFiado vendaFiado = new VendaFiado(venda, cliente, dependente);
+            try {
+                if (vendaFiadoDao.salvar(vendaFiado)) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Nova Venda");
+                    alert.setHeaderText("Venda associada ao cliente" + cliente);
+                    alert.showAndWait();
+                }
+            } catch (SQLException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     public void acaoCancelar(javafx.scene.input.MouseEvent mouseEvent) {
     }
