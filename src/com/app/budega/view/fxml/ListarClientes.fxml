@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
+<?import util.MaskTextField?>
 <AnchorPane prefHeight="443.0" prefWidth="900.0" stylesheets="@../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.ListarClienteController">
 <children>
     <Label layoutX="212.0" layoutY="24.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Clientes Cadastrados" />
@@ -18,8 +19,8 @@
             <TableColumn fx:id="colunaDivida" prefWidth="150" text="Divida" />
         </columns>
     </TableView>
-    <TextField layoutX="630.0" layoutY="81.0" prefHeight="22.0" prefWidth="198.0" styleClass="input" />
-    <Button layoutX="840.0" layoutY="82.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" styleClass="btnBuscar" />
+    <MaskTextField layoutX="630.0" fx:id="campoBuscarCpf" layoutY="81.0" prefHeight="22.0" prefWidth="198.0" styleClass="input" />
+    <Button layoutX="840.0" onAction="#buscarPorCpf" layoutY="82.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" styleClass="btnBuscar" />
     <Button fx:id="btnDeletarDependente" layoutX="640.0" layoutY="377.0" mnemonicParsing="false" onAction="#deleteCliente" prefHeight="38.0" prefWidth="109.0" styleClass="btnDeletar" text="Deletar" />
     <Button fx:id="btnAtualizarDependente" layoutX="760.0" layoutY="377.0" mnemonicParsing="false" onAction="#atualizarCliente" prefHeight="45.0" prefWidth="109.0" styleClass="btnCadastrar" text="Atualizar" />
 </children>
