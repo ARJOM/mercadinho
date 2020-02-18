@@ -61,10 +61,11 @@ public class LoginController implements Initializable {
 
                     campoSenha.setStyle("-fx-border-color: #BDBDBD");
                 } else{
+                    String cpfFuncionario = campoCpf.getText();
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Login");
                     alert.setHeaderText("Funcionario autenticado.");
-                    alert.setContentText("Bem vindo " + campoCpf.getText());
+                    alert.setContentText("Bem vindo " + funcionarioDAO.buscarPorCpf(cpfFuncionario).getNome());
                     alert.showAndWait();
                     LogarFuncionarioMain logarFuncionarioMain = new LogarFuncionarioMain(cpf);
                     logarFuncionarioMain.start(new Stage());
