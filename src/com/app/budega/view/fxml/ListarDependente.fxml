@@ -19,8 +19,8 @@
                 <TableColumn fx:id="colunaPermissao" prefWidth="92.0" text="Permissao" />
             </columns>
         </TableView>
-        <TextField layoutX="565.0" layoutY="81.0" prefHeight="22.0" prefWidth="198.0" styleClass="input" />
-        <Button layoutX="779.0" layoutY="82.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" styleClass="btnBuscar" />
+        <TextField layoutX="565.0" fx:id="campoBuscarID" layoutY="81.0" prefHeight="22.0" prefWidth="198.0" styleClass="input" />
+        <Button layoutX="779.0" onAction="#buscarPorID" layoutY="82.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="44.0" styleClass="btnBuscar" />
         <Button fx:id="btnDeletarDependente" layoutX="565.0" layoutY="377.0" mnemonicParsing="false" onAction="#deleteDependente" prefHeight="38.0" prefWidth="109.0" styleClass="btnDeletar" text="Deletar" />
         <Button fx:id="btnAtualizarDependente" layoutX="680.0" layoutY="377.0" mnemonicParsing="false" onAction="#atualizarDependente" prefHeight="45.0" prefWidth="109.0" styleClass="btnCadastrar" text="Atualizar" />
     </children>

@@ -2,6 +2,7 @@ package com.app.budega.controller;
 
 import com.app.budega.App.AtualizarDependenteMain;
 import com.app.budega.App.AtualizarFuncionarioMain;
+import com.app.budega.dao.ClienteDao;
 import com.app.budega.dao.DependenteDAO;
 import com.app.budega.model.Dependente;
 import com.app.budega.model.Funcionario;
@@ -10,10 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -42,6 +40,8 @@ public class ListarDependenteController implements Initializable {
     @FXML
     private TableColumn<Dependente, Boolean> colunaPermissao;
 
+    @FXML
+    private TextField campoBuscarID;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -121,4 +121,43 @@ public class ListarDependenteController implements Initializable {
 
     }
 
+    public void buscarPorID(ActionEvent event) {
+        DependenteDAO dependenteDAO = new DependenteDAO();
+        ClienteDao clienteDao = new ClienteDao();
+        String id = campoBuscarID.getText();
+        try {
+            if (dependenteDAO.buscarPorId(id).getPermissao() == true){
+                String cpfCliente = dependenteDAO.buscarPorId(id).getResponsavel();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Dependente");
+                alert.setHeaderText("Nome: "+ dependenteDAO.buscarPorId(id).getNome()+
+                        "\n"+"Responsavel: "+ clienteDao.buscarPorCPF(cpfCliente).getNome()+
+                        "\n" + "Parentesco: " + dependenteDAO.buscarPorId(id).getParentesco()+
+                        "\n" + "Permissão: Permitido");
+                alert.setContentText("Busca concluida.");
+                alert.show();
+            }else{
+                String cpfCliente = dependenteDAO.buscarPorId(id).getResponsavel();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Dependente");
+                alert.setHeaderText("Nome: "+ dependenteDAO.buscarPorId(id).getNome()+
+                        "\n"+"Responsavel: "+ clienteDao.buscarPorCPF(cpfCliente).getNome()+
+                        "\n" + "Parentesco: " + dependenteDAO.buscarPorId(id).getParentesco()+
+                        "\n" + "Permissão: Não Permitido");
+                alert.setContentText("Busca concluida.");
+                alert.show();
+            }
+            campoBuscarID.setText("");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }catch (NullPointerException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar Dependente");
+            alert.setHeaderText("O campo de busca não pode estar vazio.");
+            alert.setContentText("Verifique o campo e tente novamente.");
+            alert.show();
+        }
+    }
 }
