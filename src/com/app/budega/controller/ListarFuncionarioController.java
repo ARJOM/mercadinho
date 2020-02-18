@@ -20,6 +20,8 @@ import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Logger;
+import util.MaskTextField;
+import util.*;
 
 public class ListarFuncionarioController implements Initializable {
 
@@ -33,7 +35,7 @@ public class ListarFuncionarioController implements Initializable {
     private TableColumn<Funcionario, String> colunaNome;
 
     @FXML
-    private TextField campoBuscar;
+    private MaskTextField campoBuscar;
 
     @FXML
     private Button btnAtualizarFuncionario;
@@ -52,6 +54,8 @@ public class ListarFuncionarioController implements Initializable {
                 }
             }
         },0,5000);
+
+        campoBuscar.setMask("NNN.NNN.NNN-NN");
     }
 
     FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
@@ -69,11 +73,44 @@ public class ListarFuncionarioController implements Initializable {
     }
 
     @FXML
-     public ObservableList<Funcionario> acaoBuscar() throws SQLException, ClassNotFoundException {
+     public void acaoBuscar(){
         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
         String cpf = campoBuscar.getText();
-        return FXCollections.observableArrayList(funcionarioDAO.buscarPorCpf(cpf));
+        try {
+           if (!campoBuscar.equals("")){
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);
+               alert.setTitle("Funcionario");
+               alert.setHeaderText("Nome: " + funcionarioDAO.buscarPorCpf(cpf).getNome() +"\n"+ "CPF:" + funcionarioDAO.buscarPorCpf(cpf).getCpf());
+               alert.setContentText("Busca Concluida");
+               alert.show();
 
+               campoBuscar.setText("");
+           }else{
+               Alert alert = new Alert(Alert.AlertType.ERROR);
+               alert.setTitle("Buscar Funcionario");
+               alert.setHeaderText("A busca não pode ser excutada com o campo vazio.");
+               alert.setContentText("Verifique o campo e tente novamente.");
+               alert.show();
+           }
+        } catch (SQLException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Funcionario");
+            alert.setHeaderText("Funcionario não encontrado.");
+            alert.setContentText("Verifique o CPF e tente novamente.");
+            alert.show();
+        } catch (ClassNotFoundException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Funcionario");
+            alert.setHeaderText("Funcionario não encontrado.");
+            alert.setContentText("Cheque o CPF e tente novamente.");
+            alert.show();
+        }catch (NullPointerException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Buscar Funcionario");
+            alert.setHeaderText("A busca não pode ser excutada com o campo vazio.");
+            alert.setContentText("Verifique o campo e tente novamente.");
+            alert.show();
+        }
     }
 
     @FXML

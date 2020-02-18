@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<?import util.MaskTextField?>
+<AnchorPane prefHeight="456.0" prefWidth="726.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.AtualizaFornecedorController">
+    <children>
+        <Pane prefHeight="456.0" prefWidth="311.0" styleClass="gradiente" stylesheets="@../style/Main.css">
+            <children>
+                <Pane layoutX="63.0" layoutY="136.0" prefHeight="185.0" prefWidth="185.0">
+                    <styleClass>
+                        <String fx:value="img" />
+                        <String fx:value="imgFornecedor" />
+                    </styleClass></Pane>
+            </children>
+        </Pane>
+        <Pane layoutX="311.0" prefHeight="456.0" prefWidth="416.0" styleClass="main" stylesheets="@../style/Main.css">
+            <children>
+                <Label layoutX="40.0" layoutY="38.0" styleClass="titleFuncionario" text="Atualização do Fornecedor" />
+                <Label layoutX="70.0" layoutY="110.0" styleClass="lable" text="CNPJ" />
+                <Label layoutX="120.0" layoutY="110.0" fx:id="labelCnpj" styleClass="lable" text="000000000000" />
+                <Label layoutX="70.0" layoutY="181.0" styleClass="lable" text="Nome" />
+                <TextField fx:id="campoNome" layoutX="69.0" layoutY="215.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+                <Label layoutX="72.0" layoutY="269.0" styleClass="lable" text="Telefone" />
+                <MaskTextField fx:id="campoContato" layoutX="69.0" layoutY="304.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
+                <Button fx:id="btnCadastrar" onAction="#acaoAtualizar" layoutX="132.0" layoutY="364.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="154.0" styleClass="btnCadastrar" text="Atualizar" />
+                <Label fx:id="btnCancelar"  layoutX="180.0" layoutY="422.0" styleClass="btnCancelar" text="Cancelar" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

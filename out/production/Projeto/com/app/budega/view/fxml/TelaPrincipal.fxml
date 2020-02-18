@@ -97,7 +97,7 @@
                      <menus>
                         <Menu mnemonicParsing="false" styleClass="menuItem">
                            <graphic>
-                              <Label styleClass="menuLabel" text="Denpendes" />
+                              <Label styleClass="menuLabel" text="Dependentes" />
                            </graphic>
                            <items>
                               <CustomMenuItem mnemonicParsing="false" styleClass="menuItem" text="Unspecified Action">
