@@ -1,91 +1,41 @@
 package com.app.budega.controller;
 
-import com.app.budega.dao.ProdutoDAO;
-import com.app.budega.model.Produto;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.awt.event.MouseEvent;
 
-public class NovaVendaController implements Initializable {
+public class NovaVendaController {
 
     @FXML
-    private TableView<Produto> tabelaProdutos;
+    private TextField campoCodBarras;
 
     @FXML
-    private TableColumn<Produto, String> colunaCodBarras;
+    private TextField campoQuantidade;
 
     @FXML
-    private TableColumn<Produto, String> colunaNome;
+    private ComboBox<?> comboBoxFiado;
 
     @FXML
-    private TableColumn<Produto, Float> colunaPreco;
+    private Button btnVender;
 
     @FXML
-    private TableColumn<Produto, Double> colunaQuantidade;
+    private Label btnCancelar;
 
     @FXML
-    private TableView<Produto> tabelaItensVenda;
+    void acaoCancelar(MouseEvent event) {
 
-    @FXML
-    private TableColumn<Produto, String> nomeProduto;
-
-    @FXML
-    private TableColumn<Produto, Double> qauntidadeProduto;
-    private Object ProdutoDAO;
-
-    @Override
-    public void initialize(URL url, ResourceBundle rs){
-        try {
-            initTable();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        tabelaProdutos.setOnMouseClicked(mouseEvent -> {
-            try {
-                capturarTupla();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        });
     }
 
-    public void initTable() throws SQLException, ClassNotFoundException {
-        colunaCodBarras.setCellValueFactory(new PropertyValueFactory<>("codBarras"));
-        colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        colunaPreco.setCellValueFactory(new PropertyValueFactory<>("preco"));
-        colunaQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
-        tabelaProdutos.setItems(atualizaTable());
+    @FXML
+    void acaoVender(ActionEvent event) {
+
     }
 
-    public ObservableList<Produto> atualizaTable() throws SQLException, ClassNotFoundException {
-        ProdutoDAO produtoDAO = new ProdutoDAO();
-        return FXCollections.observableArrayList(produtoDAO.getProdutos());
-    }
-
-    int cont = 0;
-    public void capturarTupla() throws SQLException, ClassNotFoundException {
-        Produto produto = tabelaProdutos.getSelectionModel().getSelectedItem();
-    }
-
-    public void acaoVender(ActionEvent event) {
-    }
-
-    public void acaoCancelar(MouseEvent mouseEvent) {
+    public void acaoCancelar(javafx.scene.input.MouseEvent mouseEvent) {
     }
 }
