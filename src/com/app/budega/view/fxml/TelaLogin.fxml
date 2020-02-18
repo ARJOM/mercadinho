@@ -7,29 +7,34 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <?import util.MaskTextField?>
-
 <AnchorPane prefHeight="398.0" prefWidth="578.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.app.budega.controller.LoginController">
     <children>
-        <Pane layoutX="240.0" prefHeight="398.0" prefWidth="332.0" styleClass="main" stylesheets="@../style/Main.css">
+        <Pane layoutX="302.0" prefHeight="449.0" prefWidth="383.0" styleClass="main" stylesheets="@../style/Main.css">
             <children>
-                <Label layoutX="35.0" layoutY="179.0" styleClass="lable" stylesheets="@../style/Main.css" text="Senha" />
-                <MaskTextField fx:id="campoCpf" layoutX="35.0" layoutY="118.0" prefHeight="42.0" prefWidth="263.0" styleClass="input" stylesheets="@../style/Main.css" />
-                <Label layoutX="136.0" layoutY="24.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Login" />
-                <Label layoutX="35.0" layoutY="81.0" styleClass="lable" stylesheets="@../style/Main.css" text="CPF" />
-                <Button fx:id="btnLogin" layoutX="96.0" layoutY="286.0" mnemonicParsing="false" onAction="#acaoLogar" prefHeight="52.0" prefWidth="139.0" styleClass="btnCadastrar" text="Login" />
-                <Label fx:id="btnCancelar" onMouseClicked="#acaoCancelar" layoutX="137.0" layoutY="343.0" styleClass="btnCancelar" text="Cancelar" />
-                <PasswordField fx:id="campoSenha" layoutX="35.0" layoutY="214.0" prefWidth="263.0" styleClass="input" />
+                <Label layoutX="60.0" layoutY="191.0" styleClass="lable" stylesheets="@../style/Main.css" text="Senha" />
+                <MaskTextField layoutX="60.0" fx:id="campoCpf" layoutY="130.0" prefHeight="42.0" prefWidth="263.0" styleClass="input" stylesheets="@../style/Main.css" />
+                <Label layoutX="60.0" layoutY="93.0" styleClass="lable" stylesheets="@../style/Main.css" text="CPF" />
+                <Button fx:id="btnLogin" layoutX="121.0" layoutY="298.0" mnemonicParsing="false" onAction="#acaoLogar" prefHeight="52.0" prefWidth="139.0" styleClass="btnCadastrar" text="Login" />
+                <Label fx:id="btnCancelar" layoutX="162.0" layoutY="355.0" onMouseClicked="#acaoCancelar" styleClass="btnCancelar" text="Cancelar" />
+                <PasswordField fx:id="campoSenha" layoutX="60.0" layoutY="226.0" prefWidth="263.0" styleClass="input" />
+            <Label layoutX="162.0" layoutY="44.0" styleClass="titleFuncionario" text="Login" />
             </children></Pane>
-      <Pane prefHeight="398.0" prefWidth="240.0" styleClass="gradiente" stylesheets="@../style/Main.css">
+      <Pane prefHeight="449.0" prefWidth="302.0" styleClass="gradiente" stylesheets="@../style/Main.css">
          <children>
-            <Pane layoutX="34.0" layoutY="119.0" prefHeight="161.0" prefWidth="173.0">
+            <Pane layoutX="65.0" layoutY="144.0" prefHeight="161.0" prefWidth="173.0">
                <styleClass>
                   <String fx:value="img" />
                   <String fx:value="imgLogin" />
                </styleClass>
             </Pane>
+                <Label layoutX="108.0" layoutY="387.0" styleClass="titleFuncionario" stylesheets="@../style/Main.css" text="Budega App" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="21.0" />
+               </font></Label>
+            <Pane layoutX="64.0" layoutY="385.0" prefHeight="32.0" prefWidth="39.0" styleClass="menuIcon" />
          </children></Pane>
     </children>
 </AnchorPane>

@@ -47,7 +47,7 @@
     -fx-background-image: url("../image/undraw_cloud_files_wmo8.png");
 }
 .imgLogin{
-    -fx-background-image: url("../image/undraw_welcome_cats_thqn.png");
+    -fx-background-image: url("../image/undraw_empty_cart_co35.png");
 }
 .imgVendas{
     -fx-background-image: url("../image/vendA.png");
@@ -278,4 +278,11 @@
 }
 .btnMenuItem:hover{
     -fx-text-fill: #2196F3;
+}
+
+.iconeLogin{
+    -fx-background-image: url("../icon/shop.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 75%;
 }
