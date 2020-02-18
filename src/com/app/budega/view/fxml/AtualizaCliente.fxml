@@ -28,7 +28,7 @@
                 <TextField fx:id="campoNome" layoutX="99.0" layoutY="217.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
                 <Label layoutX="99.0" layoutY="271.0" styleClass="lable" text="Contato" />
                 <MaskTextField fx:id="campoContato" layoutX="99.0" layoutY="307.0" prefHeight="42.0" prefWidth="279.0" styleClass="input" stylesheets="@../style/Main.css" />
-                <Button layoutX="165.0" layoutY="372.0" id="btnAtulizarCliente" mnemonicParsing="false" onAction="#acaoAtualizar" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" stylesheets="@../style/Main.css" text="Cadastrar" />
+                <Button layoutX="165.0" layoutY="372.0" fx:id="btnAtualizarCliente" mnemonicParsing="false" onAction="#acaoAtualizar" prefHeight="48.0" prefWidth="146.0" styleClass="btnCadastrar" stylesheets="@../style/Main.css" text="Cadastrar" />
                 <Label layoutX="210.0" layoutY="437.0" styleClass="btnCancelar" text="Cancelar" />
             </children>
         </Pane>

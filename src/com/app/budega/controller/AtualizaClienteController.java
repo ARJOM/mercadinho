@@ -56,16 +56,14 @@ public class AtualizaClienteController implements Initializable {
             try {
                 clienteDao.atualizar(clienteRetornado.getCpf(), nome, contato);
                 if(clienteDao.atualizar(clienteRetornado.getCpf(), nome, contato) == true){
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("Atualização de Funcionario");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Atualização do Cliente");
                     alert.setHeaderText("Dados atualizados com sucesso.");
                     alert.setContentText(labelCpf.getText());
+                    alert.show();
 
-                    Optional<ButtonType> resultado = alert.showAndWait();
-                    if (resultado.get() == ButtonType.OK){
-                        Stage stage = (Stage) btnAtualizarCliente.getScene().getWindow();
-                        stage.close();
-                    }
+                    Stage stage = (Stage) btnAtualizarCliente.getScene().getWindow();
+                    stage.close();
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
