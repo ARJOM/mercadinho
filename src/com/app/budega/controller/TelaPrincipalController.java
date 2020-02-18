@@ -272,6 +272,19 @@ public class TelaPrincipalController implements Initializable {
         }
     }
 
+    public void chamarNovaVenda() {
+        NovaVendaMain novaVendaMain = new NovaVendaMain();
+        try {
+            novaVendaMain.start(new Stage());
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Nova Venda");
+            alert.setHeaderText("Não foi possível abrir a janela.");
+            alert.setContentText("Tente se autenticar e repita a ação.");
+            alert.showAndWait();
+        }
+    }
+
     private void capturaHora(){
         Date hora = new Date();
         labelData.setText(format.format(hora));

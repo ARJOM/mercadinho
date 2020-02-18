@@ -178,7 +178,7 @@
             </Pane>
             <Label fx:id="labelFuncionario" layoutX="720.0" layoutY="535.0" styleClass="lableFuncionarioLogado" text="Funcionario" textAlignment="CENTER" />
             <Label fx:id="labelData" layoutX="840.0" layoutY="535.0" styleClass="lable" text="Data" />
-            <Pane fx:id="cardNovaVenda" layoutX="750.0" layoutY="115.0" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
+            <Pane fx:id="cardNovaVenda" layoutX="750.0" layoutY="115.0" onMouseClicked="#chamarNovaVenda" prefHeight="142.0" prefWidth="198.0" styleClass="card" stylesheets="@../style/Main.css">
                <children>
                   <Label layoutX="49.0" layoutY="75.0" styleClass="lable" text="Nova Venda" />
                   <Pane layoutX="57.0" layoutY="14.0" prefHeight="53.0" prefWidth="68.0" stylesheets="@../style/Main.css">
